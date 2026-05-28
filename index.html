@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AVIDAA Chemistry &#x2014; Atoms, Particles, Molecules, DNA</title>
+<meta name="description" content="AVIDAA CHEMISTRY &#x2014; encyclopedic reference: Standard Model, dark matter, H2O, DNA, skin tissue, density, reactions, materials science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0f0d;--bg2:#111a15;--bg3:#162019;
+  --fg:#f0ede6;--teal:#2dd4a0;--teal2:#4ade80;
+  --muted:rgba(240,237,230,.5);--border:rgba(45,212,160,.18);
+  --r:8px;--rl:12px
+}
+html{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--fg);font-size:14px;line-height:1.6}
+body{max-width:920px;margin:0 auto;padding:0 0 4rem}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.site-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1rem;background:var(--bg2);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:99
+}
+.site-title{font-weight:800;font-size:1rem;color:var(--teal);letter-spacing:.02em}
+.site-back{font-size:11px;color:var(--muted)}
+.site-back:hover{color:var(--teal)}
+.main{padding:1rem 1rem 0}
+.tab-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.ct{
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);
+  color:var(--muted);cursor:pointer;font-size:12px;padding:.35rem .8rem;
+  transition:.18s;font-family:inherit
+}
+.ct:hover{color:var(--fg);border-color:var(--teal)}
+.ct.active{color:var(--teal);border-color:rgba(45,212,160,.45);background:rgba(45,212,160,.08)}
+.card{border-radius:var(--rl);margin-bottom:7px;overflow:hidden}
+.card-hd{display:flex;align-items:flex-start;gap:.65rem;padding:.8rem;cursor:pointer;user-select:none;background:var(--bg2)}
+.card-hd:hover{background:var(--bg3)}
+.card-em{font-size:1.4rem;flex-shrink:0;line-height:1}
+.card-title{font-weight:700;font-size:.88rem}
+.card-sub{font-size:10.5px;color:var(--muted)}
+.card-arrow{margin-left:auto;color:var(--muted);font-size:.75rem;flex-shrink:0;padding-top:2px}
+.card-bd{padding:.75rem 1rem 1rem;font-size:12px;color:rgba(240,237,230,.82);line-height:1.75;border-top:1px solid var(--border);background:var(--bg2)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:1.25rem}
+.stat-card{border-radius:var(--rl);padding:.75rem;text-align:center}
+.stat-val{font-size:1.3rem;font-weight:800}
+.stat-lbl{font-size:10px;color:var(--muted);margin-top:2px}
+.sec-hd{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:.9rem 0 .4rem;padding-bottom:.3rem;border-bottom:1px solid var(--border)}
+.hero{background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.2);border-radius:var(--rl);padding:1rem;margin-bottom:1.25rem;font-size:12.5px;color:rgba(240,237,230,.85);line-height:1.75}
+.input-row{display:flex;gap:8px;margin:.5rem 0}
+.chem-input{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--fg);font-family:monospace;font-size:13px;padding:.4rem .7rem;flex:1;outline:none}
+.chem-input:focus{border-color:var(--teal)}
+.chem-btn{background:rgba(45,212,160,.12);border:1px solid rgba(45,212,160,.35);border-radius:var(--r);color:var(--teal);cursor:pointer;font-size:12px;font-family:inherit;padding:.4rem 1rem;transition:.18s}
+.chem-btn:hover{background:rgba(45,212,160,.22)}
+.result-box{background:var(--bg3);border-radius:var(--rl);padding:.75rem;margin-top:.5rem;font-size:12px;min-height:40px}
+.ph-bar{height:22px;border-radius:var(--r);background:linear-gradient(90deg,#ef4444 0%,#f97316 14%,#eab308 28%,#22c55e 50%,#3b82f6 70%,#6366f1 85%,#a855f7 100%);margin:.5rem 0;position:relative}
+.ph-marker{position:absolute;top:-5px;width:2px;height:32px;background:var(--fg);transform:translateX(-50%)}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+th{text-align:left;padding:.4rem .5rem;font-weight:600;border-bottom:1px solid var(--border)}
+td{padding:.33rem .5rem;border-bottom:1px solid rgba(45,212,160,.05)}
+tr:last-child td{border-bottom:none}
+.footer{text-align:center;padding:2rem 1rem;font-size:11px;color:var(--muted);border-top:1px solid var(--border);margin-top:2rem}
+.pt-fb{background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--muted);cursor:pointer;font-size:10px;padding:.25rem .6rem;font-family:inherit;transition:.15s}
+.pt-fb:hover{color:var(--fg)}
+.pt-fb.pfa{background:rgba(45,212,160,.08);border-color:var(--teal);color:var(--teal)}
+.pt-el{border-radius:4px;padding:3px 2px;cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.12s}
+.pt-el:hover{transform:scale(1.1);z-index:3;position:relative}
+.sel-sm{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--fg);font-family:inherit;font-size:11px;padding:.3rem .5rem;outline:none;cursor:pointer}
+@media(max-width:600px){
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .site-title{font-size:.9rem}
+  body{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-title">&#x2697;&#xFE0F; AVIDAA CHEMISTRY</div>
+  <a class="site-back" href="https://avidaa1.github.io/hub">&#x2190; Hub</a>
+</header>
+
+<div class="main">
+  <div class="hero">
+    Chemistry is the science of matter &#8212; everything you see, touch, and breathe.
+    From quarks inside a proton to DNA in every cell, from the density of osmium to the geometry
+    of water: this is the periodic truth of existence.
+  </div>
+
+  <div class="tab-bar">
+    <button class="ct active" id="ct-atoms"     onclick="chemTab('atoms',this)">&#x26DB;&#xFE0F; Atoms</button>
+    <button class="ct"        id="ct-particles" onclick="chemTab('particles',this)">&#x1F52C; Particles</button>
+    <button class="ct"        id="ct-molecules" onclick="chemTab('molecules',this)">&#x1F9EA; Molecules</button>
+    <button class="ct"        id="ct-water"     onclick="chemTab('water',this)">&#x1F4A7; H&#x2082;O</button>
+    <button class="ct"        id="ct-dna"       onclick="chemTab('dna',this)">&#x1F9EC; DNA</button>
+    <button class="ct"        id="ct-cells"     onclick="chemTab('cells',this)">&#x1F9A0; Cells &amp; Skin</button>
+    <button class="ct"        id="ct-density"   onclick="chemTab('density',this)">&#x2696;&#xFE0F; Density</button>
+    <button class="ct"        id="ct-reactions" onclick="chemTab('reactions',this)">&#x1F525; Reactions</button>
+    <button class="ct"        id="ct-materials" onclick="chemTab('materials',this)">&#x1FAA8; Materials</button>
+    <button class="ct" id="ct-periodic"    onclick="chemTab('periodic',this)">&#x1F9EE; Periodic</button>
+    <button class="ct" id="ct-nuclear"     onclick="chemTab('nuclear',this)">&#x2622;&#xFE0F; Nuclear</button>
+    <button class="ct" id="ct-equil"       onclick="chemTab('equil',this)">&#x21CC; Equilibrium</button>
+    <button class="ct" id="ct-electrochem" onclick="chemTab('electrochem',this)">&#x26A1; Electrochem</button>
+    <button class="ct" id="ct-oilgas"     onclick="chemTab('oilgas',this)">&#x1F6E2;&#xFE0F; Oil &amp; Gas</button>
+    <button class="ct" id="ct-ai"         onclick="chemTab('ai',this)">&#x1F916; CHEM AI</button>
+  </div>
+
+  <div id="chem-content"></div>
+</div>
+
+<div class="footer">AVIDAA * IO &nbsp;&nbsp;&#x2022;&nbsp;&nbsp; avidaa1.github.io/chemistry</div>
+
+<script>
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+
+function statBar(stats) {
+  var h = '<div class="stat-grid">';
+  stats.forEach(function(s) {
+    var col = s.col || '#2dd4a0';
+    h += '<div class="stat-card" style="background:var(--bg2);border:1px solid ' + col + '33">';
+    h += '<div class="stat-val" style="color:' + col + '">' + s.v + '</div>';
+    h += '<div class="stat-lbl">' + s.l + '</div></div>';
+  });
+  return h + '</div>';
+}
+
+function secHead(text, col) {
+  return '<div class="sec-hd" style="color:' + (col || '#2dd4a0') + '">' + text + '</div>';
+}
+
+function tbl(heads, rows, col) {
+  var c = col || '#2dd4a0';
+  var h = '<div class="tbl-wrap"><table><tr>';
+  heads.forEach(function(hd) { h += '<th style="color:' + c + '">' + hd + '</th>'; });
+  h += '</tr>';
+  rows.forEach(function(row) {
+    h += '<tr>';
+    row.forEach(function(cell, i) {
+      h += '<td style="color:' + (i === 0 ? 'var(--fg)' : 'var(--muted)') + '">' + cell + '</td>';
+    });
+    h += '</tr>';
+  });
+  return h + '</table></div>';
+}
+
+function makeCards(arr, col) {
+  var h = '';
+  arr.forEach(function(item) {
+    var bc = col || '#2dd4a0';
+    h += '<div class="card" style="border:1px solid ' + bc + '18">';
+    h += '<div class="card-hd" onclick="toggleCard(this)">';
+    h += '<div class="card-em">' + (item.em || '') + '</div>';
+    h += '<div style="flex:1"><div class="card-title" style="color:' + bc + '">' + item.title + '</div>';
+    if (item.sub) h += '<div class="card-sub">' + item.sub + '</div>';
+    h += '</div><div class="card-arrow">&#x25b8;</div></div>';
+    h += '<div class="card-bd" style="display:none">' + item.body + '</div></div>';
+  });
+  return h;
+}
+
+function toggleCard(el) {
+  var bd = el.parentElement.querySelector('.card-bd');
+  if (!bd) return;
+  var open = bd.style.display !== 'none';
+  bd.style.display = open ? 'none' : 'block';
+  var ar = el.querySelector('.card-arrow');
+  if (ar) ar.textContent = open ? '\u25b8' : '\u25be';
+}
+window.toggleCard = toggleCard;
+
+function infoBox(html, col) {
+  return '<div style="background:rgba(' + (col || '45,212,160') + ',.07);border:1px solid rgba(' + (col || '45,212,160') + ',.2);border-radius:var(--rl);padding:.85rem;font-size:12px;line-height:1.8;margin-bottom:.75rem">' + html + '</div>';
+}
+
+// ── ATOMS ────────────────────────────────────────────────────────────────────
+
+function renderAtoms(el) {
+  var col = '#a855f7';
+  var h = '';
+
+  h += secHead('Subatomic Particles', col);
+  h += tbl(['Particle', 'Symbol', 'Charge', 'Mass (u)', 'Location'],
+    [['Proton', 'p\u207a', '+1', '1.00728', 'Nucleus'],
+     ['Neutron', 'n\u2070', '0', '1.00866', 'Nucleus'],
+     ['Electron', 'e\u207b', '\u22121', '0.000549', 'Orbitals (shells)'],
+     ['Nucleus', '&#x2014;', 'positive', '~99.97% mass', 'Center of atom']], col);
+
+  h += secHead('Electron Shells', col);
+  h += tbl(['Shell', 'n', 'Max electrons', 'Subshells'],
+    [['K', '1', '2', '1s'],
+     ['L', '2', '8', '2s, 2p'],
+     ['M', '3', '18', '3s, 3p, 3d'],
+     ['N', '4', '32', '4s, 4p, 4d, 4f']], col);
+
+  h += secHead('Orbital Shapes', col);
+  h += tbl(['Orbital', 'Shape', 'Max e\u207b', 'Notes'],
+    [['s', 'Sphere', '2', '1 per subshell'],
+     ['p', 'Dumbbell (3 axes: x, y, z)', '6', '3 per subshell'],
+     ['d', 'Clover (5 types)', '10', '5 per subshell'],
+     ['f', 'Complex (7 types)', '14', '7 per subshell']], col);
+
+  h += secHead('Quantum Numbers', col);
+  h += tbl(['Number', 'Symbol', 'Values', 'Describes'],
+    [['Principal', 'n', '1, 2, 3\u2026', 'Shell / energy level'],
+     ['Azimuthal', 'l', '0 to n\u22121', 'Orbital shape (s=0, p=1, d=2, f=3)'],
+     ['Magnetic', 'm\u2097', '\u2212l to +l', 'Orbital orientation in space'],
+     ['Spin', 'm\u209b', '+\u00bd, \u2212\u00bd', 'Electron spin direction']], col);
+
+  h += secHead('Filling Rules', col);
+  h += makeCards([
+    {em: '1\ufe0f\u20e3', title: 'Aufbau Principle', sub: 'Fill lowest energy orbitals first',
+     body: 'Order: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d\u2026<br>' +
+           'The n+l rule determines energy order: 4s (n+l=4) fills before 3d (n+l=5).<br>' +
+           'Example: Iron (Fe, Z=26): [Ar] 4s\u00b2 3d\u2076'},
+    {em: '2\ufe0f\u20e3', title: 'Pauli Exclusion Principle', sub: 'No two electrons identical quantum numbers',
+     body: 'Maximum 2 electrons per orbital &#8212; they must have opposite spins (+\u00bd and \u2212\u00bd).<br>' +
+           'This is why capacity doubles: s=2, p=6, d=10, f=14.<br>' +
+           'Consequence: matter is stable &#8212; electrons cannot all collapse to lowest energy.'},
+    {em: '3\ufe0f\u20e3', title: "Hund's Rule", sub: 'Maximize unpaired spins in equal-energy orbitals',
+     body: 'When filling orbitals of equal energy, place one electron in each orbital before pairing.<br>' +
+           'Each singly-occupied orbital has same spin direction (+\u00bd).<br>' +
+           'Carbon (Z=6): 1s\u00b2 2s\u00b2 2p\u00b9 2p\u00b9 (not 2p\u00b2 in one orbital).<br>' +
+           'This minimizes electron-electron repulsion energy.'}
+  ], col);
+
+  h += secHead('Ionization Energy &#8212; Selected Elements', col);
+  h += tbl(['Element', 'Symbol', '1st IE (eV)', 'Notes'],
+    [['Helium', 'He', '24.59', 'Highest &#8212; noble gas, full shell'],
+     ['Fluorine', 'F', '17.42', 'High electronegativity'],
+     ['Neon', 'Ne', '21.56', 'Noble gas'],
+     ['Nitrogen', 'N', '14.53', 'Half-filled 2p subshell stability'],
+     ['Oxygen', 'O', '13.62', ''],
+     ['Hydrogen', 'H', '13.60', 'Reference atom'],
+     ['Carbon', 'C', '11.26', ''],
+     ['Sodium', 'Na', '5.14', 'Low &#8212; alkali metal, outer 3s\u00b9'],
+     ['Potassium', 'K', '4.34', 'Larger atomic radius'],
+     ['Cesium', 'Cs', '3.89', 'Lowest stable natural element']], col);
+
+  h += secHead('Electronegativity (Pauling Scale)', col);
+  h += tbl(['\u03c7 rank', 'Element', 'Value', 'Notes'],
+    [['Highest', 'F (Fluorine)', '3.98', ''],
+     ['2nd', 'O (Oxygen)', '3.44', ''],
+     ['3rd', 'Cl (Chlorine)', '3.16', ''],
+     ['4th', 'N (Nitrogen)', '3.04', ''],
+     ['Mid', 'C (Carbon)', '2.55', ''],
+     ['Mid', 'H (Hydrogen)', '2.20', ''],
+     ['Low', 'Fe (Iron)', '1.83', ''],
+     ['Low', 'Na (Sodium)', '0.93', 'Alkali metal'],
+     ['Lowest', 'Cs (Cesium)', '0.79', '']], col);
+  h += '<div style="font-size:11px;color:var(--muted);margin:.4rem 0 .75rem;line-height:1.6">' +
+       '\u0394\u03c7 &gt; 1.7 = ionic bond &nbsp;|&nbsp; 0.4&#8211;1.7 = polar covalent &nbsp;|&nbsp; &lt; 0.4 = nonpolar covalent</div>';
+
+  h += secHead('Scale of Matter', col);
+  h += infoBox(
+    '&#x2022; If the nucleus = a baseball (7 cm), the electron orbit would be 7 km away<br>' +
+    '&#x2022; Atoms are 99.9999999999996% empty space<br>' +
+    '&#x2022; 1 carbon atom = ~2\u00d710<sup>\u221222</sup> g<br>' +
+    '&#x2022; 1 cm\u00b3 of water = ~3.34\u00d710<sup>22</sup> molecules<br>' +
+    '&#x2022; Human body: ~7\u00d710<sup>27</sup> atoms (mostly H, O, C, N, Ca)', '168,85,247');
+
+  el.innerHTML = statBar([
+    {v: '118', l: 'Known elements', col: col},
+    {v: '1.0073', l: 'Proton mass (u)', col: col},
+    {v: '0.1&#8211;5 \u00c5', l: 'Atom diameter', col: col},
+    {v: '1&#8211;10 fm', l: 'Nuclear radius', col: col}
+  ]) + h;
+}
+
+// ── PARTICLES ────────────────────────────────────────────────────────────────
+
+function renderParticles(el) {
+  var col = '#22d3ee';
+  var h = '';
+
+  h += secHead('Standard Model Overview', col);
+  h += infoBox(
+    'The Standard Model describes <strong style="color:' + col + '">17 fundamental particles</strong>:<br>' +
+    '&#x2022; 6 quarks + 6 leptons = 12 fermions (matter, spin \u00bd)<br>' +
+    '&#x2022; 4 gauge bosons + 1 Higgs = 5 bosons (force carriers + mass)<br>' +
+    '&#x2022; Every particle has an antiparticle: same mass, opposite charge<br>' +
+    '&#x2022; Missing from model: gravity (graviton not yet observed)', '34,211,238');
+
+  h += secHead('Quarks &#8212; 6 Flavors', col);
+  h += tbl(['Quark', 'Symbol', 'Charge', 'Mass (MeV/c\u00b2)', 'Generation'],
+    [['Up', 'u', '+\u2154', '2.2', '1st &#8212; in proton + neutron'],
+     ['Down', 'd', '\u2212\u2153', '4.7', '1st &#8212; in proton + neutron'],
+     ['Charm', 'c', '+\u2154', '1,280', '2nd'],
+     ['Strange', 's', '\u2212\u2153', '96', '2nd'],
+     ['Top', 't', '+\u2154', '172,760', '3rd &#8212; heaviest known particle'],
+     ['Bottom', 'b', '\u2212\u2153', '4,180', '3rd']], col);
+  h += '<div style="font-size:11px;color:var(--muted);margin:.4rem 0 .75rem;line-height:1.6">' +
+       'Proton = uud (charge +1) &#x2022; Neutron = udd (charge 0) &#x2022; ' +
+       'Quarks never exist alone (confinement) &#x2022; Bound by gluons via color charge</div>';
+
+  h += secHead('Leptons &#8212; 6 Flavors', col);
+  h += tbl(['Lepton', 'Symbol', 'Charge', 'Mass', 'Generation'],
+    [['Electron', 'e\u207b', '\u22121', '0.511 MeV', '1st'],
+     ['Electron neutrino', '\u03bd\u2091', '0', '&lt;2 eV', '1st'],
+     ['Muon', '\u03bc\u207b', '\u22121', '105.7 MeV', '2nd &#8212; 207\u00d7 electron mass'],
+     ['Muon neutrino', '\u03bd\u03bc', '0', '&lt;0.19 MeV', '2nd'],
+     ['Tau', '\u03c4\u207b', '\u22121', '1,777 MeV', '3rd'],
+     ['Tau neutrino', '\u03bd\u03c4', '0', '&lt;18.2 MeV', '3rd']], col);
+  h += '<div style="font-size:11px;color:var(--muted);margin:.4rem 0 .75rem">~65 billion solar neutrinos pass through 1 cm\u00b2 of your hand every second. Muon decays in 2.2 \u03bcs.</div>';
+
+  h += secHead('Gauge Bosons &#8212; Force Carriers', col);
+  h += tbl(['Boson', 'Symbol', 'Force', 'Range', 'Mass (GeV)'],
+    [['Photon', '\u03b3', 'Electromagnetic', 'Infinite', '0 &#8212; massless'],
+     ['Gluon', 'g', 'Strong (QCD)', '&lt;1 fm', '0 &#8212; 8 color types'],
+     ['W boson', 'W\u00b1', 'Weak', '~0.001 fm', '80.4'],
+     ['Z boson', 'Z\u2070', 'Weak', '~0.001 fm', '91.2']], col);
+
+  h += secHead('Higgs Boson', col);
+  h += infoBox(
+    '<strong style="color:' + col + '">H\u2070 &#x2022; Mass: 125.09 GeV/c\u00b2 &#x2022; Spin: 0</strong><br>' +
+    'Discovered CERN LHC, July 4, 2012. Predicted by Peter Higgs + Brout-Englert in 1964.<br>' +
+    'The Higgs <em>field</em> permeates all space. Particles that interact strongly with it acquire mass.<br>' +
+    'Top quark = maximum interaction = heaviest. Photon = zero interaction = massless.<br>' +
+    '"God particle" &#8212; nickname by Leon Lederman (1993). Nobel Prize 2013: Higgs, Englert.', '34,211,238');
+
+  h += secHead('Four Fundamental Forces', col);
+  h += tbl(['Force', 'Carrier', 'Range', 'Relative strength', 'Acts on'],
+    [['Strong', 'Gluon', '~1 fm', '1 (reference)', 'Quarks, gluons'],
+     ['Electromagnetic', 'Photon', 'Infinite', '1/137', 'Charged particles'],
+     ['Weak', 'W/Z bosons', '0.001 fm', '10\u207b\u2076', 'All fermions'],
+     ['Gravity', 'Graviton*', 'Infinite', '6\u00d710\u207b\u00b3\u2079', 'All mass/energy']], col);
+  h += '<div style="font-size:11px;color:var(--muted);margin:.3rem 0 .8rem">*Graviton = theoretical, not yet observed. Gravity not included in Standard Model.</div>';
+
+  h += secHead('Dark Matter &amp; Dark Energy', col);
+  h += makeCards([
+    {em: '\ud83c\udf0c', title: 'Universe Composition',
+     sub: '27% dark matter &#x2022; 68% dark energy &#x2022; 5% ordinary matter',
+     body: 'Everything ever seen, built, or measured = 4.9% of total universe content.<br><br>' +
+           '&#x2022; Ordinary (baryonic) matter: 4.9%<br>' +
+           '&#x2022; Dark matter: 26.8%<br>' +
+           '&#x2022; Dark energy: 68.3%'},
+    {em: '\ud83c\udf00', title: 'Dark Matter',
+     sub: 'Does not emit, absorb, or reflect light',
+     body: '<strong>Evidence:</strong><br>' +
+           '&#x2022; Galactic rotation curves (Vera Rubin, 1970s): outer stars orbit too fast for visible mass<br>' +
+           '&#x2022; Gravitational lensing: light bends more than visible matter predicts<br>' +
+           '&#x2022; Bullet Cluster: two colliding galaxies &#8212; gravitational mass \u2260 gas location<br><br>' +
+           '<strong>Candidates:</strong><br>' +
+           '&#x2022; WIMPs &#8212; Weakly Interacting Massive Particles (~100\u00d7 proton mass, most favored)<br>' +
+           '&#x2022; Axions &#8212; ultra-light particles, Peccei-Quinn theory<br>' +
+           '&#x2022; Sterile neutrinos &#8212; heavier neutrino variant<br>' +
+           '&#x2022; Primordial black holes &#8212; formed in early universe'},
+    {em: '\u26ab', title: 'Dark Energy',
+     sub: 'Driving accelerating expansion of the universe',
+     body: 'Discovered 1998 via Type Ia supernovae &#8212; universe expansion is accelerating.<br>' +
+           'Nobel Prize 2011: Perlmutter, Schmidt, Riess.<br><br>' +
+           'Acts as Einstein\'s cosmological constant \u039b (his "biggest blunder" &#8212; he removed it; it came back).<br>' +
+           'Energy density: ~6\u00d710\u207b\u00b9\u2070 J/m\u00b3 &#8212; uniform throughout all space.<br>' +
+           'Nature: completely unknown.'},
+    {em: '\u2728', title: 'Antimatter',
+     sub: 'Every particle has an antiparticle',
+     body: 'Positron (e\u207a) = anti-electron: same mass, charge +1.<br>' +
+           'Antiproton (p\u0305) = charge \u22121.<br><br>' +
+           'Annihilation: particle + antiparticle \u2192 2 photons (E = 2mc\u00b2).<br>' +
+           'Matter-antimatter asymmetry: ~1 extra matter particle per 10\u2079 pairs &#8212; why the universe exists.'}
+  ], col);
+
+  el.innerHTML = statBar([
+    {v: '17', l: 'Standard Model particles', col: col},
+    {v: '4', l: 'Fundamental forces', col: col},
+    {v: '68%', l: 'Dark energy', col: col},
+    {v: '5%', l: 'Ordinary matter', col: col}
+  ]) + h;
+}
+
+// ── MOLECULES ────────────────────────────────────────────────────────────────
+
+var ATOMIC_W = {
+  H:1.008,He:4.003,Li:6.941,Be:9.012,B:10.811,C:12.011,N:14.007,O:15.999,
+  F:18.998,Ne:20.180,Na:22.990,Mg:24.305,Al:26.982,Si:28.086,P:30.974,S:32.065,
+  Cl:35.453,Ar:39.948,K:39.098,Ca:40.078,Sc:44.956,Ti:47.867,V:50.942,
+  Cr:51.996,Mn:54.938,Fe:55.845,Co:58.933,Ni:58.693,Cu:63.546,Zn:65.380,
+  Ga:69.723,Ge:72.630,As:74.922,Se:78.971,Br:79.904,Kr:83.798,Rb:85.468,
+  Sr:87.620,Y:88.906,Zr:91.224,Nb:92.906,Mo:95.960,Ag:107.868,Cd:112.411,
+  Sn:118.710,Sb:121.760,I:126.904,Cs:132.905,Ba:137.327,La:138.905,
+  W:183.840,Re:186.207,Os:190.230,Ir:192.217,Pt:195.084,Au:196.967,
+  Hg:200.592,Tl:204.383,Pb:207.200,Bi:208.980
+};
+
+window.calcMolar = function() {
+  var inp = document.getElementById('mol-input');
+  var res = document.getElementById('mol-result');
+  if (!inp || !res) return;
+  var q = inp.value.trim();
+  if (!q) { res.innerHTML = '<span style="color:var(--muted)">Type a formula above.</span>'; return; }
+  var atoms = {};
+  var re = /([A-Z][a-z]?)(\d*)/g;
+  var m;
+  while ((m = re.exec(q)) !== null) {
+    if (!m[1]) continue;
+    atoms[m[1]] = (atoms[m[1]] || 0) + (parseInt(m[2]) || 1);
+  }
+  var keys = Object.keys(atoms);
+  if (!keys.length) { res.innerHTML = '<span style="color:var(--muted)">Invalid formula.</span>'; return; }
+  var mw = keys.reduce(function(s, k) { return s + (ATOMIC_W[k] || 0) * atoms[k]; }, 0);
+  var unk = keys.filter(function(k) { return !ATOMIC_W[k]; });
+  var html = '<div style="font-family:monospace;font-size:14px;font-weight:800;color:#4ade80;margin-bottom:.5rem">' + q + '</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:5px;margin-bottom:.6rem">';
+  [{l:'Molar mass',v:mw?mw.toFixed(4)+' g/mol':'unknown'},{l:'Atoms/molecule',v:keys.reduce(function(s,k){return s+atoms[k];},0)},{l:'Elements',v:keys.length},{l:'Avogadro N',v:'6.022\u00d710\u00b2\u00b3'}].forEach(function(s){
+    html += '<div style="background:var(--bg3);border-radius:6px;padding:.35rem .55rem"><div style="font-size:9px;color:var(--muted)">' + s.l + '</div><div style="font-size:12px;font-weight:700;color:var(--fg)">' + s.v + '</div></div>';
+  });
+  html += '</div><div style="font-size:10.5px;color:var(--muted)">Breakdown: ';
+  html += keys.map(function(k){ var pct=mw?((ATOMIC_W[k]||0)*atoms[k]/mw*100).toFixed(1):0; return '<span style="color:#4ade80;font-family:monospace">'+k+'\u00d7'+atoms[k]+'</span> '+pct+'%'; }).join(' &nbsp;|&nbsp; ');
+  html += '</div>';
+  if (unk.length) html += '<div style="font-size:10px;color:#f87171;margin-top:.3rem">Unknown: ' + unk.join(', ') + '</div>';
+  if (mw) html += '<div style="font-size:10px;color:var(--muted);margin-top:.25rem">1 mol = ' + mw.toFixed(2) + 'g &nbsp;|&nbsp; 1g = ' + (1/mw*6.022e23).toExponential(3) + ' molecules</div>';
+  res.innerHTML = html;
+};
+
+function renderMolecules(el) {
+  var col = '#4ade80';
+  var h = '';
+
+  h += secHead('Formula Calculator', col);
+  h += '<div class="input-row"><input id="mol-input" class="chem-input" placeholder="H2O, NaCl, C6H12O6, C8H10N4O2\u2026" oninput="calcMolar()"><button class="chem-btn" onclick="calcMolar()">Calculate</button></div>';
+  h += '<div id="mol-result" class="result-box"><span style="color:var(--muted)">Type a formula above.</span></div>';
+
+  h += secHead('Chemical Bond Types', col);
+  h += tbl(['Bond', 'Mechanism', 'Strength', 'Example'],
+    [['Ionic', 'Electron transfer \u2192 electrostatic attraction', 'Strong (crystal)', 'NaCl, MgO, CaCO\u2083'],
+     ['Covalent (nonpolar)', 'Equal electron sharing', 'Strong', 'H\u2082, O\u2082, CH\u2084, N\u2082'],
+     ['Covalent (polar)', 'Unequal electron sharing', 'Strong', 'H\u2082O, HCl, NH\u2083'],
+     ['Metallic', 'Delocalized electron sea', 'Varies', 'Fe, Cu, Na, Al'],
+     ['Hydrogen', 'H bonded to F/O/N attracts lone pair', 'Moderate', 'H\u2082O, DNA base pairs, proteins'],
+     ['Van der Waals', 'Temporary induced dipoles', 'Very weak', 'Noble gases, N\u2082 (liquid)'],
+     ['Dipole-dipole', 'Permanent dipole alignment', 'Weak', 'HCl (gas), SO\u2082']], col);
+
+  h += secHead('Common Chemical Formulas', col);
+  h += tbl(['Compound', 'Formula', 'g/mol', 'Notes'],
+    [['Water', 'H\u2082O', '18.015', 'Universal solvent'],
+     ['Table salt', 'NaCl', '58.44', 'Ionic crystal'],
+     ['Carbon dioxide', 'CO\u2082', '44.01', 'Greenhouse gas'],
+     ['Glucose', 'C\u2086H\u2081\u2082O\u2086', '180.16', 'Simple sugar, cellular energy'],
+     ['Ethanol', 'C\u2082H\u2085OH', '46.07', 'Drinking alcohol'],
+     ['Sucrose', 'C\u2081\u2082H\u2082\u2082O\u2081\u2081', '342.30', 'Table sugar'],
+     ['Ammonia', 'NH\u2083', '17.03', 'Fertilizer, cleaner'],
+     ['Sulfuric acid', 'H\u2082SO\u2084', '98.08', 'Strongest common acid, battery acid'],
+     ['Hydrochloric acid', 'HCl', '36.46', 'Stomach acid (1.5&#8211;3.5 pH)'],
+     ['Sodium hydroxide', 'NaOH', '40.00', 'Lye, drain cleaner (pH 14)'],
+     ['Calcium carbonate', 'CaCO\u2083', '100.09', 'Limestone, chalk, shells, antacids'],
+     ['Hydrogen peroxide', 'H\u2082O\u2082', '34.01', 'Antiseptic, bleaching agent'],
+     ['Ozone', 'O\u2083', '48.00', 'UV shield in stratosphere'],
+     ['Methane', 'CH\u2084', '16.04', 'Natural gas, simplest hydrocarbon'],
+     ['Propane', 'C\u2083H\u2088', '44.10', 'LPG fuel'],
+     ['Acetone', 'C\u2083H\u2086O', '58.08', 'Nail polish remover, solvent'],
+     ['Acetic acid', 'CH\u2083COOH', '60.05', 'Vinegar (5% solution)'],
+     ['Aspirin', 'C\u2089H\u2088O\u2084', '180.16', 'Acetylsalicylic acid'],
+     ['Caffeine', 'C\u2088H\u2081\u2080N\u2084O\u2082', '194.19', 'Stimulant, adenosine antagonist'],
+     ['Baking soda', 'NaHCO\u2083', '84.01', 'Sodium bicarbonate'],
+     ['Bleach', 'NaOCl', '74.44', 'Sodium hypochlorite'],
+     ['Rust', 'Fe\u2082O\u2083', '159.69', 'Iron(III) oxide'],
+     ['Quartz / Sand', 'SiO\u2082', '60.08', 'Silicon dioxide, glass component']], col);
+
+  h += secHead('Dangerous Mixing &#8212; Never Combine', col);
+  h += makeCards([
+    {em: '\u2622\ufe0f', title: 'Bleach + Ammonia \u2192 Chloramine gas (NH\u2082Cl)',
+     sub: 'Lung damage &#x2022; can be fatal',
+     body: 'NaOCl + NH\u2083 \u2192 chloramines (NH\u2082Cl, NHCl\u2082, NCl\u2083).<br>' +
+           'Symptoms: coughing, wheezing, shortness of breath, chest pain, pulmonary edema.<br>' +
+           'Sources: bleach + window cleaner (contains ammonia), bleach + urine.'},
+    {em: '\u2622\ufe0f', title: 'Bleach + Vinegar \u2192 Chlorine gas (Cl\u2082)',
+     sub: 'Toxic respiratory hazard at room temperature',
+     body: 'CH\u2083COOH + NaOCl \u2192 Cl\u2082(g) + sodium acetate + H\u2082O.<br>' +
+           'Chlorine gas was used as chemical weapon in WWI. Causes severe lung damage, eye irritation. Detectable by sharp, pungent odor.'},
+    {em: '\u2622\ufe0f', title: 'Bleach + Rubbing Alcohol \u2192 Chloroform + Chloroacetone',
+     sub: 'Neurotoxic &#x2022; carcinogenic',
+     body: 'NaOCl + isopropanol \u2192 CHCl\u2083 (chloroform) + chlorinated byproducts.<br>' +
+           'Chloroform: CNS depressant, liver/kidney damage, suspected carcinogen. Also irritates mucous membranes.'},
+    {em: '\u2622\ufe0f', title: 'H\u2082O\u2082 + Vinegar \u2192 Peracetic Acid (CH\u2083CO\u2083H)',
+     sub: 'Strong oxidizer &#x2022; corrosive to skin and eyes',
+     body: 'Hydrogen peroxide + acetic acid \u2192 peracetic acid.<br>' +
+           'Strong oxidizer, highly corrosive. Used industrially only in controlled conditions. Do not mix even in dilute form.'}
+  ], '#f87171');
+
+  h += secHead('Avogadro &amp; Moles', col);
+  h += infoBox(
+    '&#x2022; 1 mol = <strong style="color:' + col + '">6.02214076 \u00d7 10<sup>23</sup></strong> particles (Avogadro constant, N\u2090)<br>' +
+    '&#x2022; Molar mass = atomic mass in grams per mol<br>' +
+    '&#x2022; H\u2082O: 2(1.008) + 15.999 = 18.015 g/mol<br>' +
+    '&#x2022; 1 mol H\u2082O = 18.015 g = 6.022\u00d710<sup>23</sup> molecules<br>' +
+    '&#x2022; 1 drop of water (~0.05 mL) \u2248 1.67\u00d710<sup>21</sup> molecules<br>' +
+    '&#x2022; If 1 mol of marbles were laid side by side, they would cover Earth 80 km deep', '45,212,160');
+
+  el.innerHTML = statBar([
+    {v: '6.022\u00d710\u00b2\u00b3', l: 'Avogadro constant', col: col},
+    {v: '18.015', l: 'H\u2082O molar mass (g/mol)', col: col},
+    {v: '20', l: 'Amino acids', col: col},
+    {v: '64', l: 'Codons (genetic)', col: col}
+  ]) + h;
+}
+
+// ── WATER ────────────────────────────────────────────────────────────────────
+
+function renderWater(el) {
+  var col = '#38bdf8';
+  var h = '';
+
+  h += secHead('Molecular Structure', col);
+  h += tbl(['Property', 'Value', 'Notes'],
+    [['Formula', 'H\u2082O', '2 hydrogen, 1 oxygen'],
+     ['Bond angle', '104.5\u00b0', 'Less than tetrahedral 109.5\u00b0 &#8212; lone pair repulsion'],
+     ['O&#8212;H bond length', '0.096 nm', ''],
+     ['Geometry', 'Bent / angular', 'VSEPR: AX\u2082E\u2082 &#8212; 2 bonds + 2 lone pairs on O'],
+     ['Hybridization', 'sp\u00b3 (oxygen)', 'Four electron groups'],
+     ['Polarity', 'Highly polar', '\u03b4\u207b on O, \u03b4\u207a on each H'],
+     ['Dipole moment', '1.85 D', 'Debye units &#8212; significant polarity']], col);
+
+  h += secHead('Physical Properties', col);
+  h += tbl(['Property', 'Value'],
+    [['Molar mass', '18.015 g/mol'],
+     ['Density (liquid, 25\u00b0C)', '0.9971 g/cm\u00b3'],
+     ['Density (maximum, 4\u00b0C)', '1.0000 g/cm\u00b3'],
+     ['Density (ice, 0\u00b0C)', '0.917 g/cm\u00b3 &#8212; floats on liquid water'],
+     ['Melting point', '0\u00b0C / 32\u00b0F / 273.15 K'],
+     ['Boiling point', '100\u00b0C / 212\u00b0F / 373.15 K'],
+     ['Specific heat capacity', '4.184 J/g\u00b7K (highest of common liquids)'],
+     ['Heat of fusion', '334 J/g'],
+     ['Heat of vaporization', '2,260 J/g (7\u00d7 heat of fusion)'],
+     ['Surface tension (25\u00b0C)', '0.0720 N/m'],
+     ['pH (pure)', '7.0 (neutral)'],
+     ['Dielectric constant', '80.4 at 25\u00b0C &#8212; excellent ion dissolving'],
+     ['Triple point', '0.01\u00b0C, 611.7 Pa'],
+     ['Critical point', '374\u00b0C, 220.6 bar']], col);
+
+  h += secHead('Anomalous Properties &#8212; Why Water is Unique', col);
+  h += makeCards([
+    {em: '\ud83e\uddca', title: 'Ice is less dense than liquid water',
+     sub: 'Lakes freeze from the top down &#x2022; aquatic life survives',
+     body: 'Ice: 0.917 g/cm\u00b3. Liquid water at 4\u00b0C: 1.000 g/cm\u00b3.<br>' +
+           'Ice floats. If it sank, lakes would freeze solid from the bottom up &#8212; killing all aquatic life.<br>' +
+           'Cause: hydrogen bonds in ice form a rigid hexagonal lattice &#8212; more open structure than liquid.'},
+    {em: '\ud83c\udf21\ufe0f', title: 'Maximum density at 4\u00b0C &#8212; not at freezing point',
+     sub: 'Drives vertical lake circulation',
+     body: 'Water is densest at 4\u00b0C. When cooling below 4\u00b0C it expands slightly.<br>' +
+           'Lakes: 4\u00b0C water sinks to the bottom year-round. This creates vertical mixing that distributes oxygen and nutrients.'},
+    {em: '\ud83c\udf0d', title: 'Exceptionally high boiling point for its molecular weight',
+     sub: 'Without H-bonds, water would boil at ~\u221280\u00b0C',
+     body: 'Methane (CH\u2084): 16 g/mol, boils at \u2212161\u00b0C.<br>' +
+           'Water (H\u2082O): 18 g/mol, boils at +100\u00b0C. Difference of 261\u00b0C &#8212; entirely from hydrogen bonding.<br>' +
+           'Without H-bonds: no liquid water on Earth \u2192 no life as we know it.'},
+    {em: '\ud83e\uddea', title: 'Universal solvent',
+     sub: 'Dissolves more substances than any other liquid',
+     body: 'Polarity allows water to surround and separate ions and polar molecules.<br>' +
+           'NaCl dissolves: water molecules pull Na\u207a and Cl\u207b apart, surrounding each ion.<br>' +
+           'Does NOT dissolve nonpolar molecules (oil, wax) &#8212; hydrophobic effect drives cell membrane assembly.'},
+    {em: '\ud83d\udca7', title: 'High surface tension',
+     sub: '0.0720 N/m at 25\u00b0C &#x2022; water striders, capillary action',
+     body: 'Surface molecules experience net inward force from bulk hydrogen bonds.<br>' +
+           'Capillary action: water climbs narrow tubes against gravity &#8212; essential for trees moving water 100 m up to leaves.<br>' +
+           'Cohesion (water-water) + adhesion (water-wall) = capillary rise = xylem transport.'},
+    {em: '\ud83c\udf0a', title: 'High specific heat capacity',
+     sub: '4.184 J/g\u00b7K &#x2022; moderates Earth\'s climate',
+     body: 'Water absorbs large heat input with minimal temperature rise.<br>' +
+           'Coastal cities have mild, stable climates vs inland cities at same latitude.<br>' +
+           'Oceans act as thermal buffer &#8212; prevent extreme swings that would make most land uninhabitable.'}
+  ], col);
+
+  h += secHead('Water Phases', col);
+  h += tbl(['Phase', 'Conditions', 'Notes'],
+    [['Ice (solid)', '&lt;0\u00b0C at 1 atm', '18+ known crystalline forms (Ice I through Ice XVII+)'],
+     ['Liquid', '0&#8211;100\u00b0C at 1 atm', 'Most of Earth\'s accessible water'],
+     ['Steam (gas)', '&gt;100\u00b0C at 1 atm', 'Mist = liquid droplets &#8212; steam itself is invisible'],
+     ['Supercritical', '&gt;374\u00b0C, &gt;220.6 bar', 'Neither liquid nor gas; unique solvent properties'],
+     ['Triple point', '0.01\u00b0C, 611.7 Pa', 'All three phases coexist simultaneously']], col);
+
+  h += secHead('Water in the Human Body', col);
+  h += tbl(['Tissue', 'Water %'],
+    [['Blood', '90%'], ['Lungs', '83%'], ['Brain', '73%'], ['Kidneys', '79%'],
+     ['Heart', '73%'], ['Liver', '71%'], ['Muscles', '75%'], ['Skin', '64%'],
+     ['Bones', '31%'], ['Adipose (fat)', '~10%']], col);
+
+  el.innerHTML = statBar([
+    {v: '104.5\u00b0', l: 'O-H-O bond angle', col: col},
+    {v: '4\u00b0C', l: 'Maximum density temp', col: col},
+    {v: '7.0', l: 'pH pure water', col: col},
+    {v: '60%', l: 'Human body mass', col: col}
+  ]) + h;
+}
+
+// ── DNA ──────────────────────────────────────────────────────────────────────
+
+function renderDna(el) {
+  var col = '#f472b6';
+  var h = '';
+
+  h += secHead('Structure', col);
+  h += infoBox(
+    '<strong style="color:' + col + '">Deoxyribonucleic Acid (DNA)</strong><br>' +
+    '&#x2022; Shape: Double helix &#8212; Watson &amp; Crick, 1953; X-ray by Rosalind Franklin<br>' +
+    '&#x2022; Diameter: 2 nm &#x2022; Pitch per turn: 3.4 nm (10 base pairs per turn)<br>' +
+    '&#x2022; Total length uncoiled (human cell): ~2 meters<br>' +
+    '&#x2022; Packed into 46 chromosomes inside a nucleus 6 micrometers wide', '244,114,182');
+
+  h += secHead('Nucleotide Components', col);
+  h += infoBox(
+    'Each nucleotide = <strong style="color:' + col + '">3 parts:</strong><br>' +
+    '1. <strong>Deoxyribose sugar</strong> (5-carbon ring &#8212; the backbone)<br>' +
+    '2. <strong>Phosphate group</strong> (\u2212PO\u2084) &#8212; links nucleotides, negative charge<br>' +
+    '3. <strong>Nitrogenous base</strong> &#8212; carries the genetic code (A, T, C, G)', '244,114,182');
+
+  h += secHead('The Four Bases &amp; Pairing', col);
+  h += tbl(['Base', 'Symbol', 'Type', 'Pairs with', 'H-bonds'],
+    [['Adenine', 'A', 'Purine (double ring)', 'Thymine (T)', '2 &#8212; weaker'],
+     ['Thymine', 'T', 'Pyrimidine (single ring)', 'Adenine (A)', '2 &#8212; weaker'],
+     ['Cytosine', 'C', 'Pyrimidine', 'Guanine (G)', '3 &#8212; stronger'],
+     ['Guanine', 'G', 'Purine', 'Cytosine (C)', '3 &#8212; stronger']], col);
+  h += '<div style="font-size:11px;color:var(--muted);margin:.4rem 0 .75rem">Chargaff\'s rules: [A]=[T] and [C]=[G] in all double-stranded DNA. C-G regions = more thermally stable (3 H-bonds).</div>';
+
+  h += secHead('Human Genome', col);
+  h += tbl(['Statistic', 'Value'],
+    [['Base pairs per genome', '~3.2 billion'],
+     ['Protein-coding genes', '~20,000&#8211;25,000'],
+     ['% coding for proteins', '~1.5% &#8212; the rest is regulatory, structural, or "dark" genome'],
+     ['% identical between all humans', '99.9%'],
+     ['Chromosomes (diploid)', '46 (23 pairs &#8212; 22 autosomes + XX/XY)'],
+     ['Mitochondrial DNA', 'Separate 16,569 bp circular genome &#8212; maternally inherited'],
+     ['Total human cells', '~37 trillion'],
+     ['DNA in all cells end-to-end', '~61 billion km &#8212; 400\u00d7 Earth&#8211;Sun distance']], col);
+
+  h += secHead('Central Dogma of Molecular Biology', col);
+  h += '<div style="background:rgba(244,114,182,.07);border:1px solid rgba(244,114,182,.2);border-radius:var(--rl);padding:.85rem;font-size:12px;line-height:1.9;margin-bottom:.75rem">';
+  h += '<div style="text-align:center;font-family:monospace;font-size:13px;color:' + col + ';margin-bottom:.6rem">';
+  h += 'DNA \u2192 <em style="color:var(--teal)">(transcription)</em> \u2192 mRNA \u2192 <em style="color:var(--teal)">(translation)</em> \u2192 Protein';
+  h += '</div>';
+  h += '<strong>1. Transcription:</strong> RNA polymerase reads DNA template strand \u2192 builds mRNA (U replaces T)<br>';
+  h += '<strong>2. mRNA</strong> exits nucleus through nuclear pore complex<br>';
+  h += '<strong>3. Translation:</strong> ribosome reads mRNA in triplet codons (3 bases = 1 amino acid)<br>';
+  h += '<strong>4. tRNA</strong> delivers matching amino acids \u2192 chain grows \u2192 protein folds into 3D shape';
+  h += '</div>';
+
+  h += secHead('Genetic Code', col);
+  h += tbl(['Term', 'Definition'],
+    [['Codon', '3 mRNA bases \u2192 specifies 1 amino acid (or stop)'],
+     ['64 codons', '4\u00b3 = 64 possible triplets \u2192 20 amino acids &#8212; degenerate/redundant code'],
+     ['Start codon', 'AUG &#8212; encodes methionine, initiates translation'],
+     ['Stop codons', 'UAA, UAG, UGA &#8212; no amino acid, terminates chain'],
+     ['Open reading frame', 'Sequence from AUG to stop codon = one gene transcript']], col);
+
+  h += secHead('DNA Replication', col);
+  h += makeCards([
+    {em: '\ud83e\udd4a', title: 'Replication Steps',
+     sub: 'Each cell division copies 3.2 billion base pairs with near-perfect fidelity',
+     body: '<strong>1. Helicase</strong> &#8212; unwinds double helix, creates replication fork<br>' +
+           '<strong>2. Single-strand binding proteins</strong> &#8212; stabilize open strands<br>' +
+           '<strong>3. Primase</strong> &#8212; synthesizes short RNA primers to start chain<br>' +
+           '<strong>4. DNA polymerase III</strong> &#8212; reads 3\u2032\u21925\u2032, synthesizes 5\u2032\u21923\u2032<br>' +
+           '<strong>5. Leading strand</strong> &#8212; continuous synthesis in direction of fork<br>' +
+           '<strong>6. Lagging strand</strong> &#8212; Okazaki fragments (~1,000&#8211;2,000 bp)<br>' +
+           '<strong>7. DNA ligase</strong> &#8212; seals fragment nicks<br><br>' +
+           'Fidelity: 1 error per 10\u2079&#8211;10\u00b9\u2070 bases &#8212; before mismatch repair (final rate: 1 per 10\u00b9\u00b2)'}
+  ], col);
+
+  el.innerHTML = statBar([
+    {v: '3.2B', l: 'Base pairs (human)', col: col},
+    {v: '2 m', l: 'DNA length per cell', col: col},
+    {v: '99.9%', l: 'Human DNA identity', col: col},
+    {v: '46', l: 'Chromosomes', col: col}
+  ]) + h;
+}
+
+// ── CELLS & SKIN ─────────────────────────────────────────────────────────────
+
+function renderCells(el) {
+  var col = '#fb923c';
+  var h = '';
+
+  h += secHead('Cell Types', col);
+  h += tbl(['Type', 'Features', 'Examples'],
+    [['Prokaryote', 'No nucleus, no membrane-bound organelles, circular DNA', 'Bacteria, Archaea'],
+     ['Eukaryote', 'True nucleus, membrane-bound organelles, linear chromosomes', 'Animals, plants, fungi, protists']], col);
+
+  h += secHead('Human Cell Organelles', col);
+  h += makeCards([
+    {em: '\ud83e\uddec', title: 'Nucleus',
+     sub: 'DNA storage &#x2022; gene regulation &#x2022; 5&#8211;10 \u03bcm',
+     body: 'Enclosed by double nuclear envelope with ~3,000 nuclear pores (each ~120 nm wide).<br>' +
+           'Contains 46 chromosomes (3.2 billion bp total). Nucleolus inside = site of rRNA synthesis for ribosomes.<br>' +
+           'Pores regulate: export of mRNA, tRNA, ribosomal subunits; import of transcription factors, polymerases.'},
+    {em: '\u26a1', title: 'Mitochondria',
+     sub: 'ATP production &#x2022; 1&#8211;10 \u03bcm &#x2022; own DNA',
+     body: 'Has own circular DNA (16,569 bp) &#8212; relic of ancient bacterial ancestor (endosymbiont theory, ~2B years ago).<br>' +
+           'Inner membrane (cristae) = site of electron transport chain + ATP synthase.<br>' +
+           'A cell can have 100&#8211;2,000 mitochondria depending on energy demand. Heart muscle cells = most.'},
+    {em: '\ud83d\udd2d', title: 'Ribosomes',
+     sub: 'Protein synthesis &#x2022; universal to all life',
+     body: 'Eukaryote: 80S (large 60S + small 40S subunit).<br>' +
+           'Prokaryote: 70S &#8212; structural difference = target of antibiotics (tetracycline, erythromycin, streptomycin).<br>' +
+           'Free ribosomes \u2192 cytoplasmic proteins. Rough ER ribosomes \u2192 secreted/membrane proteins.'},
+    {em: '\ud83d\udce6', title: 'Endoplasmic Reticulum',
+     sub: 'Rough ER: protein processing &#x2022; Smooth ER: lipid synthesis',
+     body: 'Rough ER: studded with ribosomes &#8212; folds, processes, quality-controls newly made proteins.<br>' +
+           'Smooth ER: no ribosomes &#8212; synthesizes lipids, steroid hormones, detoxifies drugs and metabolites.<br>' +
+           'Liver hepatocytes are especially rich in smooth ER for detoxification.'},
+    {em: '\ud83d\udce4', title: 'Golgi Apparatus',
+     sub: '"Post office" of the cell',
+     body: 'Stack of 4&#8211;8 flattened membrane sacs (cisternae).<br>' +
+           'Receives proteins from ER (cis face), modifies (glycosylation, phosphorylation), sorts, packages (trans face).<br>' +
+           'Ships to: cell membrane (secretion), lysosomes, or back to ER. Named after Camillo Golgi (1898).'},
+    {em: '\ud83e\uddab', title: 'Lysosomes',
+     sub: 'Cellular digestion &#x2022; pH ~4.8',
+     body: 'Membrane-bound vesicle containing ~50 hydrolytic enzymes (acid hydrolases).<br>' +
+           'Acidic interior (pH 4.8) needed for enzyme activity &#8212; H\u207a pumped in by vacuolar ATPase.<br>' +
+           'Digests: damaged organelles (autophagy), bacteria (phagocytosis), cellular debris.<br>' +
+           'Lysosomal storage diseases (Tay-Sachs, Gaucher): enzyme deficiency \u2192 substrate accumulation.'},
+    {em: '\ud83e\uddf1', title: 'Cell Membrane',
+     sub: 'Phospholipid bilayer &#x2022; ~7.5&#8211;10 nm thick',
+     body: '<strong>Fluid mosaic model</strong> (Singer &amp; Nicolson, 1972).<br>' +
+           'Two phospholipid layers: hydrophilic heads (glycerol + phosphate + choline) face outward; hydrophobic tails face inward.<br>' +
+           'Cholesterol: 25&#8211;30% of lipids &#8212; reduces fluidity at high T, prevents freezing at low T.<br>' +
+           'Embedded proteins: ion channels, receptors, enzymes, structural anchors, transporters.'}
+  ], col);
+
+  h += secHead('Cellular Respiration', col);
+  h += '<div style="background:rgba(251,146,60,.07);border:1px solid rgba(251,146,60,.2);border-radius:var(--rl);padding:.85rem;font-size:12px;line-height:1.9;margin-bottom:.75rem">';
+  h += '<div style="font-family:monospace;color:' + col + ';font-size:13px;margin-bottom:.5rem;text-align:center">C\u2086H\u2081\u2082O\u2086 + 6O\u2082 \u2192 6CO\u2082 + 6H\u2082O + ~30&#8211;32 ATP</div>';
+  h += '<strong>Glycolysis</strong> (cytoplasm): glucose \u2192 2 pyruvate + net 2 ATP + 2 NADH<br>';
+  h += '<strong>Pyruvate oxidation</strong> (mitochondrial matrix): pyruvate \u2192 acetyl-CoA + CO\u2082 + NADH<br>';
+  h += '<strong>Krebs cycle</strong> (matrix): acetyl-CoA \u2192 CO\u2082 + NADH + FADH\u2082 + 2 ATP per cycle<br>';
+  h += '<strong>Electron transport chain</strong> (inner membrane): NADH/FADH\u2082 \u2192 ~26&#8211;28 ATP via ATP synthase';
+  h += '</div>';
+
+  h += secHead('Cell Size Scale', col);
+  h += tbl(['Object', 'Size'],
+    [['Human egg cell', '120 \u03bcm (visible to naked eye)'],
+     ['Typical eukaryote', '10&#8211;100 \u03bcm'],
+     ['Red blood cell', '6&#8211;8 \u03bcm (no nucleus)'],
+     ['White blood cell', '7&#8211;21 \u03bcm'],
+     ['Bacterium (E. coli)', '~2 \u03bcm long'],
+     ['Mitochondrion', '1&#8211;10 \u03bcm'],
+     ['Ribosome', '20&#8211;30 nm'],
+     ['Virus (SARS-CoV-2)', '~100 nm'],
+     ['Cell membrane thickness', '7.5&#8211;10 nm'],
+     ['DNA double helix width', '2 nm'],
+     ['Carbon atom', '0.154 nm']], col);
+
+  h += secHead('Skin Tissue &#8212; Three Layers', col);
+  h += tbl(['Layer', 'Depth', 'Contents'],
+    [['Epidermis', '0.05&#8211;1.5 mm', 'Keratinocytes, melanocytes, Langerhans cells &#8212; waterproof barrier'],
+     ['Dermis', '1&#8211;4 mm', 'Collagen, elastin, fibroblasts, blood vessels, sweat/sebaceous glands, hair follicles'],
+     ['Hypodermis', 'Variable', 'Adipose tissue (fat), large blood vessels &#8212; insulation + energy storage']], col);
+
+  h += secHead('Epidermal Layers (deep to surface)', col);
+  h += tbl(['Layer', 'Position', 'Function'],
+    [['Stratum basale', 'Deepest', 'Stem cells divide here &#x2022; melanocytes produce melanin'],
+     ['Stratum spinosum', '2nd', 'Keratinocyte differentiation &#x2022; Langerhans immune cells'],
+     ['Stratum granulosum', '3rd', 'Keratin production begins &#x2022; lipid barrier assembly (ceramides)'],
+     ['Stratum lucidum', '4th (thick skin only)', 'Only in palms and soles &#8212; extra protection'],
+     ['Stratum corneum', 'Outermost', '15&#8211;20 layers of dead keratinocyte scales &#8212; waterproof barrier']], col);
+
+  h += secHead('Skin Cells &amp; Composition', col);
+  h += tbl(['Cell / Component', 'Location', 'Function'],
+    [['Keratinocytes (95% of epidermis)', 'Epidermis', 'Produce keratin &#8212; structural waterproofing protein'],
+     ['Melanocytes', 'Stratum basale', 'Produce melanin &#8212; UV protection (eumelanin=brown/black, pheomelanin=red/yellow)'],
+     ['Langerhans cells', 'Spinosum', 'Dendritic immune cells &#8212; first-line immune surveillance'],
+     ['Merkel cells', 'Basale', 'Mechanoreceptors &#8212; light touch and texture'],
+     ['Fibroblasts', 'Dermis', 'Synthesize collagen, elastin, hyaluronic acid'],
+     ['Water', '~64%', 'Decreases with age &#8212; drives skin aging'],
+     ['Collagen', '~25% dry mass', 'Type I + III dominant &#8212; tensile strength'],
+     ['Lipids', '~7%', 'Ceramides, cholesterol &#8212; barrier function']], col);
+
+  h += secHead('Collagen &amp; Skin Chemistry', col);
+  h += infoBox(
+    '<strong style="color:' + col + '">Collagen structure:</strong> Gly-X-Y repeating sequence (X=proline, Y=hydroxyproline).<br>' +
+    'Three \u03b1-chains \u2192 triple helix (tropocollagen) \u2192 fibrils \u2192 fibers. Crosslinked by lysyl oxidase.<br>' +
+    'Provides ~70% of dry dermis mass. 28+ types; Type I = skin/bone, Type II = cartilage.<br><br>' +
+    '<strong style="color:' + col + '">Key facts:</strong><br>' +
+    '&#x2022; Skin pH: 4.5&#8211;6.5 (acid mantle) &#8212; slightly acidic = antibacterial barrier<br>' +
+    '&#x2022; Vitamin D: UV-B + 7-dehydrocholesterol in skin \u2192 previtamin D\u2083 \u2192 Vitamin D\u2083<br>' +
+    '&#x2022; Surface area: ~1.7&#8211;2.0 m\u00b2 (adult) &#x2022; Epidermis replaced every 28&#8211;40 days', '251,146,60');
+
+  el.innerHTML = statBar([
+    {v: '37T', l: 'Human cells', col: col},
+    {v: '10 nm', l: 'Membrane thickness', col: col},
+    {v: '40 kg', l: 'ATP/day (body)', col: col},
+    {v: '1.7 m\u00b2', l: 'Skin surface area', col: col}
+  ]) + h;
+}
+
+// ── DENSITY ──────────────────────────────────────────────────────────────────
+
+var DENS_DATA = [
+  {n:'Hydrogen gas',r:0.0000899,s:'Gas',note:'Lightest element'},
+  {n:'Helium gas',r:0.0001785,s:'Gas',note:''},
+  {n:'Air',r:0.001225,s:'Gas',note:'Standard conditions'},
+  {n:'Methane',r:0.000717,s:'Gas',note:'Natural gas'},
+  {n:'CO\u2082',r:0.001977,s:'Gas',note:'Sinks &#8212; heavier than air'},
+  {n:'Aerogel',r:0.010,s:'Solid',note:'Lightest solid known'},
+  {n:'Cork',r:0.18,s:'Solid',note:'Floats in water'},
+  {n:'Balsa wood',r:0.12,s:'Solid',note:'Lightest structural wood'},
+  {n:'Oak wood',r:0.75,s:'Solid',note:''},
+  {n:'Ice (0\u00b0C)',r:0.917,s:'Solid',note:'Less dense than liquid water &#8212; floats'},
+  {n:'Olive oil',r:0.910,s:'Liquid',note:'Floats on water'},
+  {n:'Water (4\u00b0C)',r:1.000,s:'Liquid',note:'Reference density'},
+  {n:'Water (25\u00b0C)',r:0.9971,s:'Liquid',note:''},
+  {n:'Seawater',r:1.025,s:'Liquid',note:'Slightly denser than fresh'},
+  {n:'Blood',r:1.055,s:'Liquid',note:''},
+  {n:'Bone (cortical)',r:1.85,s:'Solid',note:''},
+  {n:'Concrete',r:2.30,s:'Solid',note:''},
+  {n:'Glass (soda-lime)',r:2.50,s:'Solid',note:''},
+  {n:'Silicon',r:2.33,s:'Solid',note:'Semiconductor'},
+  {n:'Aluminum',r:2.70,s:'Solid',note:'Lightest structural metal'},
+  {n:'Diamond',r:3.51,s:'Solid',note:'Hardest natural material'},
+  {n:'Titanium',r:4.51,s:'Solid',note:'Strong + light &#8212; aerospace, implants'},
+  {n:'Zinc',r:7.13,s:'Solid',note:''},
+  {n:'Tin',r:7.31,s:'Solid',note:''},
+  {n:'Iron',r:7.87,s:'Solid',note:'Common structural metal'},
+  {n:'Steel',r:7.90,s:'Solid',note:'Fe + C alloy'},
+  {n:'Copper',r:8.96,s:'Solid',note:''},
+  {n:'Nickel',r:8.91,s:'Solid',note:''},
+  {n:'Silver',r:10.50,s:'Solid',note:''},
+  {n:'Lead',r:11.34,s:'Solid',note:'Radiation shielding &#x2022; toxic'},
+  {n:'Mercury',r:13.60,s:'Liquid',note:'Only liquid metal at room temperature'},
+  {n:'Gold',r:19.30,s:'Solid',note:'Dense + chemically inert'},
+  {n:'Tungsten',r:19.25,s:'Solid',note:'Highest melting metal (3,422\u00b0C)'},
+  {n:'Platinum',r:21.45,s:'Solid',note:''},
+  {n:'Iridium',r:22.56,s:'Solid',note:''},
+  {n:'Osmium',r:22.59,s:'Solid',note:'Densest natural element'}
+];
+
+var _dSortK = 'r';
+var _dSortD = 1;
+
+window.densSort = function(k) {
+  if (_dSortK === k) { _dSortD *= -1; } else { _dSortK = k; _dSortD = 1; }
+  renderDensity(document.getElementById('chem-content'));
+};
+
+function renderDensity(el) {
+  var col = '#fbbf24';
+  var data = DENS_DATA.slice().sort(function(a, b) {
+    var av = a[_dSortK], bv = b[_dSortK];
+    if (typeof av === 'string') av = av.toLowerCase();
+    if (typeof bv === 'string') bv = bv.toLowerCase();
+    return av < bv ? -_dSortD : av > bv ? _dSortD : 0;
+  });
+
+  var h = secHead('Density Formula', col);
+  h += '<div style="background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-radius:var(--rl);padding:.85rem;font-size:12px;line-height:2;margin-bottom:.75rem">';
+  h += '<div style="font-family:monospace;font-size:1.3rem;text-align:center;color:' + col + '">\u03c1 = m / V</div>';
+  h += '<div style="text-align:center;color:var(--muted);font-size:11px;margin-bottom:.5rem">density (g/cm\u00b3) = mass (g) / volume (cm\u00b3)</div>';
+  h += 'Derived: &nbsp; m = \u03c1 \u00d7 V &nbsp;|&nbsp; V = m / \u03c1<br>';
+  h += 'Units: g/cm\u00b3 = g/mL = kg/L &nbsp;|&nbsp; SI: kg/m\u00b3<br>';
+  h += '<strong>Archimedes:</strong> F_b = \u03c1_fluid \u00d7 g \u00d7 V_submerged<br>';
+  h += 'Floats if \u03c1_object &lt; \u03c1_fluid &nbsp;&#x2022;&nbsp; Sinks if \u03c1_object &gt; \u03c1_fluid';
+  h += '</div>';
+
+  h += secHead('Density Table &#8212; Click column header to sort', col);
+  h += '<div class="tbl-wrap"><table><tr>';
+  [{k:'n',l:'Material'},{k:'r',l:'\u03c1 (g/cm\u00b3)'},{k:'s',l:'State'},{k:'note',l:'Notes'}].forEach(function(c) {
+    var arrow = (_dSortK === c.k) ? (_dSortD === 1 ? ' \u25b2' : ' \u25bc') : ' \u25b8';
+    h += '<th style="color:' + col + ';cursor:pointer" onclick="densSort(\x27' + c.k + '\x27)">' + c.l + arrow + '</th>';
+  });
+  h += '</tr>';
+  data.forEach(function(row) {
+    h += '<tr>';
+    h += '<td style="color:var(--fg)">' + row.n + '</td>';
+    h += '<td style="color:' + col + ';font-family:monospace">' + row.r + '</td>';
+    h += '<td style="color:var(--muted)">' + row.s + '</td>';
+    h += '<td style="color:var(--muted)">' + (row.note || '') + '</td>';
+    h += '</tr>';
+  });
+  h += '</table></div>';
+
+  h += secHead('Lead &#8212; Deep Data (Pb, Z=82)', col);
+  h += tbl(['Property', 'Value'],
+    [['Density', '11.34 g/cm\u00b3'],
+     ['Atomic mass', '207.2 u'],
+     ['Melting point', '327.5\u00b0C'],
+     ['Boiling point', '1,749\u00b0C'],
+     ['Electron configuration', '[Xe] 4f\u00b9\u2074 5d\u00b9\u2070 6s\u00b2 6p\u00b2'],
+     ['Gamma shielding', '1 cm blocks most \u03b3-rays &lt;1 MeV'],
+     ['Toxicity', 'Accumulates in bone, kidney, brain &#8212; no safe exposure level'],
+     ['LD\u2085\u2080 (rat, soluble salts)', '~450 mg/kg'],
+     ['Primary uses', 'Radiation shielding, lead-acid batteries, ammunition, solder']], col);
+
+  el.innerHTML = statBar([
+    {v: '22.59', l: 'Osmium (densest, g/cm\u00b3)', col: col},
+    {v: '0.00009', l: 'H\u2082 gas (g/cm\u00b3)', col: col},
+    {v: '11.34', l: 'Lead (g/cm\u00b3)', col: col},
+    {v: '19.30', l: 'Gold (g/cm\u00b3)', col: col}
+  ]) + h;
+}
+
+// ── REACTIONS ────────────────────────────────────────────────────────────────
+
+window.updatePH = function(ph) {
+  ph = parseFloat(ph);
+  var slider = document.getElementById('ph-slider');
+  var disp = document.getElementById('ph-display');
+  var marker = document.getElementById('ph-marker');
+  var info = document.getElementById('ph-info');
+  if (slider) slider.value = ph;
+  if (disp) disp.textContent = ph.toFixed(1);
+  if (marker) marker.style.left = (ph / 14 * 100).toFixed(1) + '%';
+  if (!info) return;
+  var cat, col2, ex;
+  if (ph <= 1) { cat = 'Strong acid'; col2 = '#ef4444'; ex = 'Battery acid, HCl (conc.)'; }
+  else if (ph < 3) { cat = 'Weak acid'; col2 = '#f97316'; ex = 'Stomach acid (1.5), vinegar (2.5), lemon (2)'; }
+  else if (ph < 5) { cat = 'Mild acid'; col2 = '#eab308'; ex = 'Coffee (5), tomato (4.5), beer (4)'; }
+  else if (ph < 7) { cat = 'Near neutral &#8212; acidic'; col2 = '#84cc16'; ex = 'Rain (5.6), urine (6), skin (5)'; }
+  else if (ph === 7) { cat = 'Neutral'; col2 = '#22c55e'; ex = 'Pure water'; }
+  else if (ph < 8) { cat = 'Near neutral &#8212; basic'; col2 = '#10b981'; ex = 'Blood (7.4), saliva (6.5&#8211;7.5)'; }
+  else if (ph < 10) { cat = 'Mild base'; col2 = '#06b6d4'; ex = 'Seawater (8.2), baking soda (9), soap (9&#8211;10)'; }
+  else if (ph < 12) { cat = 'Weak base'; col2 = '#3b82f6'; ex = 'Milk of magnesia (10.5), ammonia (11)'; }
+  else { cat = 'Strong base'; col2 = '#6366f1'; ex = 'Bleach (12.5), drain cleaner (13), NaOH (14)'; }
+  var hconc = Math.pow(10, -ph).toExponential(2);
+  info.innerHTML = '<strong style="color:' + col2 + '">' + cat + '</strong> &#x2022; [H\u207a] = ' + hconc + ' mol/L &#x2022; ' + ex;
+};
+
+function renderReactions(el) {
+  var col = '#f87171';
+  var h = '';
+
+  h += secHead('Reaction Types', col);
+  h += tbl(['Type', 'Pattern', 'Example'],
+    [['Synthesis', 'A + B \u2192 AB', '2H\u2082 + O\u2082 \u2192 2H\u2082O'],
+     ['Decomposition', 'AB \u2192 A + B', '2H\u2082O\u2082 \u2192 2H\u2082O + O\u2082'],
+     ['Single replacement', 'A + BC \u2192 AC + B', 'Zn + 2HCl \u2192 ZnCl\u2082 + H\u2082\u2191'],
+     ['Double replacement', 'AB + CD \u2192 AD + CB', 'NaCl + AgNO\u2083 \u2192 AgCl\u2193 + NaNO\u2083'],
+     ['Combustion', 'Fuel + O\u2082 \u2192 CO\u2082 + H\u2082O + heat', 'CH\u2084 + 2O\u2082 \u2192 CO\u2082 + 2H\u2082O'],
+     ['Neutralization', 'Acid + base \u2192 salt + water', 'HCl + NaOH \u2192 NaCl + H\u2082O'],
+     ['Redox', 'Electron transfer', 'Zn + Cu\u00b2\u207a \u2192 Zn\u00b2\u207a + Cu']], col);
+
+  h += secHead('Energy', col);
+  h += tbl(['Type', '\u0394H', 'Temp effect', 'Examples'],
+    [['Exothermic', 'Negative &#8212; releases energy', 'Gets hot', 'Combustion, explosions, rusting, respiration, body heat'],
+     ['Endothermic', 'Positive &#8212; absorbs energy', 'Gets cold', 'Photosynthesis, cooking, dissolving NH\u2084NO\u2083 (cold pack)']], col);
+
+  h += secHead('pH Scale &#8212; Interactive', col);
+  h += '<div class="input-row" style="align-items:center"><input id="ph-slider" type="range" min="0" max="14" step="0.1" value="7" style="flex:1;accent-color:' + col + '" oninput="updatePH(this.value)"><span id="ph-display" style="color:' + col + ';font-weight:800;font-size:1.1rem;min-width:2.5rem;text-align:right">7.0</span></div>';
+  h += '<div class="ph-bar"><div id="ph-marker" class="ph-marker" style="left:50%"></div></div>';
+  h += '<div id="ph-info" class="result-box" style="margin-top:.4rem"><span style="color:var(--muted)">Move slider above.</span></div>';
+
+  h += secHead('pH Reference Table', col);
+  h += tbl(['pH', 'Category', 'Examples'],
+    [['0&#8211;1', 'Strong acid', 'Battery acid (H\u2082SO\u2084, pH~0), HCl conc.'],
+     ['1.5&#8211;3.5', 'Stomach acid', 'Parietal cells secrete HCl actively'],
+     ['2.5', 'Weak acid', 'Vinegar, lemon juice (~2), Coca-Cola (~2.5)'],
+     ['4&#8211;5', 'Mild acid', 'Tomato juice (4.5), coffee (5), beer (4)'],
+     ['5&#8211;6', 'Near neutral', 'Rain (5.6), urine (5.5&#8211;7), skin (4.5&#8211;6.5)'],
+     ['7.0', 'Neutral', 'Pure water, ideal blood if unbuffered'],
+     ['7.35&#8211;7.45', 'Blood (critical)', 'Death at pH &lt;7.0 or &gt;7.7 without intervention'],
+     ['8&#8211;9', 'Mild base', 'Seawater (8.2), baking soda solution (9)'],
+     ['10&#8211;11', 'Weak base', 'Milk of magnesia (10.5), ammonia solution (11)'],
+     ['12&#8211;14', 'Strong base', 'Bleach (12.5), NaOH solution (13&#8211;14)']], col);
+
+  h += secHead('Strong Acids &amp; Bases', col);
+  h += tbl(['Strong Acids (fully dissociate)', 'Strong Bases (fully dissociate)'],
+    [['HCl (hydrochloric)', 'NaOH (sodium hydroxide)'],
+     ['HBr (hydrobromic)', 'KOH (potassium hydroxide)'],
+     ['HI (hydroiodic)', 'Ca(OH)\u2082 (calcium hydroxide)'],
+     ['HNO\u2083 (nitric)', 'Ba(OH)\u2082 (barium hydroxide)'],
+     ['H\u2082SO\u2084 (sulfuric)', 'LiOH (lithium hydroxide)'],
+     ['HClO\u2084 (perchloric)', 'RbOH, CsOH']], col);
+
+  h += secHead('Oxidation-Reduction (Redox) &#8212; OIL RIG', col);
+  h += infoBox(
+    '<strong style="color:' + col + '">OIL RIG:</strong> ' +
+    '<strong>O</strong>xidation <strong>I</strong>s <strong>L</strong>oss of electrons &nbsp;|&nbsp; ' +
+    '<strong>R</strong>eduction <strong>I</strong>s <strong>G</strong>ain of electrons<br><br>' +
+    '<strong>Example:</strong> Zn + H\u2082SO\u2084 \u2192 ZnSO\u2084 + H\u2082<br>' +
+    'Oxidation half: Zn \u2192 Zn\u00b2\u207a + 2e\u207b (zinc is oxidized &#8212; loses electrons)<br>' +
+    'Reduction half: 2H\u207a + 2e\u207b \u2192 H\u2082 (H\u207a is reduced &#8212; gains electrons)<br><br>' +
+    '<strong>Oxidation state rules:</strong> Pure element = 0 &#x2022; O in compounds = \u22122 (peroxides: \u22121) &#x2022; H = +1 (metal hydrides: \u22121)', '248,113,113');
+
+  h += secHead('Activation Energy &amp; Catalysts', col);
+  h += infoBox(
+    '&#x2022; <strong style="color:' + col + '">Activation energy (E\u2090):</strong> energy barrier that reactants must overcome to react<br>' +
+    '&#x2022; <strong>Catalyst:</strong> lowers E\u2090 &#8212; not consumed &#8212; same products &#8212; faster reaction<br>' +
+    '&#x2022; <strong>Enzyme:</strong> biological catalyst (protein) &#8212; lock-and-key active site, exquisitely specific<br>' +
+    '&#x2022; Example: catalase breaks H\u2082O\u2082 \u2192 H\u2082O + \u00bdO\u2082<br>' +
+    '&nbsp;&nbsp;Without enzyme: extremely slow. With catalase: 10\u2077 reactions/second/enzyme molecule', '248,113,113');
+
+  el.innerHTML = statBar([
+    {v: '0&#8211;14', l: 'pH scale', col: col},
+    {v: '7.4', l: 'Blood pH (critical)', col: col},
+    {v: '7', l: 'Reaction types', col: col},
+    {v: '10\u2077', l: 'Catalase reactions/sec', col: col}
+  ]) + h;
+
+  setTimeout(function() { updatePH(7); }, 30);
+}
+
+// ── MATERIALS ────────────────────────────────────────────────────────────────
+
+function renderMaterials(el) {
+  var col = '#94a3b8';
+  var h = '';
+
+  h += secHead('Alloys', col);
+  h += tbl(['Alloy', 'Components', 'Properties', 'Uses'],
+    [['Steel', 'Fe + 0.02&#8211;2.1% C', 'Stronger, harder than iron', 'Construction, tools, vehicles'],
+     ['Stainless steel', 'Fe + C + \u226510.5% Cr', 'Corrosion-resistant', 'Cutlery, medical, architecture'],
+     ['Bronze', 'Cu + ~12% Sn', 'Harder than copper, corrosion-resistant', 'Art, bearings, bells'],
+     ['Brass', 'Cu + 5&#8211;40% Zn', 'Workable, antibacterial, acoustic', 'Musical instruments, plumbing'],
+     ['Duralumin', 'Al + 4% Cu + Mg + Mn', 'Strong + light', 'Aerospace, bicycle frames'],
+     ['Titanium alloy (Ti-6Al-4V)', 'Ti + 6% Al + 4% V', 'Highest strength-to-weight', 'Aircraft, implants, rockets'],
+     ['Solder', 'Sn + Pb or Sn + Ag + Cu', 'Low melting (~180&#8211;190\u00b0C)', 'Electronics, plumbing joints'],
+     ['Nitinol', 'Ni + Ti (1:1)', 'Shape memory effect', 'Medical stents, actuators'],
+     ['Invar', 'Fe + 36% Ni', 'Minimal thermal expansion', 'Watches, precision instruments']], col);
+
+  h += secHead('Glass &amp; Silicates', col);
+  h += makeCards([
+    {em: '\ud83d\udd2d', title: 'Soda-Lime Glass',
+     sub: 'SiO\u2082 ~72% + Na\u2082O + CaO + MgO &#x2022; most common glass',
+     body: 'Windows, bottles, tableware. Amorphous solid &#8212; no long-range crystal order.<br>' +
+           '"Glass is a liquid" = MYTH. Amorphous solids do not flow at room temperature. Old window variation is from uneven manufacturing, not flow.<br>' +
+           'Density: 2.5 g/cm\u00b3. Melting range: 700&#8211;900\u00b0C.'},
+    {em: '\u2697\ufe0f', title: 'Borosilicate Glass (Pyrex)',
+     sub: 'SiO\u2082 + B\u2082O\u2083 &#x2022; low thermal expansion',
+     body: 'Thermal expansion coefficient: 3.3\u00d710\u207b\u2076/K vs 9\u00d710\u207b\u2076/K for soda-lime &#8212; resists thermal shock.<br>' +
+           'Used in lab glassware, cookware, telescope mirrors, scientific instruments.'},
+    {em: '\ud83d\udca1', title: 'Optical Fiber',
+     sub: 'Ultra-pure SiO\u2082 &#x2022; backbone of the internet',
+     body: 'Purity: &lt;1 ppb impurities. Signal travels via total internal reflection.<br>' +
+           'Speed in fiber: ~200,000 km/s (2/3 of c in vacuum).<br>' +
+           'Transcontinental cables carry petabits/second. Single fiber = 100+ terabits/sec (lab record).'}
+  ], col);
+
+  h += secHead('Concrete &amp; Cement', col);
+  h += infoBox(
+    '<strong style="color:' + col + '">Portland cement:</strong> CaO 65% + SiO\u2082 20% + Al\u2082O\u2083 5% + Fe\u2082O\u2083 4%<br>' +
+    '<strong>Hydration:</strong> cement + H\u2082O \u2192 calcium silicate hydrate (C-S-H) gel + Ca(OH)\u2082 \u2192 strength gain over weeks<br>' +
+    '<strong>Concrete:</strong> cement + water + sand (fine aggregate) + gravel (coarse aggregate)<br>' +
+    '<strong>Compressive strength:</strong> 20&#8211;40 MPa typical; up to 150 MPa ultra-high-performance<br>' +
+    '<strong>Weakness:</strong> low tensile strength \u2192 reinforced with steel rebar (ductile) or prestressed tendons', '148,163,184');
+
+  h += secHead('Plastics (Polymers)', col);
+  h += tbl(['Plastic', 'Monomer', 'Key properties', 'Uses'],
+    [['Polyethylene (PE)', 'CH\u2082=CH\u2082', 'Flexible, cheap, chemically inert', 'Bags, bottles, pipes'],
+     ['Polypropylene (PP)', 'Propylene', 'Stiffer, heat-resistant', 'Containers, medical packaging'],
+     ['PVC', 'CH\u2082=CHCl', 'Rigid or flexible with plasticizers', 'Pipes, cables, flooring, vinyl'],
+     ['Polystyrene (PS)', 'Styrene', 'Rigid, transparent; foam form = insulator', 'Foam cups, disposables, CD cases'],
+     ['Nylon (PA 6,6)', 'Adipic acid + hexamethylenediamine', 'Strong, elastic, abrasion-resistant', 'Textiles, gears, ropes'],
+     ['PET', 'Terephthalic acid + ethylene glycol', 'Strong, transparent, recyclable', 'Water bottles, polyester fibers'],
+     ['Teflon (PTFE)', 'CF\u2082=CF\u2082', 'Non-stick, chemically inert, high-temp', 'Cookware, seals, lab tubing'],
+     ['Polycarbonate', 'BPA + phosgene', 'Impact-resistant, optically clear', 'Safety glass, CDs, eyewear lenses']], col);
+
+  h += secHead('Diamond vs Graphite &#8212; Same Element (C), Radically Different', col);
+  h += tbl(['Property', 'Diamond', 'Graphite'],
+    [['Bonding', 'sp\u00b3 &#8212; 3D tetrahedral covalent network', 'sp\u00b2 &#8212; 2D hexagonal layers + \u03c0 bonds'],
+     ['Hardness', '10 (Mohs) &#8212; hardest natural material', '1&#8211;2 (Mohs) &#8212; soft, lubricating'],
+     ['Density', '3.51 g/cm\u00b3', '2.09&#8211;2.23 g/cm\u00b3'],
+     ['Electrical', 'Insulator (no free e\u207b)', 'Conductor (delocalized \u03c0 electrons)'],
+     ['Thermal', 'Best thermal conductor known', 'Moderate thermal conductor'],
+     ['Appearance', 'Transparent, brilliant', 'Black, opaque, metallic luster'],
+     ['Uses', 'Cutting, grinding, jewelry', 'Pencils, electrodes, lubricant, batteries']], col);
+
+  h += secHead('Organic Chemistry Functional Groups', col);
+  h += tbl(['Group', 'Formula', 'Example', 'Notes'],
+    [['Alkane', 'C&#8211;C single bonds only', 'Methane CH\u2084', 'Nonpolar, unreactive'],
+     ['Alkene', 'C=C double bond', 'Ethylene C\u2082H\u2084', 'Polymerizes to PE'],
+     ['Alkyne', 'C\u2261C triple bond', 'Acetylene C\u2082H\u2082', 'Welding torch fuel'],
+     ['Alcohol (&#8211;OH)', 'R&#8211;OH', 'Ethanol C\u2082H\u2085OH', 'H-bond donor'],
+     ['Carboxylic acid', 'R&#8211;COOH', 'Acetic acid CH\u2083COOH', 'Weak acid'],
+     ['Aldehyde', 'R&#8211;CHO', 'Formaldehyde HCHO', 'Preservative, toxic'],
+     ['Ketone', 'R&#8211;CO&#8211;R\'', 'Acetone (CH\u2083)\u2082CO', 'Solvent'],
+     ['Amine', 'R&#8211;NH\u2082', 'Methylamine CH\u2083NH\u2082', 'Base, H-bond donor'],
+     ['Ester', 'R&#8211;COO&#8211;R\'', 'Ethyl acetate', 'Fats, fragrances'],
+     ['Amide', 'R&#8211;CO&#8211;NH\u2082', 'Peptide bond', 'Links amino acids in proteins']], col);
+
+  h += secHead('Biological Macromolecules', col);
+  h += tbl(['Class', 'Monomer', 'Function', 'Examples'],
+    [['Carbohydrates', 'Monosaccharides (C\u2092H\u2082\u2099O\u2099)', 'Energy, structural support', 'Glucose \u2192 glycogen, starch, cellulose'],
+     ['Proteins', '20 amino acids', 'Enzymes, structure, transport, immunity', 'Collagen, hemoglobin, insulin, antibodies'],
+     ['Lipids', 'Fatty acids + glycerol', 'Energy storage, membranes, signals', 'Triglycerides, phospholipids, sterols'],
+     ['Nucleic acids', 'Nucleotides (sugar + phosphate + base)', 'Genetic info, energy currency', 'DNA, mRNA, tRNA, rRNA, ATP']], col);
+
+  h += secHead('Physical Constants', col);
+  h += tbl(['Constant', 'Symbol', 'Value'],
+    [['Speed of light', 'c', '2.998 \u00d7 10\u2078 m/s'],
+     ['Planck constant', 'h', '6.626 \u00d7 10\u207b\u00b3\u2074 J\u00b7s'],
+     ['Avogadro constant', 'N\u2090', '6.02214076 \u00d7 10\u00b2\u00b3 mol\u207b\u00b9'],
+     ['Boltzmann constant', 'k_B', '1.38065 \u00d7 10\u207b\u00b2\u00b3 J/K'],
+     ['Elementary charge', 'e', '1.60218 \u00d7 10\u207b\u00b9\u2079 C'],
+     ['Electron mass', 'm_e', '9.10938 \u00d7 10\u207b\u00b3\u00b9 kg'],
+     ['Proton mass', 'm_p', '1.67262 \u00d7 10\u207b\u00b2\u2077 kg'],
+     ['Gas constant', 'R', '8.31446 J/mol\u00b7K'],
+     ['1 eV in Joules', 'eV', '1.60218 \u00d7 10\u207b\u00b9\u2079 J']], col);
+
+  el.innerHTML = statBar([
+    {v: '9', l: 'Alloy families', col: col},
+    {v: '8', l: 'Plastic types', col: col},
+    {v: '10', l: 'Organic groups', col: col},
+    {v: '4', l: 'Biomacromolecule classes', col: col}
+  ]) + h;
+}
+
+
+// ── ELEMENT DATA (118 elements: [z, sym, name, mass, cat, row, col]) ─────────
+// cat: ak=alkali ae=alkaline tr=transition pt=post-transition mt=metalloid
+//      nm=nonmetal hl=halogen ng=noble gas ln=lanthanide ac=actinide
+// row 8 = lanthanides (f-block, period 6), row 9 = actinides (f-block, period 7)
+var EL = [
+[1,'H','Hydrogen',1.008,'nm',1,1],[2,'He','Helium',4.003,'ng',1,18],
+[3,'Li','Lithium',6.941,'ak',2,1],[4,'Be','Beryllium',9.012,'ae',2,2],
+[5,'B','Boron',10.811,'mt',2,13],[6,'C','Carbon',12.011,'nm',2,14],
+[7,'N','Nitrogen',14.007,'nm',2,15],[8,'O','Oxygen',15.999,'nm',2,16],
+[9,'F','Fluorine',18.998,'hl',2,17],[10,'Ne','Neon',20.180,'ng',2,18],
+[11,'Na','Sodium',22.990,'ak',3,1],[12,'Mg','Magnesium',24.305,'ae',3,2],
+[13,'Al','Aluminum',26.982,'pt',3,13],[14,'Si','Silicon',28.086,'mt',3,14],
+[15,'P','Phosphorus',30.974,'nm',3,15],[16,'S','Sulfur',32.065,'nm',3,16],
+[17,'Cl','Chlorine',35.453,'hl',3,17],[18,'Ar','Argon',39.948,'ng',3,18],
+[19,'K','Potassium',39.098,'ak',4,1],[20,'Ca','Calcium',40.078,'ae',4,2],
+[21,'Sc','Scandium',44.956,'tr',4,3],[22,'Ti','Titanium',47.867,'tr',4,4],
+[23,'V','Vanadium',50.942,'tr',4,5],[24,'Cr','Chromium',51.996,'tr',4,6],
+[25,'Mn','Manganese',54.938,'tr',4,7],[26,'Fe','Iron',55.845,'tr',4,8],
+[27,'Co','Cobalt',58.933,'tr',4,9],[28,'Ni','Nickel',58.693,'tr',4,10],
+[29,'Cu','Copper',63.546,'tr',4,11],[30,'Zn','Zinc',65.380,'tr',4,12],
+[31,'Ga','Gallium',69.723,'pt',4,13],[32,'Ge','Germanium',72.630,'mt',4,14],
+[33,'As','Arsenic',74.922,'mt',4,15],[34,'Se','Selenium',78.971,'nm',4,16],
+[35,'Br','Bromine',79.904,'hl',4,17],[36,'Kr','Krypton',83.798,'ng',4,18],
+[37,'Rb','Rubidium',85.468,'ak',5,1],[38,'Sr','Strontium',87.620,'ae',5,2],
+[39,'Y','Yttrium',88.906,'tr',5,3],[40,'Zr','Zirconium',91.224,'tr',5,4],
+[41,'Nb','Niobium',92.906,'tr',5,5],[42,'Mo','Molybdenum',95.960,'tr',5,6],
+[43,'Tc','Technetium',98.0,'tr',5,7],[44,'Ru','Ruthenium',101.07,'tr',5,8],
+[45,'Rh','Rhodium',102.906,'tr',5,9],[46,'Pd','Palladium',106.420,'tr',5,10],
+[47,'Ag','Silver',107.868,'tr',5,11],[48,'Cd','Cadmium',112.411,'tr',5,12],
+[49,'In','Indium',114.818,'pt',5,13],[50,'Sn','Tin',118.710,'pt',5,14],
+[51,'Sb','Antimony',121.760,'mt',5,15],[52,'Te','Tellurium',127.600,'mt',5,16],
+[53,'I','Iodine',126.904,'hl',5,17],[54,'Xe','Xenon',131.293,'ng',5,18],
+[55,'Cs','Cesium',132.905,'ak',6,1],[56,'Ba','Barium',137.327,'ae',6,2],
+[57,'La','Lanthanum',138.905,'ln',6,3],
+[72,'Hf','Hafnium',178.490,'tr',6,4],[73,'Ta','Tantalum',180.948,'tr',6,5],
+[74,'W','Tungsten',183.840,'tr',6,6],[75,'Re','Rhenium',186.207,'tr',6,7],
+[76,'Os','Osmium',190.230,'tr',6,8],[77,'Ir','Iridium',192.217,'tr',6,9],
+[78,'Pt','Platinum',195.084,'tr',6,10],[79,'Au','Gold',196.967,'tr',6,11],
+[80,'Hg','Mercury',200.592,'tr',6,12],[81,'Tl','Thallium',204.383,'pt',6,13],
+[82,'Pb','Lead',207.200,'pt',6,14],[83,'Bi','Bismuth',208.980,'pt',6,15],
+[84,'Po','Polonium',209.0,'pt',6,16],[85,'At','Astatine',210.0,'hl',6,17],
+[86,'Rn','Radon',222.0,'ng',6,18],
+[87,'Fr','Francium',223.0,'ak',7,1],[88,'Ra','Radium',226.0,'ae',7,2],
+[89,'Ac','Actinium',227.0,'ac',7,3],
+[104,'Rf','Rutherfordium',267.0,'tr',7,4],[105,'Db','Dubnium',268.0,'tr',7,5],
+[106,'Sg','Seaborgium',271.0,'tr',7,6],[107,'Bh','Bohrium',270.0,'tr',7,7],
+[108,'Hs','Hassium',277.0,'tr',7,8],[109,'Mt','Meitnerium',278.0,'tr',7,9],
+[110,'Ds','Darmstadtium',281.0,'tr',7,10],[111,'Rg','Roentgenium',282.0,'tr',7,11],
+[112,'Cn','Copernicium',285.0,'tr',7,12],[113,'Nh','Nihonium',286.0,'pt',7,13],
+[114,'Fl','Flerovium',289.0,'pt',7,14],[115,'Mc','Moscovium',290.0,'pt',7,15],
+[116,'Lv','Livermorium',293.0,'pt',7,16],[117,'Ts','Tennessine',294.0,'hl',7,17],
+[118,'Og','Oganesson',294.0,'ng',7,18],
+[58,'Ce','Cerium',140.116,'ln',8,4],[59,'Pr','Praseodymium',140.908,'ln',8,5],
+[60,'Nd','Neodymium',144.242,'ln',8,6],[61,'Pm','Promethium',145.0,'ln',8,7],
+[62,'Sm','Samarium',150.360,'ln',8,8],[63,'Eu','Europium',151.964,'ln',8,9],
+[64,'Gd','Gadolinium',157.250,'ln',8,10],[65,'Tb','Terbium',158.925,'ln',8,11],
+[66,'Dy','Dysprosium',162.500,'ln',8,12],[67,'Ho','Holmium',164.930,'ln',8,13],
+[68,'Er','Erbium',167.259,'ln',8,14],[69,'Tm','Thulium',168.934,'ln',8,15],
+[70,'Yb','Ytterbium',173.045,'ln',8,16],[71,'Lu','Lutetium',174.967,'ln',8,17],
+[90,'Th','Thorium',232.038,'ac',9,4],[91,'Pa','Protactinium',231.036,'ac',9,5],
+[92,'U','Uranium',238.029,'ac',9,6],[93,'Np','Neptunium',237.0,'ac',9,7],
+[94,'Pu','Plutonium',244.0,'ac',9,8],[95,'Am','Americium',243.0,'ac',9,9],
+[96,'Cm','Curium',247.0,'ac',9,10],[97,'Bk','Berkelium',247.0,'ac',9,11],
+[98,'Cf','Californium',251.0,'ac',9,12],[99,'Es','Einsteinium',252.0,'ac',9,13],
+[100,'Fm','Fermium',257.0,'ac',9,14],[101,'Md','Mendelevium',258.0,'ac',9,15],
+[102,'No','Nobelium',259.0,'ac',9,16],[103,'Lr','Lawrencium',266.0,'ac',9,17]
+];
+
+var PT_CAT = {
+  ak:{l:'Alkali Metal',c:'#ef4444'},
+  ae:{l:'Alkaline Earth',c:'#f97316'},
+  tr:{l:'Transition Metal',c:'#d4a017'},
+  pt:{l:'Post-Transition',c:'#4ade80'},
+  mt:{l:'Metalloid',c:'#22d3ee'},
+  nm:{l:'Nonmetal',c:'#60a5fa'},
+  hl:{l:'Halogen',c:'#c084fc'},
+  ng:{l:'Noble Gas',c:'#f472b6'},
+  ln:{l:'Lanthanide',c:'#fb923c'},
+  ac:{l:'Actinide',c:'#e879f9'}
+};
+
+// ── PERIODIC TABLE ────────────────────────────────────────────────────────────
+
+function renderPeriodic(el) {
+  var h = '';
+
+  // Filter buttons
+  h += '<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.75rem">';
+  h += '<button onclick="ptFilter(null,this)" class="pt-fb pfa">All</button>';
+  Object.keys(PT_CAT).forEach(function(k) {
+    h += '<button onclick="ptFilter(\x27' + k + '\x27,this)" class="pt-fb" style="border-color:' + PT_CAT[k].c + '50;color:' + PT_CAT[k].c + '">' + PT_CAT[k].l + '</button>';
+  });
+  h += '</div>';
+
+  // Grid (explicit grid placement per element)
+  h += '<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.5rem">';
+  h += '<div id="pt-grid" style="display:grid;grid-template-columns:repeat(18,minmax(38px,1fr));grid-template-rows:repeat(9,52px);gap:2px;min-width:684px">';
+
+  // f-block row labels (span first 3 cols)
+  h += '<div style="grid-row:8;grid-column:1/span 3;display:flex;align-items:center;justify-content:flex-end;padding-right:4px;font-size:9px;color:#fb923c">\u21b3 57\u201371</div>';
+  h += '<div style="grid-row:9;grid-column:1/span 3;display:flex;align-items:center;justify-content:flex-end;padding-right:4px;font-size:9px;color:#e879f9">\u21b3 89\u2013103</div>';
+
+  // All 118 element cells
+  EL.forEach(function(e) {
+    var cc = PT_CAT[e[4]].c;
+    h += '<div class="pt-el" data-cat="' + e[4] + '" style="grid-row:' + e[5] + ';grid-column:' + e[6] + ';background:' + cc + '22;border:1px solid ' + cc + '44" onclick="ptShowEl(' + e[0] + ')">';
+    h += '<div style="font-size:7.5px;color:var(--muted);line-height:1">' + e[0] + '</div>';
+    h += '<div style="font-size:13px;font-weight:800;color:' + cc + ';line-height:1.1">' + e[1] + '</div>';
+    h += '<div style="font-size:6.5px;color:var(--muted);white-space:nowrap;overflow:hidden;max-width:36px">' + e[2].split(' ')[0] + '</div>';
+    h += '</div>';
+  });
+  h += '</div></div>';
+
+  // Detail panel
+  h += '<div id="pt-detail" style="margin-top:.75rem;background:var(--bg2);border-radius:var(--rl);padding:.85rem;font-size:12px;min-height:60px;color:var(--muted)">Click any element to see details.</div>';
+
+  el.innerHTML = h;
+}
+
+window.ptShowEl = function(z) {
+  var e = EL.filter(function(x) { return x[0] === z; })[0];
+  if (!e) return;
+  var cc = PT_CAT[e[4]].c;
+  var det = document.getElementById('pt-detail');
+  if (!det) return;
+  var period = e[5] === 8 ? '6 (f-block/lanthanide)' : e[5] === 9 ? '7 (f-block/actinide)' : e[5];
+  det.innerHTML = '<div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap">' +
+    '<div style="background:' + cc + '22;border:1px solid ' + cc + '55;border-radius:8px;padding:.85rem;min-width:80px;text-align:center">' +
+    '<div style="font-size:30px;font-weight:800;color:' + cc + ';line-height:1">' + e[1] + '</div>' +
+    '<div style="font-size:11px;color:var(--muted);margin-top:2px">' + e[0] + '</div>' +
+    '<div style="font-size:10px;color:var(--muted)">' + e[3] + ' u</div>' +
+    '</div>' +
+    '<div style="flex:1;min-width:180px">' +
+    '<div style="font-size:1.1rem;font-weight:800;color:' + cc + '">' + e[2] + '</div>' +
+    '<div style="font-size:11px;color:var(--muted);line-height:2;margin-top:.25rem">' +
+    'Category: <span style="color:' + cc + '">' + PT_CAT[e[4]].l + '</span><br>' +
+    'Atomic number: <span style="color:var(--fg)">' + e[0] + '</span><br>' +
+    'Atomic mass: <span style="color:var(--fg)">' + e[3] + ' u</span><br>' +
+    'Period: <span style="color:var(--fg)">' + period + '</span> &nbsp; Group: <span style="color:var(--fg)">' + e[6] + '</span>' +
+    '</div></div></div>';
+};
+
+window.ptFilter = function(cat, btn) {
+  document.querySelectorAll('.pt-fb').forEach(function(b) { b.classList.remove('pfa'); });
+  if (btn) btn.classList.add('pfa');
+  document.querySelectorAll('.pt-el').forEach(function(e) {
+    var match = !cat || e.dataset.cat === cat;
+    e.style.opacity = match ? '1' : '0.1';
+    e.style.pointerEvents = match ? 'auto' : 'none';
+  });
+};
+
+// ── NUCLEAR ───────────────────────────────────────────────────────────────────
+
+var _nucCol = '#f87171';
+
+
+// ── NUCLEAR (ENRICHED REPLACEMENT) ────────────────────────────────────────────
+
+var _nucCol = '#f87171';
+
+window.calcHL = function() {
+  var n0 = parseFloat(document.getElementById('hl-n0').value);
+  var t12 = parseFloat(document.getElementById('hl-t12').value);
+  var t = parseFloat(document.getElementById('hl-t').value);
+  var res = document.getElementById('hl-result');
+  if (!res) return;
+  if (isNaN(n0) || isNaN(t12) || isNaN(t) || t12 <= 0 || n0 < 0 || t < 0) {
+    res.innerHTML = '<span style="color:#f87171">Enter valid positive numbers.</span>';
+    return;
+  }
+  var n = n0 * Math.pow(0.5, t / t12);
+  var pct = n0 > 0 ? (n / n0 * 100) : 0;
+  var nHL = t / t12;
+  var lam = Math.LN2 / t12;
+  res.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:5px">' +
+    [['Remaining N(t)', n.toExponential(4), '#f87171'],
+     ['Decayed amount', (n0 - n).toExponential(4), '#fbbf24'],
+     ['% remaining', pct.toFixed(4) + '%', '#4ade80'],
+     ['Half-lives elapsed', nHL.toFixed(3), '#22d3ee'],
+     ['Decay constant \u03bb', lam.toExponential(3) + '/unit', '#a78bfa']].map(function(s) {
+       return '<div style="background:var(--bg3);border-radius:6px;padding:.35rem .55rem">' +
+              '<div style="font-size:9px;color:var(--muted)">' + s[0] + '</div>' +
+              '<div style="font-size:12px;font-weight:700;color:' + s[2] + '">' + s[1] + '</div></div>';
+     }).join('') + '</div>' +
+    '<div style="font-size:10px;color:var(--muted);margin-top:.4rem">' +
+    'N(t) = N\u2080 \u00d7 (1/2)<sup>t/t\u00bd</sup> &nbsp;|&nbsp; \u03bb = ln(2)/t\u00bd &nbsp;|&nbsp; A = \u03bbN</div>';
+};
+
+window.calcSWU = function() {
+  var xp = parseFloat(document.getElementById('swu-xp').value) / 100;
+  var xf = parseFloat(document.getElementById('swu-xf').value) / 100;
+  var xw = parseFloat(document.getElementById('swu-xw').value) / 100;
+  var P = parseFloat(document.getElementById('swu-p').value);
+  var res = document.getElementById('swu-result');
+  if (!res) return;
+  if ([xp, xf, xw, P].some(isNaN) || xp <= xw || xf <= xw || xp <= xf) {
+    res.innerHTML = '<span style="color:#f87171">Check values: xp > xf > xw required.</span>';
+    return;
+  }
+  function V(x) { return (1 - 2*x) * Math.log((1-x)/x); }
+  var F = P * (xp - xw) / (xf - xw);
+  var W = F - P;
+  var swu = P * V(xp) + W * V(xw) - F * V(xf);
+  var col2 = '#f87171';
+  res.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:5px">' +
+    [['Product (P)', P.toFixed(2) + ' kg', col2],
+     ['Feed (F)', F.toFixed(2) + ' kg', '#fbbf24'],
+     ['Tails (W)', W.toFixed(2) + ' kg', '#94a3b8'],
+     ['SWU', swu.toFixed(2), '#4ade80'],
+     ['Feed/Product', (F/P).toFixed(2) + ' kg/kg', '#22d3ee']].map(function(s) {
+       return '<div style="background:var(--bg3);border-radius:6px;padding:.35rem .55rem">' +
+              '<div style="font-size:9px;color:var(--muted)">' + s[0] + '</div>' +
+              '<div style="font-size:12px;font-weight:700;color:' + s[2] + '">' + s[1] + '</div></div>';
+     }).join('') + '</div>' +
+    '<div style="font-size:10px;color:var(--muted);margin-top:.4rem">' +
+    'V(x) = (1\u22122x)\u00b7ln((1\u2212x)/x) &nbsp;|&nbsp; SWU = P\u00b7V(xp) + W\u00b7V(xw) \u2212 F\u00b7V(xf)</div>';
+};
+
+function renderNuclear(el) {
+  var col = _nucCol;
+  var h = '';
+
+  h += secHead('Nuclear Fuel Cycle', col);
+  h += makeCards([
+    {em:'\u26cf\ufe0f', title:'1. Mining',
+     sub:'Kazakhstan 39% \u2022 Canada 24% \u2022 Namibia 12% of world output',
+     body:'Methods: open-pit (large/low-grade), underground (deep/high-grade: Cigar Lake ~15% U ore grade), ' +
+          'in-situ leach/ISL (>55% of global output \u2014 inject acid solution, dissolve uranium, pump to surface).<br>' +
+          'Major producers: Kazatomprom (KZ), Cameco (CA), Orano (FR/Africa), Uranium One (RU/CA).'},
+    {em:'\ud83d\udfe1', title:'2. Milling \u2014 Yellowcake (U\u2083O\u2088)',
+     sub:'70\u201390% U\u2083O\u2088 by weight \u2022 bright yellow to dark green powder',
+     body:'Crushed ore leached with H\u2082SO\u2084 or alkaline carbonate. Uranium recovered via solvent extraction or IX.<br>' +
+          'U\u2083O\u2088 = 84.8% uranium by mass; yellowcake = ~59\u201376% U.<br>' +
+          'Specific activity: ~3.4\u00d710\u207b\u2077 Ci/g (low \u2014 chemical toxicity dominates radiological).<br>' +
+          'LD50 (soluble U salts): ~5 mg U/kg body weight. Shipped in lined 200\u2013400 kg steel drums.'},
+    {em:'\ud83e\uddea', title:'3. Conversion \u2014 UF\u2086',
+     sub:'U\u2083O\u2088 \u2192 UO\u2082 \u2192 UF\u2084 \u2192 UF\u2086 (sublimes at 56.5\u00b0C)',
+     body:'Why UF\u2086? Fluorine is monoisotopic (\u00b9\u2079F), so all mass difference in gaseous UF\u2086 comes from uranium isotopes (U-235 vs U-238) \u2014 perfect for centrifuge/diffusion separation.<br>' +
+          'UF\u2086 is corrosive, reactive with moisture. Transported in type 48Y cylinders.'},
+    {em:'\ud83c\udf00', title:'4. Enrichment',
+     sub:'Natural U: 0.711% U-235 \u2192 LEU 3\u20135% \u2192 weapons-grade >90%',
+     body:'Gas centrifuge (modern): rotors at ~600 m/s tip speed, ~50\u201360 kWh/SWU.<br>' +
+          'Gaseous diffusion (legacy): 2,400\u20132,500 kWh/SWU \u2014 50\u00d7 less efficient, now decommissioned.<br>' +
+          'SWU price: avg $107/SWU (2023 EIA); spot Aug 2025 $188/SWU.<br>' +
+          'A 1,000 MWe PWR needs ~120,000 SWU/yr (~$12M enrichment). 1 SWU delivered at ~50 Wh.'},
+    {em:'\ud83d\udd29', title:'5. Fuel Fabrication',
+     sub:'UF\u2086 \u2192 UO\u2082 pellets \u2192 fuel rods \u2192 assemblies',
+     body:'UO\u2082 pellets: ~10 mm diameter \u00d7 12 mm tall. Sintered to ~95% theoretical density (10.4 g/cm\u00b3).<br>' +
+          '<strong>1 pellet \u2248 energy of 1 tonne of steaming coal</strong> (WNA).<br>' +
+          'Cladding: Zircaloy-4 tubes, ~3.65 m long. PWR assembly: 17\u00d717 = 264 fuel rods, ~520 kg uranium.'},
+    {em:'\u26a1', title:'6. In-Reactor (PWR)',
+     sub:'15.5 MPa \u2022 325\u00b0C primary loop \u2022 burnup 45\u201360 GWd/tU',
+     body:'U-235 fission releases ~200 MeV + 2\u20133 neutrons. Neutrons moderated to 0.025 eV thermal by light water.<br>' +
+          'Control rods: boron carbide, Ag-In-Cd, hafnium \u2014 absorb neutrons to regulate power.<br>' +
+          'Delayed neutrons (0.65% of total) allow reactor control \u2014 without them, k&gt;1 would runaway in microseconds.<br>' +
+          'Thermal efficiency: ~32\u201333%. Fuel residence: 4\u20136 years across 3\u20134 refueling cycles.'},
+    {em:'\u267b\ufe0f', title:'7. Spent Fuel',
+     sub:'~95.6% U-238 \u2022 ~0.9% Pu \u2022 ~3.5% fission products',
+     body:'After 45 GWd/tU burnup and 1 year cooling:<br>' +
+          '95.6% U-238 \u2022 0.9% U-235 \u2022 0.9% Pu (Pu-239+Pu-240) \u2022 0.1% minor actinides (Np, Am, Cm) \u2022 3.5% fission products (Cs-137, Sr-90, Tc-99, I-129).<br>' +
+          'Stored in wet pools (first ~5\u201310 years), then dry cask storage.<br>' +
+          'PUREX reprocessing (La Hague, Sellafield, Rokkasho) recovers U + Pu for MOX fuel.'},
+    {em:'\ud83c\uddf3\ud83c\uddf1', title:'8. Onkalo \u2014 World\'s First DGR',
+     sub:'Olkiluoto, Finland \u2022 430\u2013520 m depth \u2022 1.8 Gyr granite',
+     body:'KBS-3 method: copper-clad iron canisters in bentonite clay buffer in crystalline bedrock.<br>' +
+          'Capacity: 6,500 tU. STUK safety statement due June 2026; operations: late 2020s.<br>' +
+          'Others: Sweden-Forsmark (construction started 2025), France-Cig\u00e9o (license review), Canada-Ignace (site selected Nov 2024).'}
+  ], col);
+
+  h += secHead('SWU Calculator', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="font-family:monospace;text-align:center;color:' + col + ';font-size:12px;margin-bottom:.5rem">SWU = P\u00b7V(x\u209a) + W\u00b7V(x\u1d44) \u2212 F\u00b7V(x\u2071) &nbsp; where V(x) = (1\u22122x)\u00b7ln((1\u2212x)/x)</div>';
+  h += '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:.5rem">';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Product enrichment %</div><input id="swu-xp" class="chem-input" type="number" step="0.1" value="4.0"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Feed enrichment %</div><input id="swu-xf" class="chem-input" type="number" step="0.001" value="0.711"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Tails enrichment %</div><input id="swu-xw" class="chem-input" type="number" step="0.01" value="0.3"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Product (kg)</div><input id="swu-p" class="chem-input" type="number" value="1"></div>';
+  h += '</div>';
+  h += '<button class="chem-btn" onclick="calcSWU()">Calculate SWU</button>';
+  h += '<div id="swu-result" class="result-box" style="margin-top:.5rem"></div>';
+  h += '</div>';
+
+  h += secHead('Half-Life Calculator', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:.5rem">';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Initial N\u2080</div><input id="hl-n0" class="chem-input" type="number" value="100" min="0"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Half-life t\u00bd</div><input id="hl-t12" class="chem-input" type="number" value="5730" min="0.001"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Time elapsed t</div><input id="hl-t" class="chem-input" type="number" value="11460" min="0"></div>';
+  h += '</div>';
+  h += '<button class="chem-btn" onclick="calcHL()">Calculate</button>';
+  h += '<div id="hl-result" class="result-box" style="margin-top:.5rem"></div>';
+  h += '</div>';
+
+  h += secHead('Reactor Types', col);
+  h += tbl(['Type', '% Fleet', 'Coolant', 'Moderator', 'Fuel', 'Key notes'],
+    [['PWR', '~72%', 'Light water', 'Light water', 'LEU 3\u20135%', '15.5 MPa, 325\u00b0C, ~300 units worldwide'],
+     ['BWR', '~15%', 'Light water', 'Light water', 'LEU 2\u20134%', '7 MPa, 290\u00b0C, direct steam cycle'],
+     ['PHWR/CANDU', '~11%', 'Heavy water', 'Heavy water', 'Natural U (0.711%)', 'No enrichment needed; on-power refueling'],
+     ['RBMK', '<2% (Russia)', 'Light water', 'Graphite', 'LEU 2\u20132.8%', 'Positive void coeff \u2014 Chernobyl cause; 6 still running'],
+     ['AGR', '~2% (UK)', 'CO\u2082 gas', 'Graphite', 'Slightly enriched', 'UK-only; being retired'],
+     ['SFR/FBR', '<1%', 'Liquid sodium', 'None (fast)', 'MOX/U-Pu', 'BN-600/BN-800 (Russia); CFR-600 (China)'],
+     ['HTR-PM', 'Demo (China)', 'Helium', 'Graphite', 'TRISO pebbles', 'Gen-IV VHTR; grid-connected 2021'],
+     ['NuScale SMR', 'Developing', 'Light water', 'Light water', 'LEU <5%', '77 MWe; NRC approval 2025; TVA 6 GW program'],
+     ['Rolls-Royce SMR', 'Contracted', 'Light water', 'Light water', 'LEU', '470 MWe; UK contract April 13, 2026; Wylfa site']], col);
+
+  h += secHead('Nuclear Agreements Timeline', col);
+  var treaties = [
+    {y:'1953', e:'Atoms for Peace', d:'Dec 8, 1953', s:'active', n:'Eisenhower UN speech \u2014 civilian nuclear framework'},
+    {y:'1957', e:'IAEA Founded', d:'Jul 29, 1957', s:'active', n:'International Atomic Energy Agency, Vienna'},
+    {y:'1963', e:'Partial Test Ban (PTBT)', d:'Aug 5, 1963', s:'active', n:'Bans tests in atmosphere, underwater, space'},
+    {y:'1968', e:'NPT', d:'Jul 1, 1968 / Mar 5, 1970', s:'active', n:'Non-Proliferation Treaty \u2014 191 state parties'},
+    {y:'1972', e:'SALT I', d:'May 26, 1972', s:'expired', n:'First U.S.\u2013Soviet strategic arms limit'},
+    {y:'1979', e:'SALT II', d:'Jun 18, 1979', s:'never', n:'Signed; never ratified by U.S. Senate (Carter)'},
+    {y:'1987', e:'INF Treaty', d:'Dec 8, 1987', s:'dead', n:'U.S. withdrew Aug 2, 2019; Russia suspended 2007'},
+    {y:'1991', e:'START I', d:'Jul 31, 1991', s:'expired', n:'Expired Dec 2009; cut warheads 30% each side'},
+    {y:'1993', e:'START II', d:'Jan 3, 1993', s:'never', n:'Never entered force; Russia withdrew 2002'},
+    {y:'1996', e:'CTBT', d:'Sep 24, 1996', s:'pending', n:'Comprehensive Test Ban; not yet in force (44 Annex 2 states not all ratified)'},
+    {y:'2002', e:'SORT (Moscow)', d:'May 24, 2002', s:'expired', n:'Reduced deployed warheads to 1,700\u20132,200 each'},
+    {y:'2010', e:'New START', d:'Apr 8, 2010', s:'expired', n:'Expired Feb 5, 2026; Russia suspended Feb 21, 2023'},
+    {y:'2017', e:'TPNW', d:'Jul 7, 2017 / Jan 22, 2021', s:'active', n:'Treaty on Prohibition; 93 signatories; no nuclear state joined'}
+  ];
+  var sCol = {active:'#4ade80', expired:'#fbbf24', dead:'#f87171', never:'#94a3b8', pending:'#22d3ee'};
+  h += '<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:.75rem">';
+  treaties.forEach(function(t) {
+    var sc = sCol[t.s] || '#94a3b8';
+    h += '<div style="display:flex;gap:.75rem;align-items:flex-start;background:var(--bg2);border-radius:var(--r);padding:.5rem .75rem;border-left:3px solid ' + sc + '">';
+    h += '<div style="min-width:36px;font-family:monospace;font-size:10px;color:var(--muted);padding-top:1px">' + t.y + '</div>';
+    h += '<div style="flex:1">';
+    h += '<div style="font-size:12px;font-weight:700;color:' + sc + '">' + t.e + '</div>';
+    h += '<div style="font-size:10px;color:var(--muted)">' + t.d + ' &nbsp;\u2022&nbsp; ' + t.n + '</div>';
+    h += '</div>';
+    h += '<div style="font-size:9px;font-weight:700;color:' + sc + ';padding-top:2px;white-space:nowrap">' + t.s.toUpperCase() + '</div>';
+    h += '</div>';
+  });
+  h += '</div>';
+
+  h += secHead('SIPRI 2025 \u2014 Nuclear Warheads (January 2025)', col);
+  var wh = [
+    {c:'Russia', tot:5459, dep:1718, col:'#f87171'},
+    {c:'USA', tot:5177, dep:1770, col:'#60a5fa'},
+    {c:'China', tot:600, dep:24, col:'#fbbf24'},
+    {c:'France', tot:290, dep:280, col:'#4ade80'},
+    {c:'UK', tot:225, dep:120, col:'#22d3ee'},
+    {c:'India', tot:180, dep:0, col:'#fb923c'},
+    {c:'Pakistan', tot:170, dep:0, col:'#a78bfa'},
+    {c:'Israel', tot:90, dep:0, col:'#94a3b8'},
+    {c:'DPRK', tot:50, dep:0, col:'#f472b6'}
+  ];
+  var maxTot = 5459;
+  h += '<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:.5rem">';
+  wh.forEach(function(w) {
+    h += '<div style="display:flex;align-items:center;gap:.6rem">';
+    h += '<div style="width:70px;font-size:11px;color:var(--muted)">' + w.c + '</div>';
+    h += '<div style="flex:1;background:var(--bg3);border-radius:4px;height:16px;overflow:hidden">';
+    h += '<div style="width:' + (w.tot/maxTot*100).toFixed(1) + '%;background:' + w.col + ';height:100%;border-radius:4px"></div></div>';
+    h += '<div style="min-width:48px;font-family:monospace;font-size:11px;font-weight:700;color:' + w.col + '">' + w.tot.toLocaleString() + '</div>';
+    h += '</div>';
+  });
+  h += '</div>';
+  h += '<div style="font-size:10px;color:var(--muted)">Total: ~12,241 warheads globally \u2022 ~3,912 deployed \u2022 ~2,100 on high operational alert</div>';
+
+  h += secHead('Radiation Doses Reference', col);
+  h += tbl(['Dose', 'Context'],
+    [['0.1 \u03bcSv', '1 banana (K-40)'],
+     ['40 \u03bcSv', 'Coast-to-coast flight'],
+     ['100 \u03bcSv', 'Chest X-ray'],
+     ['400 \u03bcSv', 'Mammogram'],
+     ['2.4 mSv', 'Annual worldwide background average (UNSCEAR)'],
+     ['10\u201320 mSv', 'Abdominal CT scan'],
+     ['20 mSv', 'ICRP annual nuclear-worker limit'],
+     ['1,000 mSv (1 Sv)', 'Onset of acute radiation syndrome (ARS)'],
+     ['4\u20135 Sv', 'LD50/30 \u2014 50% fatality in 30 days without treatment'],
+     ['>10 Sv', 'Near-certain fatal within days']]);
+  h += '<div style="font-size:10px;color:var(--muted);margin-top:.4rem">Chernobyl: 28 acute radiation deaths (1986); 134 workers received 0.8\u201316 Gy ARS. &nbsp;\u2022&nbsp; Fukushima: no direct radiation deaths.</div>';
+
+  h += secHead('Notable Isotopes', col);
+  h += tbl(['Isotope', 'Half-life', 'Decay', 'Significance'],
+    [['C-14', '5,730 yr', '\u03b2\u207b', 'Radiocarbon dating (up to ~50,000 yr)'],
+     ['K-40', '1.25 Gyr', '\u03b2\u207b/EC', '0.012% of all K \u2014 natural body radioactivity'],
+     ['U-235', '704 Myr', '\u03b1', 'Fission fuel, weapons'],
+     ['U-238', '4.47 Gyr', '\u03b1', 'Depleted U; age-of-Earth dating'],
+     ['Pu-239', '24,110 yr', '\u03b1', 'Warheads, MOX fuel; bred from U-238'],
+     ['Po-210', '138 days', '\u03b1', 'Litvinenko assassination (2006)'],
+     ['I-131', '8.02 days', '\u03b2\u207b/\u03b3', 'Thyroid treatment; Chernobyl/Fukushima release'],
+     ['Cs-137', '30.2 yr', '\u03b2\u207b/\u03b3', 'Major long-term Chernobyl contaminant'],
+     ['Tc-99m', '6.01 hr', '\u03b3', 'Most-used nuclear medicine imaging agent'],
+     ['Rn-222', '3.82 days', '\u03b1', 'Indoor air carcinogen; leading natural radiation source']]);
+
+  h += secHead('Fusion Status', col);
+  h += makeCards([
+    {em:'\ud83d\udd2c', title:'NIF / LLNL \u2014 Inertial Confinement Fusion',
+     sub:'Record: April 7, 2025 \u2014 8.6 MJ out / 2.08 MJ in (target gain 4.13)',
+     body:'First scientific breakeven: Dec 5, 2022 \u2014 3.15 MJ fusion out / 2.05 MJ laser in (Q \u2248 1.5).<br>' +
+          '10 confirmed ignition shots through October 2025. Record 8th shot: 8.6 MJ \u00b1 0.45 MJ from 2.08 MJ laser.<br>' +
+          'Note: wall-plug-to-target laser efficiency ~0.5% \u2014 engineering Q still far below 1. Power plants need Hz shot rates + 10\u00d7 laser efficiency gains.'},
+    {em:'\ud83c\udf0d', title:'ITER \u2014 Magnetic Confinement Fusion',
+     sub:'First plasma 2034 \u2022 full D\u2013T operation 2039 \u2022 \u20ac5B overrun',
+     body:'Cadarache, France. World\'s largest tokamak (840 m\u00b3 plasma volume).<br>' +
+          'July 2024: Director-General Barabaschi announced ~decade delay from original 2025 first plasma target and ~\u20ac5B additional cost.<br>' +
+          'Q\u22651 target (10\u00d7 the input heating power in fusion output) when D\u2013T operations begin ~2039.'}
+  ], col);
+
+  el.innerHTML = statBar([
+    {v:'416', l:'Operating reactors (IAEA 2025)', col:col},
+    {v:'376 GW', l:'Global nuclear capacity', col:col},
+    {v:'12,241', l:'Total warheads (SIPRI 2025)', col:col},
+    {v:'8.6 MJ', l:'NIF record fusion yield (Apr 2025)', col:col}
+  ]) + h;
+
+  setTimeout(function() { calcHL(); calcSWU(); }, 30);
+}
+
+
+
+window.ptFilter = function(cat, btn) {
+  document.querySelectorAll('.pt-fb').forEach(function(b) { b.classList.remove('pfa'); });
+  if (btn) btn.classList.add('pfa');
+  document.querySelectorAll('.pt-el').forEach(function(e) {
+    var match = !cat || e.dataset.cat === cat;
+    e.style.opacity = match ? '1' : '0.1';
+    e.style.pointerEvents = match ? 'auto' : 'none';
+  });
+};
+
+// ── NUCLEAR ───────────────────────────────────────────────────────────────────
+
+var _nucCol = '#f87171';
+
+window.calcHL = function() {
+  var n0 = parseFloat(document.getElementById('hl-n0').value);
+  var t12 = parseFloat(document.getElementById('hl-t12').value);
+  var t = parseFloat(document.getElementById('hl-t').value);
+  var res = document.getElementById('hl-result');
+  if (!res) return;
+  if (isNaN(n0) || isNaN(t12) || isNaN(t) || t12 <= 0 || n0 < 0 || t < 0) {
+    res.innerHTML = '<span style="color:#f87171">Enter valid positive numbers.</span>';
+    return;
+  }
+  var n = n0 * Math.pow(0.5, t / t12);
+  var pct = n0 > 0 ? (n / n0 * 100) : 0;
+  var nHL = t / t12;
+  var lam = Math.LN2 / t12;
+  res.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:5px">' +
+    [['Remaining N(t)', n.toExponential(4), '#f87171'],
+     ['Decayed amount', (n0 - n).toExponential(4), '#fbbf24'],
+     ['% remaining', pct.toFixed(4) + '%', '#4ade80'],
+     ['Half-lives elapsed', nHL.toFixed(3), '#22d3ee'],
+     ['Decay constant \u03bb', lam.toExponential(3) + '/unit', '#a78bfa']].map(function(s) {
+       return '<div style="background:var(--bg3);border-radius:6px;padding:.35rem .55rem">' +
+              '<div style="font-size:9px;color:var(--muted)">' + s[0] + '</div>' +
+              '<div style="font-size:12px;font-weight:700;color:' + s[2] + '">' + s[1] + '</div></div>';
+     }).join('') + '</div>' +
+    '<div style="font-size:10px;color:var(--muted);margin-top:.4rem">' +
+    'N(t) = N\u2080 \u00d7 (1/2)<sup>t/t\u00bd</sup> &nbsp;|&nbsp; \u03bb = ln(2)/t\u00bd &nbsp;|&nbsp; A = \u03bbN</div>';
+};
+
+function renderNuclear(el) {
+  var col = _nucCol;
+  var h = '';
+
+  h += secHead('Half-Life Calculator', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:.5rem">';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Initial amount N\u2080</div><input id="hl-n0" class="chem-input" type="number" value="100" min="0"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Half-life t\u00bd</div><input id="hl-t12" class="chem-input" type="number" value="5730" min="0.001"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Time elapsed t</div><input id="hl-t" class="chem-input" type="number" value="11460" min="0"></div>';
+  h += '</div>';
+  h += '<button class="chem-btn" onclick="calcHL()">Calculate</button>';
+  h += '<div id="hl-result" class="result-box" style="margin-top:.5rem"><span style="color:var(--muted)">Enter values and calculate. Default: C-14 after 2 half-lives.</span></div>';
+  h += '</div>';
+
+  h += secHead('Radioactive Decay Types', col);
+  h += tbl(['Type', 'Symbol', 'Particle emitted', 'Penetration', 'Shielding'],
+    [['Alpha', '\u03b1', '\u2074He nucleus (2p + 2n)', 'Stopped by 5 cm air', 'Paper, skin'],
+     ['Beta minus', '\u03b2\u207b', 'Electron + antineutrino', 'Meters in air', 'Aluminum (few mm)'],
+     ['Beta plus', '\u03b2\u207a', 'Positron + neutrino', 'Meters in air', 'Aluminum + annihilation \u03b3'],
+     ['Gamma', '\u03b3', 'High-energy photon', 'Through buildings', 'Lead, concrete, water'],
+     ['Neutron', 'n', 'Free neutron (fission)', 'Meters in air', 'Water, polyethylene, boron'],
+     ['Electron capture', 'EC', 'Inner electron captured by nucleus', 'X-ray emission only', 'Minimal']], col);
+
+  h += secHead('Notable Isotopes', col);
+  h += tbl(['Isotope', 'Half-life', 'Decay', 'Significance'],
+    [['C-14', '5,730 yr', '\u03b2\u207b', 'Radiocarbon dating (up to ~50,000 yr)'],
+     ['K-40', '1.25 Gyr', '\u03b2\u207b/EC', 'Natural body radioactivity &#8212; 0.012% of all K'],
+     ['U-235', '704 Myr', '\u03b1', 'Nuclear fission fuel, weapons'],
+     ['U-238', '4.47 Gyr', '\u03b1', 'Depleted U, age-of-Earth dating'],
+     ['Pu-239', '24,110 yr', '\u03b1', 'Warheads, MOX nuclear fuel'],
+     ['Ra-226', '1,600 yr', '\u03b1/\u03b3', 'Curie\'s research; early cancer treatment'],
+     ['Po-210', '138 days', '\u03b1', 'Litvinenko assassination (2006)'],
+     ['I-131', '8.02 days', '\u03b2\u207b/\u03b3', 'Thyroid therapy; Chernobyl/Fukushima release'],
+     ['Cs-137', '30.2 yr', '\u03b2\u207b/\u03b3', 'Major long-term Chernobyl contaminant'],
+     ['Tc-99m', '6.01 hr', '\u03b3', 'Most-used nuclear medicine imaging agent'],
+     ['Rn-222', '3.82 days', '\u03b1', 'Indoor air carcinogen; lung cancer risk'],
+     ['Sr-90', '28.8 yr', '\u03b2\u207b', 'Bone-seeking; dangerous fallout isotope'],
+     ['H-3 (tritium)', '12.3 yr', '\u03b2\u207b', 'Fusion fuel; luminescent watch dials']], col);
+
+  h += secHead('Fission vs Fusion', col);
+  h += tbl(['', 'Fission', 'Fusion'],
+    [['Reaction', 'Heavy nucleus splits', 'Light nuclei merge'],
+     ['Fuel', 'U-235, Pu-239', 'Deuterium + Tritium (H isotopes)'],
+     ['Energy (TJ/kg)', '~80', '~339 (4\u00d7 fission)'],
+     ['Waste', 'Long-lived (centuries)', 'Short-lived He + neutrons'],
+     ['Status', 'Commercial since 1956', 'Net gain: NIF Dec 2022 (\u03b5 &gt; 1)'],
+     ['Temperature needed', 'No extreme T required', '~150 million K (fusion ignition)']]);
+
+  el.innerHTML = statBar([
+    {v:'5,730 yr', l:'C-14 half-life (dating)', col:col},
+    {v:'4.47 Gyr', l:'U-238 half-life', col:col},
+    {v:'339 TJ/kg', l:'D+T fusion energy', col:col},
+    {v:'1942', l:'First controlled fission', col:col}
+  ]) + h;
+
+  setTimeout(function() { calcHL(); }, 30);
+}
+
+// ── EQUILIBRIUM ───────────────────────────────────────────────────────────────
+
+window.calcKc = function() {
+  var cA = parseFloat(document.getElementById('kc-a').value);
+  var cB = parseFloat(document.getElementById('kc-b').value);
+  var cC = parseFloat(document.getElementById('kc-c').value);
+  var cD = parseFloat(document.getElementById('kc-d').value);
+  var sa = parseFloat(document.getElementById('kc-sa').value) || 1;
+  var sb = parseFloat(document.getElementById('kc-sb').value) || 1;
+  var sc = parseFloat(document.getElementById('kc-sc').value) || 1;
+  var sd = parseFloat(document.getElementById('kc-sd').value) || 1;
+  var res = document.getElementById('kc-result');
+  if (!res) return;
+  if ([cA, cB, cC, cD].some(function(v) { return isNaN(v) || v < 0; })) {
+    res.innerHTML = '<span style="color:#f87171">Enter valid non-negative concentrations.</span>';
+    return;
+  }
+  var num = Math.pow(cC, sc) * Math.pow(cD, sd);
+  var den = Math.pow(cA, sa) * Math.pow(cB, sb);
+  var kc = den > 0 ? num / den : Infinity;
+  var col2 = '#22d3ee';
+  var interpret = kc > 1000 ? 'Products strongly favored (\u226b1)' :
+                  kc > 1 ? 'Products favored' :
+                  kc === 1 ? 'Neither side favored' :
+                  kc > 0.001 ? 'Reactants favored' : 'Reactants strongly favored (\u226a1)';
+  res.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">' +
+    ['Kc = ' + kc.toExponential(4), '\u0394G\u00b0 related: RTln(Kc)'].map(function(s) {
+       return '<div style="background:var(--bg3);border-radius:6px;padding:.35rem .55rem;font-size:12px;color:' + col2 + ';font-weight:700">' + s + '</div>';
+    }).join('') + '</div>' +
+    '<div style="font-size:11px;color:var(--muted);margin-top:.4rem">' + interpret + '</div>' +
+    '<div style="font-size:10px;color:var(--muted);margin-top:.2rem">' +
+    'Kc = [C]<sup>' + sc + '</sup>[D]<sup>' + sd + '</sup> / [A]<sup>' + sa + '</sup>[B]<sup>' + sb + '</sup> = ' +
+    cC + '<sup>' + sc + '</sup> \u00d7 ' + cD + '<sup>' + sd + '</sup> / ' + cA + '<sup>' + sa + '</sup> \u00d7 ' + cB + '<sup>' + sb + '</sup>' +
+    '</div>';
+};
+
+window.calcHH = function() {
+  var pka = parseFloat(document.getElementById('hh-pka').value);
+  var base = parseFloat(document.getElementById('hh-base').value);
+  var acid = parseFloat(document.getElementById('hh-acid').value);
+  var res = document.getElementById('hh-result');
+  if (!res) return;
+  if (isNaN(pka) || isNaN(base) || isNaN(acid) || acid <= 0 || base < 0) {
+    res.innerHTML = '<span style="color:#f87171">Enter valid values. Acid concentration must be &gt; 0.</span>';
+    return;
+  }
+  var ph = pka + Math.log10(base / acid);
+  var hconc = Math.pow(10, -ph).toExponential(3);
+  res.innerHTML = '<div style="font-size:1.1rem;font-weight:800;color:#22d3ee">pH = ' + ph.toFixed(2) + '</div>' +
+    '<div style="font-size:11px;color:var(--muted);margin-top:.3rem">' +
+    '[H\u207a] = ' + hconc + ' mol/L &nbsp;|&nbsp; ' +
+    'Ratio [A\u207b]/[HA] = ' + (base / acid).toFixed(3) +
+    '</div>';
+};
+
+function renderEquil(el) {
+  var col = '#22d3ee';
+  var h = '';
+
+  h += secHead('Kc Calculator &#8212; aA + bB \u21cc cC + dD', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="font-family:monospace;text-align:center;color:' + col + ';font-size:13px;margin-bottom:.6rem">Kc = [C]<sup>c</sup>[D]<sup>d</sup> / [A]<sup>a</sup>[B]<sup>b</sup></div>';
+  h += '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:.4rem">';
+  ['A','B','C','D'].forEach(function(x, i) {
+    var val = i < 2 ? '0.50' : '1.00';
+    h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">[' + x + '] mol/L</div>' +
+         '<input id="kc-' + x.toLowerCase() + '" class="chem-input" type="number" step="any" value="' + val + '"></div>';
+  });
+  h += '</div>';
+  h += '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:.6rem">';
+  ['a','b','c','d'].forEach(function(x) {
+    h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Coeff ' + x + '</div>' +
+         '<input id="kc-s' + x + '" class="chem-input" type="number" value="1" min="0"></div>';
+  });
+  h += '</div>';
+  h += '<button class="chem-btn" onclick="calcKc()">Calculate Kc</button>';
+  h += '<div id="kc-result" class="result-box" style="margin-top:.5rem"></div>';
+  h += '</div>';
+
+  h += secHead('Henderson-Hasselbalch &#8212; Buffer pH', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="font-family:monospace;text-align:center;color:' + col + ';font-size:14px;margin-bottom:.5rem">pH = pK\u2090 + log([A\u207b] / [HA])</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:.6rem">';
+  [['pK\u2090','hh-pka','4.74'],['[A\u207b] base (mol/L)','hh-base','0.10'],['[HA] acid (mol/L)','hh-acid','0.10']].forEach(function(f){
+    h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">' + f[0] + '</div>' +
+         '<input id="' + f[1] + '" class="chem-input" type="number" step="any" value="' + f[2] + '"></div>';
+  });
+  h += '</div>';
+  h += '<button class="chem-btn" onclick="calcHH()">Calculate pH</button>';
+  h += '<div id="hh-result" class="result-box" style="margin-top:.5rem"></div>';
+  h += '</div>';
+
+  h += secHead("Le Chatelier's Principle", col);
+  h += makeCards([
+    {em: '\u2696\ufe0f', title: "Le Chatelier's Principle",
+     sub: 'System at equilibrium shifts to oppose any imposed stress',
+     body: 'Add reactant \u2192 shifts right (more products)<br>' +
+           'Remove product \u2192 shifts right<br>' +
+           'Increase pressure (gas) \u2192 shifts toward fewer moles of gas<br>' +
+           'Increase temperature \u2192 favors endothermic direction<br>' +
+           'Catalyst \u2192 reaches equilibrium faster, does not shift position<br><br>' +
+           '<strong>Example &#8212; Haber process:</strong> N\u2082 + 3H\u2082 \u21cc 2NH\u2083 (\u0394H = \u221292 kJ/mol)<br>' +
+           'High pressure favors NH\u2083 (4 moles gas \u2192 2 moles). High T speeds reaction but reduces yield.'},
+    {em: '\ud83d\udcca', title: 'Reaction Quotient Q vs Kc',
+     sub: 'Predicts which direction reaction will proceed',
+     body: 'Q = [C]\u1d9c[D]\u1d9f / [A]\u1d43[B]\u1d47 (same expression as Kc, but using current concentrations)<br><br>' +
+           'Q &lt; Kc \u2192 reaction proceeds forward (more products form)<br>' +
+           'Q &gt; Kc \u2192 reaction proceeds reverse (more reactants form)<br>' +
+           'Q = Kc \u2192 system is at equilibrium'},
+    {em: '\ud83e\uddea', title: 'Common Equilibrium Constants',
+     sub: 'Reference values (25\u00b0C)',
+     body: 'Kw (water) = 1.0 \u00d7 10\u207b\u00b9\u2074 mol\u00b2/L\u00b2 &#8212; [H\u207a][OH\u207b]<br>' +
+           'pKa (acetic acid) = 4.74 &#8212; buffer range: 3.7&#8211;5.7<br>' +
+           'pKa (ammonium NH\u2084\u207a) = 9.25 &#8212; buffer range: 8.3&#8211;10.3<br>' +
+           'pKa (carbonic acid H\u2082CO\u2083) = 6.35 &#8212; blood buffer system<br>' +
+           'Ksp (AgCl) = 1.8 \u00d7 10\u207b\u00b9\u2070 &#8212; nearly insoluble<br>' +
+           'Ksp (CaCO\u2083) = 3.3 \u00d7 10\u207b\u2079'}
+  ], col);
+
+  el.innerHTML = statBar([
+    {v: 'Kc', l: '[products] / [reactants]', col: col},
+    {v: '10\u207b\u00b9\u2074', l: 'Kw (water, 25\u00b0C)', col: col},
+    {v: '4.74', l: 'pKa acetic acid', col: col},
+    {v: '7.4', l: 'Blood pH (carbonate buffer)', col: col}
+  ]) + h;
+
+  setTimeout(function() { calcKc(); calcHH(); }, 30);
+}
+
+// ── ELECTROCHEMISTRY ──────────────────────────────────────────────────────────
+
+var EC_DATA = [
+  {n:'Fluorine',   rx:'F\u2082 + 2e\u207b',   e:2.87},
+  {n:'Persulfate', rx:'S\u2082O\u2088\u00b2\u207b + 2e\u207b', e:2.01},
+  {n:'Permanganate (acid)',rx:'MnO\u2084\u207b \u2192 Mn\u00b2\u207a',e:1.51},
+  {n:'Chlorine',   rx:'Cl\u2082 + 2e\u207b',   e:1.36},
+  {n:'Oxygen (acid)',rx:'O\u2082 + 4H\u207a + 4e\u207b',e:1.23},
+  {n:'Bromine',    rx:'Br\u2082 + 2e\u207b',   e:1.07},
+  {n:'Nitric oxide',rx:'NO\u2083\u207b + 4H\u207a + 3e\u207b',e:0.96},
+  {n:'Mercury(II)',rx:'Hg\u00b2\u207a + 2e\u207b', e:0.85},
+  {n:'Silver',     rx:'Ag\u207a + e\u207b',    e:0.80},
+  {n:'Iron(III)\u2192II',rx:'Fe\u00b3\u207a + e\u207b',e:0.77},
+  {n:'Iodine',     rx:'I\u2082 + 2e\u207b',    e:0.54},
+  {n:'Copper(II)', rx:'Cu\u00b2\u207a + 2e\u207b', e:0.34},
+  {n:'Copper(I)',  rx:'Cu\u207a + e\u207b',    e:0.52},
+  {n:'Oxygen (neutral)',rx:'O\u2082 + 2H\u2082O + 4e\u207b',e:0.40},
+  {n:'Hydrogen (SHE)',rx:'2H\u207a + 2e\u207b',e:0.00},
+  {n:'Lead(II)',   rx:'Pb\u00b2\u207a + 2e\u207b',  e:-0.13},
+  {n:'Tin(II)',    rx:'Sn\u00b2\u207a + 2e\u207b',   e:-0.14},
+  {n:'Nickel(II)', rx:'Ni\u00b2\u207a + 2e\u207b',   e:-0.25},
+  {n:'Cobalt(II)', rx:'Co\u00b2\u207a + 2e\u207b',   e:-0.28},
+  {n:'Iron(II)',   rx:'Fe\u00b2\u207a + 2e\u207b',   e:-0.44},
+  {n:'Chromium(III)',rx:'Cr\u00b3\u207a + 3e\u207b',  e:-0.74},
+  {n:'Zinc(II)',   rx:'Zn\u00b2\u207a + 2e\u207b',   e:-0.76},
+  {n:'Manganese(II)',rx:'Mn\u00b2\u207a + 2e\u207b',  e:-1.18},
+  {n:'Aluminum(III)',rx:'Al\u00b3\u207a + 3e\u207b',  e:-1.66},
+  {n:'Magnesium(II)',rx:'Mg\u00b2\u207a + 2e\u207b',  e:-2.37},
+  {n:'Sodium(I)',  rx:'Na\u207a + e\u207b',    e:-2.71},
+  {n:'Potassium(I)',rx:'K\u207a + e\u207b',    e:-2.93},
+  {n:'Lithium(I)', rx:'Li\u207a + e\u207b',    e:-3.05}
+];
+
+window.calcCell = function() {
+  var ci = parseInt(document.getElementById('ec-cat').value);
+  var ai = parseInt(document.getElementById('ec-an').value);
+  var res = document.getElementById('ec-result');
+  if (!res) return;
+  if (ci === ai) { res.innerHTML = '<span style="color:#f87171">Cathode and anode must be different half-cells.</span>'; return; }
+  var cat = EC_DATA[ci], an = EC_DATA[ai];
+  var ecell = cat.e - an.e;
+  var spont = ecell > 0;
+  var col2 = spont ? '#4ade80' : '#f87171';
+  res.innerHTML = '<div style="font-size:1rem;font-weight:800;color:' + col2 + '">E\u00b0cell = ' + ecell.toFixed(3) + ' V &nbsp; &#8212; &nbsp; ' + (spont ? 'Spontaneous (galvanic)' : 'Non-spontaneous (electrolytic)') + '</div>' +
+    '<div style="font-size:11px;color:var(--muted);margin-top:.4rem;line-height:1.8">' +
+    'Cathode (+): ' + cat.n + ' &nbsp; E\u00b0 = ' + cat.e + ' V (reduction)<br>' +
+    'Anode (\u2212): ' + an.n + ' &nbsp; E\u00b0 = ' + an.e + ' V (oxidation = ' + (-an.e).toFixed(3) + ' V)<br>' +
+    'E\u00b0cell = E\u00b0cathode \u2212 E\u00b0anode = ' + cat.e + ' \u2212 (' + an.e + ') = ' + ecell.toFixed(3) + ' V<br>' +
+    '\u0394G\u00b0 = \u2212nFE\u00b0 &nbsp;|&nbsp; ' + (spont ? '\u0394G\u00b0 &lt; 0 (spontaneous)' : '\u0394G\u00b0 &gt; 0 (requires energy input)') +
+    '</div>';
+};
+
+function renderElectrochem(el) {
+  var col = '#a78bfa';
+  var h = '';
+
+  // Galvanic cell calculator
+  h += secHead('Galvanic Cell Calculator &#8212; E\u00b0cell = E\u00b0cathode \u2212 E\u00b0anode', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.6rem">';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Cathode (+) &#8212; reduction</div>';
+  h += '<select id="ec-cat" class="sel-sm" style="width:100%">';
+  EC_DATA.forEach(function(d, i) {
+    h += '<option value="' + i + '"' + (i === 7 ? ' selected' : '') + '>' + d.n + ' (' + (d.e >= 0 ? '+' : '') + d.e + ' V)</option>';
+  });
+  h += '</select></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">Anode (\u2212) &#8212; oxidation</div>';
+  h += '<select id="ec-an" class="sel-sm" style="width:100%">';
+  EC_DATA.forEach(function(d, i) {
+    h += '<option value="' + i + '"' + (i === 20 ? ' selected' : '') + '>' + d.n + ' (' + (d.e >= 0 ? '+' : '') + d.e + ' V)</option>';
+  });
+  h += '</select></div>';
+  h += '</div>';
+  h += '<button class="chem-btn" onclick="calcCell()">Calculate E\u00b0cell</button>';
+  h += '<div id="ec-result" class="result-box" style="margin-top:.5rem"></div>';
+  h += '</div>';
+
+  // Standard reduction potentials table
+  h += secHead('Standard Reduction Potentials (25\u00b0C, 1 M, 1 atm)', col);
+  h += tbl(['Half-reaction (\u2192 reduced form)', 'E\u00b0 (V)', 'Notes'],
+    EC_DATA.map(function(d) {
+      var c = d.e > 0.5 ? '#4ade80' : d.e < -0.5 ? '#f87171' : 'var(--muted)';
+      return [d.rx + ' \u2192 ' + d.n, '<span style="color:' + c + ';font-family:monospace;font-weight:600">' + (d.e >= 0 ? '+' : '') + d.e.toFixed(2) + '</span>', ''];
+    }), col);
+
+  h += secHead('Electrochemistry Concepts', col);
+  h += makeCards([
+    {em: '\ud83d\udd0b', title: 'Galvanic vs Electrolytic Cell',
+     sub: 'Spontaneous vs driven reactions',
+     body: '<strong>Galvanic (voltaic) cell:</strong> E\u00b0cell &gt; 0 &#8212; spontaneous redox reaction generates electricity.<br>' +
+           'Example: Zn-Cu Daniell cell (E\u00b0 = +1.10 V), battery.<br><br>' +
+           '<strong>Electrolytic cell:</strong> E\u00b0cell &lt; 0 &#8212; electrical energy drives non-spontaneous reaction.<br>' +
+           'Example: electrolysis of water (E\u00b0 = \u22121.23 V), electroplating, aluminum smelting.'},
+    {em: '\u26a1', title: 'Nernst Equation',
+     sub: 'E at non-standard conditions',
+     body: '<div style="font-family:monospace;color:#a78bfa;font-size:13px">E = E\u00b0 \u2212 (RT/nF) \u00d7 ln(Q)</div><br>' +
+           'At 25\u00b0C: E = E\u00b0 \u2212 (0.05916/n) \u00d7 log(Q)<br><br>' +
+           'n = moles of electrons transferred<br>' +
+           'F = Faraday constant = 96,485 C/mol<br>' +
+           'Q = reaction quotient (current concentrations)<br>' +
+           'At equilibrium: E = 0 and Q = Kc \u2192 E\u00b0 = (RT/nF) ln(Kc)'},
+    {em: '\ud83e\uddf2', title: 'Common Batteries',
+     sub: 'Standard electrochemical cells',
+     body: '<strong>Alkaline (AA/AAA):</strong> Zn \u2223 KOH \u2223 MnO\u2082 \u2192 1.5 V<br>' +
+           '<strong>Lead-acid (car):</strong> Pb \u2223 H\u2082SO\u2084 \u2223 PbO\u2082 \u2192 2.0 V per cell, 12 V total (6 cells)<br>' +
+           '<strong>Li-ion:</strong> LiCoO\u2082 \u2223 LiPF\u2086 \u2223 graphite \u2192 3.6&#8211;3.7 V<br>' +
+           '<strong>Hydrogen fuel cell:</strong> H\u2082 \u2223 PEM \u2223 O\u2082 \u2192 1.23 V (water only product)'},
+    {em: '\ud83d\udd2c', title: 'Electrolysis of Water',
+     sub: 'H\u2082O \u2192 H\u2082 + \u00bdO\u2082 &#8212; requires \u22121.23 V minimum',
+     body: 'Cathode: 2H\u2082O + 2e\u207b \u2192 H\u2082 + 2OH\u207b<br>' +
+           'Anode: 2H\u2082O \u2192 O\u2082 + 4H\u207a + 4e\u207b<br><br>' +
+           'Overpotential required in practice: ~1.5&#8211;1.8 V (electrode losses).<br>' +
+           'Green hydrogen: solar/wind electricity \u2192 electrolysis \u2192 H\u2082 fuel.<br>' +
+           'Efficiency (PEM electrolysis): ~70&#8211;80%.'}
+  ], col);
+
+  el.innerHTML = statBar([
+    {v: '+2.87 V', l: 'F\u2082/F\u207b (highest E\u00b0)', col: col},
+    {v: '0.00 V', l: 'SHE reference', col: col},
+    {v: '\u22123.05 V', l: 'Li\u207a/Li (lowest E\u00b0)', col: col},
+    {v: '96,485', l: 'Faraday (C/mol)', col: col}
+  ]) + h;
+
+  setTimeout(function() { calcCell(); }, 30);
+}
+
+
+
+// ── OIL & GAS ─────────────────────────────────────────────────────────────────
+
+window.calcAPI = function() {
+  var sg = parseFloat(document.getElementById('api-sg').value);
+  var res = document.getElementById('api-result');
+  if (!res) return;
+  if (isNaN(sg) || sg <= 0) { res.innerHTML = '<span style="color:#f87171">Enter valid specific gravity (e.g. 0.85).</span>'; return; }
+  var api = 141.5 / sg - 131.5;
+  var grade = api > 31.1 ? 'Light crude' : api > 22.3 ? 'Medium crude' : api > 10 ? 'Heavy crude' : 'Extra-heavy / bitumen';
+  var col2 = api > 31.1 ? '#4ade80' : api > 22.3 ? '#fbbf24' : '#f97316';
+  res.innerHTML = '<div style="font-size:1.1rem;font-weight:800;color:' + col2 + '">\u00b0API = ' + api.toFixed(2) + '</div>' +
+    '<div style="font-size:11px;color:var(--muted);margin-top:.3rem">' + grade + ' &nbsp;\u2022&nbsp; SG = ' + sg.toFixed(4) + '</div>' +
+    '<div style="font-size:10px;color:var(--muted);margin-top:.2rem">\u00b0API = 141.5 / SG\u2086\u2080 \u2212 131.5</div>';
+};
+
+window.calcLHSV = function() {
+  var feed = parseFloat(document.getElementById('lhsv-feed').value);
+  var cat = parseFloat(document.getElementById('lhsv-cat').value);
+  var res = document.getElementById('lhsv-result');
+  if (!res) return;
+  if (isNaN(feed) || isNaN(cat) || cat <= 0 || feed < 0) { res.innerHTML = '<span style="color:#f87171">Enter valid values.</span>'; return; }
+  var lhsv = feed / cat;
+  res.innerHTML = '<div style="font-size:1.1rem;font-weight:800;color:#f97316">LHSV = ' + lhsv.toFixed(3) + ' h\u207b\u00b9</div>' +
+    '<div style="font-size:10px;color:var(--muted);margin-top:.25rem">Residence time = ' + (1/lhsv * 60).toFixed(1) + ' min</div>';
+};
+
+function renderOilGas(el) {
+  var col = '#f97316';
+  var h = '';
+
+  h += secHead('Crude Oil Benchmarks', col);
+  h += tbl(['Benchmark', 'Region', '\u00b0API', 'Sulfur %', 'Type'],
+    [['WTI', 'West Texas, USA', '39.6', '0.24', 'Light sweet'],
+     ['Brent', 'North Sea', '38.3', '0.37', 'Light sweet'],
+     ['Dubai/Oman', 'Middle East', '31', '~2.0', 'Medium sour (Asia benchmark)'],
+     ['Urals', 'Russia', '31', '1.5', 'Medium sour'],
+     ['Mars Blend', 'Gulf of Mexico', '29', '2.1', 'Heavy sour'],
+     ['Venezuelan Merey', 'Venezuela', '16', '2.3', 'Heavy sour'],
+     ['Athabasca (bitumen)', 'Canada oil sands', '8', '4.8', 'Extra-heavy']], col);
+
+  h += '<div style="font-size:11px;color:var(--muted);margin:.4rem 0 .75rem">Sweet crude: &lt;0.5% S &nbsp;\u2022&nbsp; Sour: &gt;0.5% S &nbsp;\u2022&nbsp; Light: &gt;31.1\u00b0API &nbsp;\u2022&nbsp; Heavy: &lt;22.3\u00b0API</div>';
+
+  h += secHead('API Gravity Calculator', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="font-family:monospace;text-align:center;color:' + col + ';font-size:13px;margin-bottom:.5rem">\u00b0API = 141.5 / SG\u2086\u2080\u00b0F \u2212 131.5</div>';
+  h += '<div class="input-row"><input id="api-sg" class="chem-input" type="number" step="0.001" value="0.850" placeholder="Specific gravity e.g. 0.850"><button class="chem-btn" onclick="calcAPI()">Calculate</button></div>';
+  h += '<div id="api-result" class="result-box" style="margin-top:.5rem"></div>';
+  h += '</div>';
+
+  h += secHead('Atmospheric Distillation \u2014 Fraction Cuts', col);
+  var cuts = [
+    {f:'Gas / LPG', t:'<35\u00b0C', c:'C\u2081\u2013C\u2084', col:'#94a3b8', use:'Fuel gas, LPG, refinery fuel'},
+    {f:'Light naphtha', t:'35\u2013100\u00b0C', c:'C\u2085\u2013C\u2086', col:'#22d3ee', use:'Isomerization feed, gasoline blending'},
+    {f:'Heavy naphtha', t:'100\u2013180\u00b0C', c:'C\u2087\u2013C\u2089', col:'#4ade80', use:'Catalytic reformer feed'},
+    {f:'Kerosene / Jet fuel', t:'180\u2013250\u00b0C', c:'C\u2081\u2080\u2013C\u2081\u2083', col:'#60a5fa', use:'Jet A-1, kerosene'},
+    {f:'Diesel / Gas oil', t:'250\u2013350\u00b0C', c:'C\u2081\u2084\u2013C\u2082\u2000', col:'#fbbf24', use:'Diesel, hydrotreating feed'},
+    {f:'Atmospheric residue', t:'>350\u00b0C', c:'C\u2082\u2081+', col:'#f87171', use:'VDU feed, heavy fuel oil'}
+  ];
+  h += '<div style="display:grid;gap:3px;margin-bottom:.75rem">';
+  cuts.forEach(function(c) {
+    h += '<div style="display:flex;align-items:center;gap:.75rem;background:var(--bg2);border-radius:var(--r);padding:.5rem .75rem;border-left:3px solid ' + c.col + '">';
+    h += '<div style="min-width:120px;font-weight:700;font-size:11.5px;color:' + c.col + '">' + c.f + '</div>';
+    h += '<div style="min-width:90px;font-family:monospace;font-size:11px;color:var(--fg)">' + c.t + '</div>';
+    h += '<div style="min-width:60px;font-size:10.5px;color:var(--muted)">' + c.c + '</div>';
+    h += '<div style="font-size:10.5px;color:var(--muted)">' + c.use + '</div>';
+    h += '</div>';
+  });
+  h += '</div>';
+
+  h += secHead('Refinery Process Chain', col);
+  h += makeCards([
+    {em:'\ud83c\udf21\ufe0f', title:'Atmospheric Distillation (ADU)',
+     sub:'First separation step \u2022 feed preheated 350\u2013400\u00b0C',
+     body:'40-tray distillation column separates crude by boiling point at ~1\u20132 bar.<br>' +
+          'Preceded by desalting: remove 10\u201360 ppm salt via wash water + electrostatic field.<br>' +
+          'Output: LPG, naphtha (light+heavy), kerosene, diesel, atmospheric residue (AR >350\u00b0C).'},
+    {em:'\ud83d\udca8', title:'Vacuum Distillation (VDU)',
+     sub:'25\u2013100 mmHg \u2022 processes atmospheric residue',
+     body:'AR cannot be distilled at atmospheric pressure without thermal cracking.<br>' +
+          'Vacuum allows separation at equivalent boiling points without degradation.<br>' +
+          'Output: light vacuum gas oil (LVGO), heavy vacuum gas oil (HVGO) \u2192 FCC/hydrocracking feed, vacuum residue \u2192 coking/asphalt.'},
+    {em:'\ud83d\udd25', title:'Fluid Catalytic Cracking (FCC)',
+     sub:'480\u2013550\u00b0C riser \u2022 1.5\u20133 bar \u2022 Y-zeolite catalyst',
+     body:'Largest gasoline-producing unit in most refineries. Cracks HVGO into smaller molecules.<br>' +
+          'Riser reactor: catalyst + feed contact for ~2\u20133 seconds at ~535\u00b0C.<br>' +
+          'Outputs: gasoline (~50 vol%), LPG (C\u2083+C\u2084), LCO (light cycle oil), slurry oil, dry gas.<br>' +
+          'FCC conversion (vol%) = 100 \u00d7 (feed \u2212 LCO \u2212 slurry) / feed. Typical: 70\u201380%.'},
+    {em:'\ud83d\udca7', title:'Hydrocracking',
+     sub:'300\u2013450\u00b0C \u2022 150\u2013200 bar H\u2082 \u2022 NiMo/NiW on zeolite',
+     body:'High-pressure hydrogen cracking of VGO/AR. More flexible than FCC \u2014 can target gasoline or distillate.<br>' +
+          'High hydrogen consumption (~150\u2013200 m\u00b3 H\u2082/m\u00b3 feed).<br>' +
+          'Produces premium jet fuel, diesel, naphtha. Low sulfur output (&lt;10 ppm).'},
+    {em:'\u2728', title:'Catalytic Reforming',
+     sub:'480\u2013530\u00b0C \u2022 3.5\u201325 bar \u2022 Pt-Re/Al\u2082O\u2083',
+     body:'Converts low-octane naphtha into high-octane reformate (RON 95\u2013105) + hydrogen.<br>' +
+          'Reactions: dehydrogenation of naphthenes \u2192 aromatics (main), isomerization, hydrocracking.<br>' +
+          'Reformer is the refinery\'s main H\u2082 source \u2014 feeds hydrocracker and hydrotreaters.<br>' +
+          'Pt-Re bimetallic catalyst; regeneration every 6\u201324 months.'},
+    {em:'\ud83e\uddf2', title:'Alkylation',
+     sub:'5\u201315\u00b0C (H\u2082SO\u2084) or 15\u201335\u00b0C (HF) \u2022 high-octane product',
+     body:'Reacts isobutane with C\u2083\u2013C\u2084 olefins (from FCC) to form alkylate (RON ~94\u201397).<br>' +
+          'H\u2082SO\u2084 alkylation: 5\u201315\u00b0C, 90\u201395% acid concentration, must be refrigerated.<br>' +
+          'HF alkylation: 15\u201335\u00b0C, more energy-efficient but highly toxic HF hazard.<br>' +
+          'Alkylate is clean, low-sulfur, high-octane \u2014 premium gasoline blendstock.'},
+    {em:'\ud83d\udee2\ufe0f', title:'Hydrotreating',
+     sub:'300\u2013400\u00b0C \u2022 30\u2013130 bar H\u2082 \u2022 CoMo/NiMo sulfided',
+     body:'Removes sulfur (HDS), nitrogen (HDN), oxygen, and metals from all product streams.<br>' +
+          'ULSD specification: &lt;10 ppm S (EU/US). Euro 5/6 gasoline: &lt;10 ppm S.<br>' +
+          'Sulfidation corrosion risk in carbon steel above 260\u00b0C \u2014 most common refinery failure mode when switching crude.'},
+    {em:'\u26ab', title:'Delayed Coking',
+     sub:'480\u2013510\u00b0C drum \u2022 atmospheric pressure',
+     body:'Converts vacuum residue (heaviest fraction) to petroleum coke + lighter distillates.<br>' +
+          'Two drums alternate: one filling, one being cut (hydraulic decoking).<br>' +
+          'Coke uses: fuel (pet coke), anode grade (aluminum smelting), needle coke (graphite electrodes).'}
+  ], col);
+
+  h += secHead('U.S. Refinery Yields (2024, EIA) \u2014 from 42-gal barrel', col);
+  var yields = [
+    {p:'Motor gasoline', pct:45, col:'#4ade80'},
+    {p:'Distillate fuel oil', pct:26, col:'#fbbf24'},
+    {p:'Jet fuel', pct:10, col:'#60a5fa'},
+    {p:'Heavy fuel oil', pct:5, col:'#94a3b8'},
+    {p:'LPG + other', pct:14, col:'#f472b6'}
+  ];
+  h += '<div style="margin-bottom:.75rem">';
+  yields.forEach(function(y) {
+    h += '<div style="display:flex;align-items:center;gap:.6rem;margin-bottom:4px">';
+    h += '<div style="width:120px;font-size:11px;color:var(--muted)">' + y.p + '</div>';
+    h += '<div style="flex:1;background:var(--bg3);border-radius:4px;height:18px;overflow:hidden">';
+    h += '<div style="width:' + y.pct + '%;background:' + y.col + ';height:100%;border-radius:4px;display:flex;align-items:center;padding-left:6px">';
+    h += '<span style="font-size:10px;font-weight:700;color:var(--bg)">' + y.pct + '%</span></div></div></div>';
+  });
+  h += '</div>';
+  h += '<div style="font-size:10px;color:var(--muted)">Record U.S. refined product exports: 6.6 Mb/d in 2024 &nbsp;\u2022&nbsp; ~6.3% processing gain (output &gt; input by volume)</div>';
+
+  h += secHead('LHSV Calculator', col);
+  h += '<div style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;margin-bottom:.75rem">';
+  h += '<div style="font-family:monospace;text-align:center;color:' + col + ';font-size:13px;margin-bottom:.5rem">LHSV = Feed volume (L/h) / Catalyst volume (L)</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.5rem">';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Feed rate (L/hr)</div><input id="lhsv-feed" class="chem-input" type="number" value="100" min="0"></div>';
+  h += '<div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Catalyst volume (L)</div><input id="lhsv-cat" class="chem-input" type="number" value="50" min="0.01"></div>';
+  h += '</div>';
+  h += '<button class="chem-btn" onclick="calcLHSV()">Calculate</button>';
+  h += '<div id="lhsv-result" class="result-box" style="margin-top:.5rem"></div>';
+  h += '</div>';
+
+  h += secHead('Natural Gas Processing Chain', col);
+  h += tbl(['Step', 'Technology', 'What it removes', 'Key spec'],
+    [['Separation', 'Gravity/cyclone/separator', 'Free water, condensate, solids', 'Before inlet compression'],
+     ['Sweetening', 'Amine absorption (MEA/DEA/MDEA)', 'H\u2082S + CO\u2082', 'Pipeline: H\u2082S \u22644 ppm, CO\u2082 \u22642%'],
+     ['Dehydration', 'TEG (triethylene glycol)', 'Water vapor', 'Dew point \u221240 to \u221270\u00b0C'],
+     ['NGL extraction', 'Cryogenic turboexpander', 'C\u2082\u2013C\u2085+ (ethane, propane, butane)', 'Down to \u2212100\u00b0C'],
+     ['Fractionation', 'Demethanizer\u2192deethanizer\u2192depropanizer', 'Separate NGL components', 'Individual product streams'],
+     ['LNG liquefaction', 'Refrigeration train (APCI/Linde)', 'N/A \u2014 cooling only', '\u2212162\u00b0C, 600 kg/m\u00b3']], col);
+
+  h += secHead('Energy Content Reference', col);
+  h += tbl(['Fuel', 'MJ/kg', 'Notes'],
+    [['Crude oil', '42.3', 'IPCC default'],
+     ['Gasoline', '44\u201346', ''],
+     ['Diesel', '42\u201344', ''],
+     ['Natural gas', '42\u201355', '~38.6 MJ/m\u00b3 at STP'],
+     ['LPG', '46\u201351', ''],
+     ['Hard coal', '23.9', 'IPCC default'],
+     ['Hydrogen (H\u2082)', '120', 'Highest energy density by mass'],
+     ['LEU in PWR', '~3,900,000', '5 orders of magnitude above fossil fuels']], col);
+
+  el.innerHTML = statBar([
+    {v:'42.3', l:'Crude oil MJ/kg', col:col},
+    {v:'44%', l:'Gasoline from barrel (2024)', col:col},
+    {v:'10%', l:'Jet fuel yield (record 2024)', col:col},
+    {v:'6.6 Mb/d', l:'U.S. product exports (2024)', col:col}
+  ]) + h;
+
+  setTimeout(function() { calcAPI(); calcLHSV(); }, 30);
+}
+
+// ── AVIDAA-CHEM AI ANALYST ───────────────────────────────────────────────────
+
+var CHEM_SYS = "IDENTITY: Built by IO, creator of AVIDAA (avidaa1.github.io). Refer to the creator only as IO. Never disclose personal data about any user.\nPRECISION MANDATE: You are a precision instrument. Every response must: (1) State exact numbers with units - never say approximately when the value is known. (2) Show the formula then values substituted then result with units for any calculation. (3) Cite the source inline (IAEA, NRC, EIA, ICRP, OSHA, WNA, SIPRI, ECHA, etc.). (4) Zero filler - no great question, no certainly, no padding. (5) If data is genuinely uncertain state the exact range and why. Dense, correct, complete. Silence over imprecision.\nYou are AVIDAA-CHEM, expert chemical analyst in AVIDAA CHEMISTRY (avidaa1.github.io/chemistry). You know all page data across 15 tabs. Answer in depth on: mixing safety, synthesis, metals, materials, nuclear, oil+gas, all chemistry topics.\nCAPABILITIES: (1) Chemical safety: GHS Rev.10/CLP, SDS, ECHA C&L, OSHA PELs, ACGIH TLVs, incompatibilities, first aid, PPE. Cite CFR/EC regulation. (2) Nuclear: SWU V(x)=(1-2x)*ln((1-x)/x), decay Bateman, dose Gy/Sv ICRP-103, reactor physics, fuel cycle, IAEA safeguards INFCIRC/153/540. (3) Petroleum: crude assay, API gravity, refinery yield, FCC conversion, LHSV, hydrocracking, reforming, LNG, Wobbe. (4) Reactive mixing: NOAA CAMEO+Bretherick incompatibilities, adiabatic dT=dH/(m*Cp). (5) Metals/alloys: composition, corrosion, reduction potentials, reactivity series. (6) Synthesis/lab: safe organic routes, mechanisms, yield/conversion/selectivity/atom economy/E-factor. (7) Regulatory: REACH, CLP, Seveso III, EPA TSCA/PSM, OSHA HazCom, ADR/RID/IMDG/IATA DGR, IAEA SSR-6.\nHARD REFUSALS: no CWC Sch1/2 synthesis, no nuclear weapon design, no clandestine enrichment/Pu separation, no hazardous cargo misclassification. Refuse + redirect to IAEA/OPCW/regulator.\nOUTPUT: TL;DR->key numbers->derivation->caveats. Units always. Hazards: HAZARD/EXPOSURE LIMIT/FIRST-CONTROL(engineering>admin>PPE). Answer first, explain second.\n===PAGE DATA===\nELECTRONEGATIVITY(Pauling): F=3.98,O=3.44,Cl=3.16,N=3.04,C=2.55,H=2.20,Fe=1.83,Na=0.93,Cs=0.79\nIONIZATION ENERGY(eV,1st): He=24.59,Ne=21.56,F=17.42,N=14.53,O=13.62,H=13.60,C=11.26,Na=5.14,K=4.34,Cs=3.89\nDENSITY(g/cm3): H2gas=8.99e-5|Aerogel=0.010(lightest solid)|Cork=0.18|Ice(0C)=0.917(FLOATS-less dense than liquid water)|OliveOil=0.910|Water(25C)=0.9971|Water(4C)=1.000(MAX DENSITY)|Seawater=1.025|Blood=1.055|Bone=1.85|Concrete=2.30|Glass=2.50|Al=2.70(lightest structural metal)|Diamond=3.51(hardest natural)|Ti=4.51(aerospace implants)|Fe=7.87|Steel=7.90|Cu=8.96|Ag=10.50|Pb=11.34(radiation shielding,TOXIC)|Hg=13.60(only liquid metal at RT)|Au=19.30(inert)|W=19.25(melting 3422C)|Pt=21.45|Os=22.59(DENSEST element)\nDENSITY FORMULA: rho=m/V | Archimedes buoyancy=rho_fluid*g*V_sub | float if rho_obj<rho_fluid\nFORMULAS(name,formula,g/mol): Water H2O 18.015 | NaCl 58.44 | CO2 44.01 | Glucose C6H12O6 180.16 | Ethanol C2H5OH 46.07 | Ammonia NH3 17.03 | H2SO4 98.08(battery acid pH~0) | HCl 36.46(stomach acid pH1.5) | NaOH 40.00(pH14 lye) | CaCO3 100.09(limestone antacid) | H2O2 34.01(antiseptic) | CH4 16.04(nat gas) | Acetone C3H6O 58.08(solvent) | AceticAcid CH3COOH 60.05(vinegar pKa4.74) | Aspirin C9H8O4 180.16 | Caffeine C8H10N4O2 194.19 | Bleach NaOCl 74.44 | BakingSoda NaHCO3 84.01 | Rust Fe2O3 159.69 | Quartz SiO2 60.08 | Avogadro=6.02214076e23 mol-1\nDANGEROUS MIXING: (1)Bleach+Ammonia->NH2Cl chloramine gas,lung damage,fatal,sources=bleach+window cleaner/urine (2)Bleach+Vinegar->Cl2 gas,toxic,WWI weapon (3)Bleach+Isopropanol->CHCl3 chloroform,neurotoxic,carcinogenic (4)H2O2+Vinegar->CH3CO3H peracetic acid,strong oxidizer,corrosive skin+eyes | General: never mix unknowns. Acid+base=neutralization(controlled=safe).\nBOND TYPES: Ionic(electron transfer NaCl MgO)|CovalentNonpolar(equal sharing H2 O2)|CovalentPolar(unequal H2O HCl)|Metallic(electron sea Fe Cu)|Hydrogen(H-F/O/N->lone pair, DNA base pairs, H2O)|VanDerWaals(induced dipoles noble gases)|DipDip(permanent dipoles HCl SO2) | delta_chi>1.7=ionic | 0.4-1.7=polar covalent | <0.4=nonpolar covalent\npH SCALE: 0-1=strong acid(H2SO4~0 HCl conc)|1.5=stomach acid|2.5=vinegar lemon|4-5=coffee tomato|5.6=rain|7.0=pure water neutral|7.35-7.45=blood CRITICAL(death <7.0 or >7.7)|8.2=seawater|9=baking soda|12.5=bleach|14=NaOH | H-H: pH=pKa+log([A-]/[HA]) | Strong acids: HCl HBr HI HNO3 H2SO4 HClO4 | Strong bases: NaOH KOH Ca(OH)2 Ba(OH)2\nREACTIONS: Synthesis A+B->AB(2H2+O2->2H2O)|Decomposition AB->A+B(2H2O2->2H2O+O2)|SingleRepl(Zn+2HCl->ZnCl2+H2)|DoubleRepl(NaCl+AgNO3->AgCl+NaNO3)|Combustion(CH4+2O2->CO2+2H2O)|Neutralization(HCl+NaOH->NaCl+H2O)|Redox(Zn+Cu2+->Zn2++Cu) | OIL=Oxidation Is Loss RIG=Reduction Is Gain | Exothermic dH<0(combustion,rust,respiration) Endothermic dH>0(photosynthesis,cold pack NH4NO3)\nSTANDARD REDUCTION POTENTIALS(E_deg V SHE 25C): F2/F-=+2.87|Cl2/Cl-=+1.36|O2-acid=+1.23|Br2/Br-=+1.07|Hg2+/Hg=+0.85|Ag+/Ag=+0.80|Fe3+/Fe2+=+0.77|I2/I-=+0.54|Cu+/Cu=+0.52|O2-neutral=+0.40|Cu2+/Cu=+0.34|SHE=0.00|Pb2+/Pb=-0.13|Sn2+/Sn=-0.14|Ni2+/Ni=-0.25|Co2+/Co=-0.28|Fe2+/Fe=-0.44|Cr3+/Cr=-0.74|Zn2+/Zn=-0.76|Mn2+/Mn=-1.18|Al3+/Al=-1.66|Mg2+/Mg=-2.37|Na+/Na=-2.71|K+/K=-2.93|Li+/Li=-3.05 | E_cell=E_cathode-E_anode | Nernst: E=E_deg-(0.05916/n)*logQ at 25C | F=96485 C/mol\nALLOYS: Steel=Fe+0.02-2.1%C(stronger) | StainlessSteel=Fe+>=10.5%Cr(corrosion resistant) | Bronze=Cu+12%Sn(harder corrosion resistant bells bearings) | Brass=Cu+5-40%Zn(workable antibacterial musical instruments plumbing) | Duralumin=Al+4%Cu+Mg+Mn(aerospace bikes) | Ti-6Al-4V=Ti+6%Al+4%V(aircraft implants highest strength/weight) | Solder=Sn+Pb or Sn+Ag+Cu(mp 180-190C electronics) | Nitinol=Ni+Ti(shape memory medical stents actuators) | Invar=Fe+36%Ni(minimal thermal expansion watches instruments)\nORGANIC GROUPS: Alkane=C-C(CH4,CnH2n+2,nonpolar unreactive)|Alkene=C=C(C2H4 ethylene polymerizes->PE)|Alkyne=C=C-triple(C2H2 welding fuel)|Alcohol=R-OH(C2H5OH H-bond donor)|CarboxylicAcid=R-COOH(CH3COOH pKa4.74 weak acid)|Aldehyde=R-CHO(HCHO formaldehyde toxic preservative)|Ketone=R-CO-R(acetone solvent)|Amine=R-NH2(base H-bond donor)|Ester=R-COO-R(fats fragrances acid+alcohol)|Amide=R-CO-NH2(peptide bond proteins)\nPLASTICS: PE(ethylene bags/bottles)|PP(propylene containers)|PVC(vinyl chloride pipes cables)|PS(styrene foam cups)|Nylon-PA66(adipic+diamine textiles gears)|PET(bottles fibers)|PTFE-Teflon(tetrafluoroethylene non-stick inert)|PC(BPA+phosgene safety glass lenses)\nMATERIALS: Diamond=sp3-3D-tetrahedral,Mohs10,3.51g/cm3,insulator,best-thermal-conductor,hardest-natural | Graphite=sp2-2D-hexagonal,Mohs1-2,2.09-2.23g/cm3,conductor(delocalized-pi-e-) | SodaLimeGlass=SiO2-72%+Na2O+CaO+MgO,2.5g/cm3,amorphous-NOT-liquid | Borosilicate=SiO2+B2O3,3.3e-6/K-expansion,thermal-shock-resistant | Portland-cement=CaO65+SiO220+Al2O35+Fe2O34,hydration->C-S-H-gel->strength,concrete-20-40MPa\nWATER: ice-floats(0.917<1.000g/cm3) | max-density-4C-not-0C | bp100C-261C-higher-than-MW-predicts(H-bonds) | Cp=4.184J/g*K-highest-common-liquid | surface-tension=0.0720N/m(capillary) | universal-solvent(104.5deg-angle,1.85D-dipole,sp3) | triple-point=0.01C-611.7Pa | supercritical=>374C,>220.6bar\nDNA+CELLS: Central-Dogma=DNA->mRNA->Protein | A-T:2H-bonds C-G:3H-bonds | 3.2Gbp 20-25kgenes 46chr 99.9%identical | Codons=64(4^3) 20AA | Start=AUG Stop=UAA/UAG/UGA | Respiration=C6H12O6+6O2->6CO2+6H2O+30-32ATP | Membrane=phospholipid-bilayer-7.5-10nm-25-30%cholesterol | Skin-pH=4.5-6.5(acid-mantle) | Collagen=Gly-X-Y-triple-helix-70%-dry-dermis\nSTANDARD MODEL: 17 particles=6quarks+6leptons+4gauge-bosons+Higgs | Proton=uud+1 Neutron=udd-0 | 4forces: strong>EM>weak>>gravity | Higgs=125.09GeV discovered CERN Jul4,2012 | DarkMatter=26.8%(WIMPs axions) DarkEnergy=68.3% OrdinaryMatter=4.9%\nNUCLEAR FUEL CYCLE: Mining(Kazakhstan39%,Canada24%)->Yellowcake-U3O8(70-90%,LD50~5mgU/kg,specific-activity~3.4e-7Ci/g)->UF6-conversion(sublimes56.5C)->Enrichment(natural0.711%->LEU3-5%->HEU>90%,centrifuge50-60kWh/SWU,$107/SWU-2023)->UO2-pellets(10mm-dia,12mm-tall,1-pellet=1tonne-coal)->PWR(15.5MPa,325C,32-33%eff,burnup45-60GWd/tU)->SpentFuel(95.6%U238+0.9%Pu+3.5%FP)->Onkalo-Finland(430-520m,granite,copper-clad,bentonite,6500tU)\nSWU: V(x)=(1-2x)*ln((1-x)/x) | SWU=P*V(xp)+W*V(xw)-F*V(xf) | 1000MWe-PWR=120000SWU/yr\nREACTORS: PWR72%(15.5MPa,325C,LEU3-5%,300+units)|BWR15%(7MPa,290C,direct-steam)|CANDU11%(heavy-water,natural-U,on-power-refuel)|RBMK<2%(graphite+LW,POSITIVE-VOID-COEFF=Chernobyl-cause)|SFR(Na-cooled,BN-600/800-Russia,CFR-600-China)|NuScale77MWe(NRC2025,TVA6GW)|RR-SMR470MWe(contract-Apr13,2026-Wylfa-UK) | k<1-subcritical k=1-critical k>1-supercritical | delayed-neutrons=0.65%(make-control-possible) | Crit-mass-bare: U235~52kg Pu239~10kg\nTREATIES: Atoms4Peace=Dec8,1953 | IAEA=Jul29,1957 | PTBT=Aug5,1963 | NPT=Jul1,1968/Mar5,1970(191 parties) | SALT-I=May26,1972 | SALT-II=Jun18,1979(never-ratified) | INF=Dec8,1987(US-withdrew-Aug2,2019) | CTBT=Sep24,1996(not-in-force) | NewSTART=Apr8,2010(expired-Feb5,2026,Russia-suspended-Feb21,2023) | TPNW=Jul7,2017/Jan22,2021\nWARHEADS SIPRI2025: Russia=5459(1718deployed)|USA=5177(1770)|China=600|France=290|UK=225|India=180|Pakistan=170|Israel~90|DPRK~50|TOTAL~12241|~3912deployed|~2100-on-high-alert\nRADIATION: Gy=J/kg(physical) Sv=Gy*wR(biological) wR:gamma/beta/X=1,alpha=20,neutrons=2-20 | 1Ci=3.7e10Bq | 0.1uSv=banana|40uSv=flight|100uSv=chest-Xray|2.4mSv=annual-background|20mSv=worker-limit|1Sv=ARS-onset|4-5Sv=LD50/30|>10Sv=fatal | Chernobyl=28-acute-deaths-1986 | Fukushima=0-radiation-deaths\nISOTOPES: C14(5730yr,beta-,dating-to-50kyr)|K40(1.25Gyr,body-radioactivity)|U235(704Myr,fission)|U238(4.47Gyr,breeds-Pu239)|Pu239(24110yr,warheads-MOX)|Po210(138d,Litvinenko2006)|I131(8d,thyroid-Chernobyl)|Cs137(30yr,Chernobyl)|Tc99m(6hr,nuclear-medicine)|Rn222(3.82d,indoor-carcinogen)|Sr90(28.8yr,bone-seeking-fallout)\nNIF-FUSION: First-breakeven=Dec5,2022(3.15MJ/2.05MJ Q~1.5) | Record-Apr7,2025=8.6MJ/2.08MJ-target-gain-4.13 | 10-ignition-shots-through-Oct2025 | ITER: first-plasma-2034(delayed),DT-ops-2039,EUR5B-overrun-Jul2024\nOIL+GAS: API=141.5/SG60-131.5 | WTI=39.6API,0.24%S | Brent=38.3API,0.37%S | ADU-cuts: LPG<35C,NaphL35-100C,NaphH100-180C,Jet180-250C,Diesel250-350C,AR>350C | FCC=480-550C,1.5-3bar,Y-zeolite,conv=70-80% | Hydrocracking=300-450C,150-200barH2,NiMo/NiW | Reforming=480-530C,Pt-Re,naphtha->RON95-105+H2 | Alkylation=5-15C,H2SO4,alkylate-RON94-97 | Hydrotreating=300-400C,30-130barH2,ULSD<10ppmS | Sulfidation-corrosion-above-260C-sour-crude | LHSV=(feed-vol/hr)/(catalyst-vol) | US2024: gasoline44-46%,jet9-10%record,distillate25-27%,HFO5% | LNG=-162C,600kg/m3 | MDEA=best-amine-selective-H2S | Energy: crude42.3MJ/kg,gasoline44-46,natgas38.6MJ/m3,coal23.9,LEU-in-PWR~3900000MJ/kg\nCONSTANTS: c=2.998e8m/s|h=6.626e-34J*s|Na=6.02214076e23/mol|kB=1.38065e-23J/K|e=1.60218e-19C|me=9.10938e-31kg|mp=1.67262e-27kg|R=8.31446J/molK|F=96485C/mol\nVERIFY safety-critical values against ECHA/EPA/OSHA/IAEA/NRC/EIA/ICRP. Training cutoff applies to prices and regulatory updates.";;
+
+var _chemAIHistory = [];
+
+window.chemAISubmit = function() {
+  var inp = document.getElementById('ai-input');
+  var msgs = document.getElementById('ai-msgs');
+  if (!inp || !msgs) return;
+  var q = inp.value.trim();
+  if (!q) return;
+  inp.value = '';
+  _chemAIHistory.push({role: 'user', content: q});
+
+  var uid = 'ai-r-' + Date.now();
+  msgs.innerHTML += '<div style="margin-bottom:.6rem"><div style="font-size:10px;color:var(--teal);font-weight:700;margin-bottom:2px">YOU</div>' +
+    '<div style="font-size:12px;color:var(--fg)">' + q.replace(/</g,'&lt;') + '</div></div>';
+  msgs.innerHTML += '<div id="' + uid + '" style="margin-bottom:.75rem"><div style="font-size:10px;color:#a78bfa;font-weight:700;margin-bottom:2px">AVIDAA-CHEM</div>' +
+    '<div class="ai-body" style="font-size:12px;color:var(--muted);line-height:1.75"><em>Thinking\u2026</em></div></div>';
+  msgs.scrollTop = msgs.scrollHeight;
+
+  var payload = JSON.stringify({
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 4096,
+    system: CHEM_SYS,
+    messages: _chemAIHistory
+  });
+
+  fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: payload
+  }).then(function(r) { return r.json(); }).then(function(data) {
+    var text = (data.content && data.content[0] && data.content[0].text) || 'No response.';
+    _chemAIHistory.push({role: 'assistant', content: text});
+    var el2 = document.getElementById(uid);
+    if (el2) el2.querySelector('.ai-body').innerHTML = text.replace(/</g,'&lt;').replace(/\n/g,'<br>');
+    msgs.scrollTop = msgs.scrollHeight;
+  }).catch(function(err) {
+    var el2 = document.getElementById(uid);
+    if (el2) el2.querySelector('.ai-body').innerHTML = '<span style="color:#f87171">Error: ' + err.message + '</span>';
+  });
+};
+
+window.chemAIClear = function() {
+  _chemAIHistory = [];
+  var msgs = document.getElementById('ai-msgs');
+  if (msgs) msgs.innerHTML = '<div style="color:var(--muted);font-size:11px;text-align:center;padding:1rem">Conversation cleared.</div>';
+};
+
+function renderChemAI(el) {
+  var col = '#a78bfa';
+  var h = '';
+
+  h += '<div style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:var(--rl);padding:1rem;margin-bottom:1rem;font-size:12px;line-height:1.75;color:rgba(240,237,230,.85)">';
+  h += '<strong style="color:' + col + '">AVIDAA-CHEM</strong> is an expert chemical analyst covering: ';
+  h += 'GHS/CLP hazard classification \u2022 SDS interpretation \u2022 nuclear fuel cycle & SWU math \u2022 ';
+  h += 'refinery yield calculations (API gravity, FCC conversion, LHSV) \u2022 reactive mixing safety \u2022 ';
+  h += 'IAEA safeguards \u2022 ADR/IMDG/IATA transport \u2022 REACH/CLP/OSHA compliance. ';
+  h += '<em style="color:var(--muted)">Hard refusal: weapons design, CWC Schedule 1/2 synthesis, clandestine enrichment.</em>';
+  h += '</div>';
+
+  h += '<div id="ai-msgs" style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;min-height:200px;max-height:500px;overflow-y:auto;margin-bottom:.6rem">';
+  h += '<div style="color:var(--muted);font-size:11px;text-align:center;padding:.5rem">Ask AVIDAA-CHEM anything. Examples below.</div>';
+  h += '</div>';
+
+  h += '<div class="input-row">';
+  h += '<input id="ai-input" class="chem-input" placeholder="Ask AVIDAA-CHEM\u2026" onkeydown="if(event.key===\x27Enter\x27)chemAISubmit()">';
+  h += '<button class="chem-btn" onclick="chemAISubmit()" style="white-space:nowrap">&#x1F916; Ask</button>';
+  h += '<button onclick="chemAIClear()" style="background:none;border:1px solid var(--border);border-radius:var(--r);color:var(--muted);cursor:pointer;font-size:11px;padding:.4rem .65rem;font-family:inherit">Clear</button>';
+  h += '</div>';
+
+  h += secHead('Example Queries', col);
+  var examples = [
+    'What is the SWU required to enrich 1 kg of 4% LEU from natural uranium (0.711%) with 0.3% tails?',
+    'Classify acetone (CAS 67-64-1) under GHS Rev.10 \u2014 show all H-statements and exposure limits.',
+    'What happens if bleach (NaOCl) is mixed with hydrochloric acid? Show the reaction and health hazards.',
+    'Calculate the adiabatic temperature rise for 1 kg of 30% H\u2082O\u2082 decomposing (\u0394H = \u2212196 kJ/mol, Cp = 3.6 kJ/kg\u00b7K).',
+    'What is the FCC conversion if feed = 100 m\u00b3/h, LCO = 18 m\u00b3/h, slurry = 7 m\u00b3/h?',
+    'Explain IAEA INFCIRC/153 comprehensive safeguards vs INFCIRC/540 Additional Protocol.',
+    'What are the OSHA PSM covered quantities for H\u2082S and what are the reporting thresholds under EPCRA Tier II?'
+  ];
+
+  h += '<div style="display:flex;flex-direction:column;gap:5px">';
+  examples.forEach(function(ex) {
+    h += '<div style="background:var(--bg2);border-radius:var(--r);padding:.5rem .75rem;font-size:11px;color:var(--muted);cursor:pointer;border:1px solid var(--border)" ' +
+         'onclick="document.getElementById(\x27ai-input\x27).value=' + JSON.stringify(ex) + ';chemAISubmit()">' +
+         '\u25b8 ' + ex + '</div>';
+  });
+  h += '</div>';
+
+  el.innerHTML = h;
+  setTimeout(function() { document.getElementById('ai-input').focus(); }, 50);
+}
+
+
+// ── ROUTER ───────────────────────────────────────────────────────────────────
+
+function chemTab(key, btn) {
+  document.querySelectorAll('.ct').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  var el = document.getElementById('chem-content');
+  if (!el) return;
+  var fns = {
+    atoms: renderAtoms,
+    particles: renderParticles,
+    molecules: renderMolecules,
+    water: renderWater,
+    dna: renderDna,
+    cells: renderCells,
+    density: renderDensity,
+    reactions: renderReactions,
+    periodic: renderPeriodic,
+    nuclear: renderNuclear,
+    equil: renderEquil,
+    electrochem: renderElectrochem,
+    oilgas: renderOilGas,
+    ai: renderChemAI,
+    materials: renderMaterials
+  };
+  if (fns[key]) fns[key](el);
+}
+window.chemTab = chemTab;
+
+document.addEventListener('DOMContentLoaded', function() {
+  chemTab('atoms', document.getElementById('ct-atoms'));
+});
+</script>
+</body>
+</html>
