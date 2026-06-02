@@ -82,7 +82,7 @@ tr:last-child td{border-bottom:none}
 
 <header class="site-header">
   <div class="site-title">&#x2697;&#xFE0F; AVIDAA CHEMISTRY</div>
-  <a class="site-back" href="https://avidaa1.github.io/hub">&#x2190; Hub</a>
+  <a class="site-back" href="https://avidaa1.github.io">&#x2302; Home</a>
 </header>
 
 <div class="main">
@@ -2051,45 +2051,110 @@ var CHEM_SYS = "IDENTITY: Built by IO, creator of AVIDAA (avidaa1.github.io). Re
 
 var _chemAIHistory = [];
 
+
+function escHTML(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#x27;');
+}
+
+var AI_EXAMPLES = [
+  'What is the SWU required to enrich 1 kg of 4% LEU from natural uranium (0.711%) with 0.3% tails?',
+  'Classify acetone (CAS 67-64-1) under GHS Rev.10. List all H-statements and OSHA PEL.',
+  'What happens if bleach (NaOCl) is mixed with hydrochloric acid? Show reaction and health hazards.',
+  'Calculate the adiabatic temperature rise for 1 kg of 30% H2O2 decomposing (dH=-196 kJ/mol, Cp=3.6 kJ/kg*K).',
+  'What is the FCC conversion if feed=100 m3/h, LCO=18 m3/h, slurry=7 m3/h?',
+  'Explain IAEA INFCIRC/153 comprehensive safeguards vs INFCIRC/540 Additional Protocol.',
+  'Compare osmium, iridium, platinum and gold: density, reduction potential, main uses, toxicity.'
+];
+
+window.useExample = function(i) {
+  var inp = document.getElementById('ai-input');
+  if (inp && AI_EXAMPLES[i]) { inp.value = AI_EXAMPLES[i]; chemAISubmit(); }
+};
+
+window.chemAISaveKey = function() {
+  var inp = document.getElementById('ai-key-input');
+  if (!inp) return;
+  var k = inp.value.trim();
+  var st = document.getElementById('ai-key-status');
+  if (!k.startsWith('sk-ant-')) {
+    if (st) st.innerHTML = '<span style="color:#f87171">Must start with sk-ant-</span>';
+    return;
+  }
+  localStorage.setItem('chemAI_key', k);
+  inp.value = '';
+  if (st) st.innerHTML = '<span style="color:#4ade80">\u2713 Key saved (device only)</span>';
+};
+
+window.chemAIForgetKey = function() {
+  localStorage.removeItem('chemAI_key');
+  var inp = document.getElementById('ai-key-input');
+  if (inp) inp.value = '';
+  var st = document.getElementById('ai-key-status');
+  if (st) st.innerHTML = '<span style="color:#fbbf24">Key removed</span>';
+  _chemAIHistory = [];
+  var msgs = document.getElementById('ai-msgs');
+  if (msgs) msgs.innerHTML = '<div style="color:var(--muted);font-size:11px;text-align:center;padding:1rem">Key cleared. Conversation reset.</div>';
+};
+
+var _chemBusy = false;
+
 window.chemAISubmit = function() {
+  if (_chemBusy) return;
   var inp = document.getElementById('ai-input');
   var msgs = document.getElementById('ai-msgs');
   if (!inp || !msgs) return;
   var q = inp.value.trim();
   if (!q) return;
+
+  var key = (typeof localStorage !== 'undefined') ? (localStorage.getItem('chemAI_key') || '') : '';
+  if (!key) {
+    msgs.innerHTML += '<div style="color:#f87171;font-size:11px;margin-bottom:.5rem">&#x26a0;&#xfe0f; Enter and save your Anthropic API key above first.</div>';
+    msgs.scrollTop = msgs.scrollHeight;
+    return;
+  }
+
   inp.value = '';
   _chemAIHistory.push({role: 'user', content: q});
 
   var uid = 'ai-r-' + Date.now();
   msgs.innerHTML += '<div style="margin-bottom:.6rem"><div style="font-size:10px;color:var(--teal);font-weight:700;margin-bottom:2px">YOU</div>' +
-    '<div style="font-size:12px;color:var(--fg)">' + q.replace(/</g,'&lt;') + '</div></div>';
+    '<div style="font-size:12px;color:var(--fg)">' + escHTML(q) + '</div></div>';
   msgs.innerHTML += '<div id="' + uid + '" style="margin-bottom:.75rem"><div style="font-size:10px;color:#a78bfa;font-weight:700;margin-bottom:2px">AVIDAA-CHEM</div>' +
     '<div class="ai-body" style="font-size:12px;color:var(--muted);line-height:1.75"><em>Thinking\u2026</em></div></div>';
   msgs.scrollTop = msgs.scrollHeight;
 
-  var payload = JSON.stringify({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 4096,
-    system: CHEM_SYS,
-    messages: _chemAIHistory
-  });
-
+  _chemBusy = true;
   fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: payload
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': key,
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 4096,
+      system: CHEM_SYS,
+      messages: _chemAIHistory
+    })
   }).then(function(r) { return r.json(); }).then(function(data) {
     var text = (data.content && data.content[0] && data.content[0].text) || 'No response.';
     _chemAIHistory.push({role: 'assistant', content: text});
     var el2 = document.getElementById(uid);
-    if (el2) el2.querySelector('.ai-body').innerHTML = text.replace(/</g,'&lt;').replace(/\n/g,'<br>');
+    if (el2) el2.querySelector('.ai-body').innerHTML = escHTML(text).replace(/\n/g,'<br>');
+    _chemBusy = false;
     msgs.scrollTop = msgs.scrollHeight;
   }).catch(function(err) {
+    _chemBusy = false;
     var el2 = document.getElementById(uid);
-    if (el2) el2.querySelector('.ai-body').innerHTML = '<span style="color:#f87171">Error: ' + err.message + '</span>';
+    if (el2) el2.querySelector('.ai-body').innerHTML = '<span style="color:#f87171">Error: ' + escHTML(err.message) + '</span>';
   });
-};
-
+}
 window.chemAIClear = function() {
   _chemAIHistory = [];
   var msgs = document.getElementById('ai-msgs');
@@ -2100,7 +2165,18 @@ function renderChemAI(el) {
   var col = '#a78bfa';
   var h = '';
 
-  h += '<div style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:var(--rl);padding:1rem;margin-bottom:1rem;font-size:12px;line-height:1.75;color:rgba(240,237,230,.85)">';
+  var keySet = !!(typeof localStorage !== 'undefined' && localStorage.getItem('chemAI_key'));
+  h += '<div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2);border-radius:var(--rl);padding:.85rem;margin-bottom:.85rem">';
+  h += '<div style="font-size:10px;color:#f87171;font-weight:700;margin-bottom:.4rem">\ud83d\udd11 API KEY \u2014 stored in your browser only, never transmitted except to api.anthropic.com</div>';
+  h += '<div class="input-row">';
+  h += '<input id="ai-key-input" type="password" class="chem-input" placeholder="sk-ant-..." autocomplete="off">';
+  h += '<button class="chem-btn" onclick="chemAISaveKey()">Save</button>';
+  h += '<button onclick="chemAIForgetKey()" style="background:none;border:1px solid rgba(248,113,113,.35);border-radius:var(--r);color:#f87171;cursor:pointer;font-size:11px;font-family:inherit;padding:.4rem .65rem">Forget</button>';
+  h += '</div>';
+  h += '<div id="ai-key-status" style="font-size:10px;margin-top:.35rem">' + (keySet ? '<span style="color:#4ade80">\u2713 Key saved</span>' : '<span style="color:var(--muted)">No key set</span>') + '</div>';
+  h += '</div>';
+
+    h += '<div style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:var(--rl);padding:1rem;margin-bottom:1rem;font-size:12px;line-height:1.75;color:rgba(240,237,230,.85)">';
   h += '<strong style="color:' + col + '">AVIDAA-CHEM</strong> is an expert chemical analyst covering: ';
   h += 'GHS/CLP hazard classification \u2022 SDS interpretation \u2022 nuclear fuel cycle & SWU math \u2022 ';
   h += 'refinery yield calculations (API gravity, FCC conversion, LHSV) \u2022 reactive mixing safety \u2022 ';
@@ -2119,21 +2195,12 @@ function renderChemAI(el) {
   h += '</div>';
 
   h += secHead('Example Queries', col);
-  var examples = [
-    'What is the SWU required to enrich 1 kg of 4% LEU from natural uranium (0.711%) with 0.3% tails?',
-    'Classify acetone (CAS 67-64-1) under GHS Rev.10 \u2014 show all H-statements and exposure limits.',
-    'What happens if bleach (NaOCl) is mixed with hydrochloric acid? Show the reaction and health hazards.',
-    'Calculate the adiabatic temperature rise for 1 kg of 30% H\u2082O\u2082 decomposing (\u0394H = \u2212196 kJ/mol, Cp = 3.6 kJ/kg\u00b7K).',
-    'What is the FCC conversion if feed = 100 m\u00b3/h, LCO = 18 m\u00b3/h, slurry = 7 m\u00b3/h?',
-    'Explain IAEA INFCIRC/153 comprehensive safeguards vs INFCIRC/540 Additional Protocol.',
-    'What are the OSHA PSM covered quantities for H\u2082S and what are the reporting thresholds under EPCRA Tier II?'
-  ];
 
   h += '<div style="display:flex;flex-direction:column;gap:5px">';
-  examples.forEach(function(ex) {
+  AI_EXAMPLES.forEach(function(ex, i) {
     h += '<div style="background:var(--bg2);border-radius:var(--r);padding:.5rem .75rem;font-size:11px;color:var(--muted);cursor:pointer;border:1px solid var(--border)" ' +
-         'onclick="document.getElementById(\x27ai-input\x27).value=' + JSON.stringify(ex) + ';chemAISubmit()">' +
-         '\u25b8 ' + ex + '</div>';
+         'onclick="useExample(' + i + ')">' +
+         '\u25b8 ' + escHTML(ex) + '</div>';
   });
   h += '</div>';
 
