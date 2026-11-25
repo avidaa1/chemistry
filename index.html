@@ -175,7 +175,6 @@ tr:last-child td{border-bottom:none}
     <button class="ct" id="ct-equil"       onclick="chemTab('equil',this)">&#x21CC; Equilibrium</button>
     <button class="ct" id="ct-electrochem" onclick="chemTab('electrochem',this)">&#x26A1; Electrochem</button>
     <button class="ct" id="ct-oilgas"     onclick="chemTab('oilgas',this)">&#x1F6E2;&#xFE0F; Oil &amp; Gas</button>
-    <button class="ct" id="ct-ai"         onclick="chemTab('ai',this)">&#x1F916; CHEM AI</button>
   </div>
 
   <div id="chem-content"></div>
@@ -2113,170 +2112,6 @@ function renderOilGas(el) {
   setTimeout(function() { calcAPI(); calcLHSV(); }, 30);
 }
 
-// ── AVIDAA-CHEM AI ANALYST ───────────────────────────────────────────────────
-
-var CHEM_SYS = "IDENTITY: Built by IO, creator of AVIDAA (avidaa1.github.io). Refer to the creator only as IO. Never disclose personal data about any user.\nPRECISION MANDATE: You are a precision instrument. Every response must: (1) State exact numbers with units - never say approximately when the value is known. (2) Show the formula then values substituted then result with units for any calculation. (3) Cite the source inline (IAEA, NRC, EIA, ICRP, OSHA, WNA, SIPRI, ECHA, etc.). (4) Zero filler - no great question, no certainly, no padding. (5) If data is genuinely uncertain state the exact range and why. Dense, correct, complete. Silence over imprecision.\nYou are AVIDAA-CHEM, expert chemical analyst in AVIDAA CHEMISTRY (avidaa1.github.io/chemistry). You know all page data across 15 tabs. Answer in depth on: mixing safety, synthesis, metals, materials, nuclear, oil+gas, all chemistry topics.\nCAPABILITIES: (1) Chemical safety: GHS Rev.10/CLP, SDS, ECHA C&L, OSHA PELs, ACGIH TLVs, incompatibilities, first aid, PPE. Cite CFR/EC regulation. (2) Nuclear: SWU V(x)=(1-2x)*ln((1-x)/x), decay Bateman, dose Gy/Sv ICRP-103, reactor physics, fuel cycle, IAEA safeguards INFCIRC/153/540. (3) Petroleum: crude assay, API gravity, refinery yield, FCC conversion, LHSV, hydrocracking, reforming, LNG, Wobbe. (4) Reactive mixing: NOAA CAMEO+Bretherick incompatibilities, adiabatic dT=dH/(m*Cp). (5) Metals/alloys: composition, corrosion, reduction potentials, reactivity series. (6) Synthesis/lab: safe organic routes, mechanisms, yield/conversion/selectivity/atom economy/E-factor. (7) Regulatory: REACH, CLP, Seveso III, EPA TSCA/PSM, OSHA HazCom, ADR/RID/IMDG/IATA DGR, IAEA SSR-6.\nHARD REFUSALS: no CWC Sch1/2 synthesis, no nuclear weapon design, no clandestine enrichment/Pu separation, no hazardous cargo misclassification. Refuse + redirect to IAEA/OPCW/regulator.\nOUTPUT: TL;DR->key numbers->derivation->caveats. Units always. Hazards: HAZARD/EXPOSURE LIMIT/FIRST-CONTROL(engineering>admin>PPE). Answer first, explain second.\n===PAGE DATA===\nELECTRONEGATIVITY(Pauling): F=3.98,O=3.44,Cl=3.16,N=3.04,C=2.55,H=2.20,Fe=1.83,Na=0.93,Cs=0.79\nIONIZATION ENERGY(eV,1st): He=24.59,Ne=21.56,F=17.42,N=14.53,O=13.62,H=13.60,C=11.26,Na=5.14,K=4.34,Cs=3.89\nDENSITY(g/cm3): H2gas=8.99e-5|Aerogel=0.010(lightest solid)|Cork=0.18|Ice(0C)=0.917(FLOATS-less dense than liquid water)|OliveOil=0.910|Water(25C)=0.9971|Water(4C)=1.000(MAX DENSITY)|Seawater=1.025|Blood=1.055|Bone=1.85|Concrete=2.30|Glass=2.50|Al=2.70(lightest structural metal)|Diamond=3.51(hardest natural)|Ti=4.51(aerospace implants)|Fe=7.87|Steel=7.90|Cu=8.96|Ag=10.50|Pb=11.34(radiation shielding,TOXIC)|Hg=13.60(only liquid metal at RT)|Au=19.30(inert)|W=19.25(melting 3422C)|Pt=21.45|Os=22.59(DENSEST element)\nDENSITY FORMULA: rho=m/V | Archimedes buoyancy=rho_fluid*g*V_sub | float if rho_obj<rho_fluid\nFORMULAS(name,formula,g/mol): Water H2O 18.015 | NaCl 58.44 | CO2 44.01 | Glucose C6H12O6 180.16 | Ethanol C2H5OH 46.07 | Ammonia NH3 17.03 | H2SO4 98.08(battery acid pH~0) | HCl 36.46(stomach acid pH1.5) | NaOH 40.00(pH14 lye) | CaCO3 100.09(limestone antacid) | H2O2 34.01(antiseptic) | CH4 16.04(nat gas) | Acetone C3H6O 58.08(solvent) | AceticAcid CH3COOH 60.05(vinegar pKa4.74) | Aspirin C9H8O4 180.16 | Caffeine C8H10N4O2 194.19 | Bleach NaOCl 74.44 | BakingSoda NaHCO3 84.01 | Rust Fe2O3 159.69 | Quartz SiO2 60.08 | Avogadro=6.02214076e23 mol-1\nDANGEROUS MIXING: (1)Bleach+Ammonia->NH2Cl chloramine gas,lung damage,fatal,sources=bleach+window cleaner/urine (2)Bleach+Vinegar->Cl2 gas,toxic,WWI weapon (3)Bleach+Isopropanol->CHCl3 chloroform,neurotoxic,carcinogenic (4)H2O2+Vinegar->CH3CO3H peracetic acid,strong oxidizer,corrosive skin+eyes | General: never mix unknowns. Acid+base=neutralization(controlled=safe).\nBOND TYPES: Ionic(electron transfer NaCl MgO)|CovalentNonpolar(equal sharing H2 O2)|CovalentPolar(unequal H2O HCl)|Metallic(electron sea Fe Cu)|Hydrogen(H-F/O/N->lone pair, DNA base pairs, H2O)|VanDerWaals(induced dipoles noble gases)|DipDip(permanent dipoles HCl SO2) | delta_chi>1.7=ionic | 0.4-1.7=polar covalent | <0.4=nonpolar covalent\npH SCALE: 0-1=strong acid(H2SO4~0 HCl conc)|1.5=stomach acid|2.5=vinegar lemon|4-5=coffee tomato|5.6=rain|7.0=pure water neutral|7.35-7.45=blood CRITICAL(death <7.0 or >7.7)|8.2=seawater|9=baking soda|12.5=bleach|14=NaOH | H-H: pH=pKa+log([A-]/[HA]) | Strong acids: HCl HBr HI HNO3 H2SO4 HClO4 | Strong bases: NaOH KOH Ca(OH)2 Ba(OH)2\nREACTIONS: Synthesis A+B->AB(2H2+O2->2H2O)|Decomposition AB->A+B(2H2O2->2H2O+O2)|SingleRepl(Zn+2HCl->ZnCl2+H2)|DoubleRepl(NaCl+AgNO3->AgCl+NaNO3)|Combustion(CH4+2O2->CO2+2H2O)|Neutralization(HCl+NaOH->NaCl+H2O)|Redox(Zn+Cu2+->Zn2++Cu) | OIL=Oxidation Is Loss RIG=Reduction Is Gain | Exothermic dH<0(combustion,rust,respiration) Endothermic dH>0(photosynthesis,cold pack NH4NO3)\nSTANDARD REDUCTION POTENTIALS(E_deg V SHE 25C): F2/F-=+2.87|Cl2/Cl-=+1.36|O2-acid=+1.23|Br2/Br-=+1.07|Hg2+/Hg=+0.85|Ag+/Ag=+0.80|Fe3+/Fe2+=+0.77|I2/I-=+0.54|Cu+/Cu=+0.52|O2-neutral=+0.40|Cu2+/Cu=+0.34|SHE=0.00|Pb2+/Pb=-0.13|Sn2+/Sn=-0.14|Ni2+/Ni=-0.25|Co2+/Co=-0.28|Fe2+/Fe=-0.44|Cr3+/Cr=-0.74|Zn2+/Zn=-0.76|Mn2+/Mn=-1.18|Al3+/Al=-1.66|Mg2+/Mg=-2.37|Na+/Na=-2.71|K+/K=-2.93|Li+/Li=-3.05 | E_cell=E_cathode-E_anode | Nernst: E=E_deg-(0.05916/n)*logQ at 25C | F=96485 C/mol\nALLOYS: Steel=Fe+0.02-2.1%C(stronger) | StainlessSteel=Fe+>=10.5%Cr(corrosion resistant) | Bronze=Cu+12%Sn(harder corrosion resistant bells bearings) | Brass=Cu+5-40%Zn(workable antibacterial musical instruments plumbing) | Duralumin=Al+4%Cu+Mg+Mn(aerospace bikes) | Ti-6Al-4V=Ti+6%Al+4%V(aircraft implants highest strength/weight) | Solder=Sn+Pb or Sn+Ag+Cu(mp 180-190C electronics) | Nitinol=Ni+Ti(shape memory medical stents actuators) | Invar=Fe+36%Ni(minimal thermal expansion watches instruments)\nORGANIC GROUPS: Alkane=C-C(CH4,CnH2n+2,nonpolar unreactive)|Alkene=C=C(C2H4 ethylene polymerizes->PE)|Alkyne=C=C-triple(C2H2 welding fuel)|Alcohol=R-OH(C2H5OH H-bond donor)|CarboxylicAcid=R-COOH(CH3COOH pKa4.74 weak acid)|Aldehyde=R-CHO(HCHO formaldehyde toxic preservative)|Ketone=R-CO-R(acetone solvent)|Amine=R-NH2(base H-bond donor)|Ester=R-COO-R(fats fragrances acid+alcohol)|Amide=R-CO-NH2(peptide bond proteins)\nPLASTICS: PE(ethylene bags/bottles)|PP(propylene containers)|PVC(vinyl chloride pipes cables)|PS(styrene foam cups)|Nylon-PA66(adipic+diamine textiles gears)|PET(bottles fibers)|PTFE-Teflon(tetrafluoroethylene non-stick inert)|PC(BPA+phosgene safety glass lenses)\nMATERIALS: Diamond=sp3-3D-tetrahedral,Mohs10,3.51g/cm3,insulator,best-thermal-conductor,hardest-natural | Graphite=sp2-2D-hexagonal,Mohs1-2,2.09-2.23g/cm3,conductor(delocalized-pi-e-) | SodaLimeGlass=SiO2-72%+Na2O+CaO+MgO,2.5g/cm3,amorphous-NOT-liquid | Borosilicate=SiO2+B2O3,3.3e-6/K-expansion,thermal-shock-resistant | Portland-cement=CaO65+SiO220+Al2O35+Fe2O34,hydration->C-S-H-gel->strength,concrete-20-40MPa\nWATER: ice-floats(0.917<1.000g/cm3) | max-density-4C-not-0C | bp100C-261C-higher-than-MW-predicts(H-bonds) | Cp=4.184J/g*K-highest-common-liquid | surface-tension=0.0720N/m(capillary) | universal-solvent(104.5deg-angle,1.85D-dipole,sp3) | triple-point=0.01C-611.7Pa | supercritical=>374C,>220.6bar\nDNA+CELLS: Central-Dogma=DNA->mRNA->Protein | A-T:2H-bonds C-G:3H-bonds | 3.2Gbp 20-25kgenes 46chr 99.9%identical | Codons=64(4^3) 20AA | Start=AUG Stop=UAA/UAG/UGA | Respiration=C6H12O6+6O2->6CO2+6H2O+30-32ATP | Membrane=phospholipid-bilayer-7.5-10nm-25-30%cholesterol | Skin-pH=4.5-6.5(acid-mantle) | Collagen=Gly-X-Y-triple-helix-70%-dry-dermis\nSTANDARD MODEL: 17 particles=6quarks+6leptons+4gauge-bosons+Higgs | Proton=uud+1 Neutron=udd-0 | 4forces: strong>EM>weak>>gravity | Higgs=125.09GeV discovered CERN Jul4,2012 | DarkMatter=26.8%(WIMPs axions) DarkEnergy=68.3% OrdinaryMatter=4.9%\nNUCLEAR FUEL CYCLE: Mining(Kazakhstan39%,Canada24%)->Yellowcake-U3O8(70-90%,LD50~5mgU/kg,specific-activity~3.4e-7Ci/g)->UF6-conversion(sublimes56.5C)->Enrichment(natural0.711%->LEU3-5%->HEU>90%,centrifuge50-60kWh/SWU,$107/SWU-2023)->UO2-pellets(10mm-dia,12mm-tall,1-pellet=1tonne-coal)->PWR(15.5MPa,325C,32-33%eff,burnup45-60GWd/tU)->SpentFuel(95.6%U238+0.9%Pu+3.5%FP)->Onkalo-Finland(430-520m,granite,copper-clad,bentonite,6500tU)\nSWU: V(x)=(1-2x)*ln((1-x)/x) | SWU=P*V(xp)+W*V(xw)-F*V(xf) | 1000MWe-PWR=120000SWU/yr\nREACTORS: PWR72%(15.5MPa,325C,LEU3-5%,300+units)|BWR15%(7MPa,290C,direct-steam)|CANDU11%(heavy-water,natural-U,on-power-refuel)|RBMK<2%(graphite+LW,POSITIVE-VOID-COEFF=Chernobyl-cause)|SFR(Na-cooled,BN-600/800-Russia,CFR-600-China)|NuScale77MWe(NRC2025,TVA6GW)|RR-SMR470MWe(contract-Apr13,2026-Wylfa-UK) | k<1-subcritical k=1-critical k>1-supercritical | delayed-neutrons=0.65%(make-control-possible) | Crit-mass-bare: U235~52kg Pu239~10kg\nTREATIES: Atoms4Peace=Dec8,1953 | IAEA=Jul29,1957 | PTBT=Aug5,1963 | NPT=Jul1,1968/Mar5,1970(191 parties) | SALT-I=May26,1972 | SALT-II=Jun18,1979(never-ratified) | INF=Dec8,1987(US-withdrew-Aug2,2019) | CTBT=Sep24,1996(not-in-force) | NewSTART=Apr8,2010(expired-Feb5,2026,Russia-suspended-Feb21,2023) | TPNW=Jul7,2017/Jan22,2021\nWARHEADS SIPRI2025: Russia=5459(1718deployed)|USA=5177(1770)|China=600|France=290|UK=225|India=180|Pakistan=170|Israel~90|DPRK~50|TOTAL~12241|~3912deployed|~2100-on-high-alert\nRADIATION: Gy=J/kg(physical) Sv=Gy*wR(biological) wR:gamma/beta/X=1,alpha=20,neutrons=2-20 | 1Ci=3.7e10Bq | 0.1uSv=banana|40uSv=flight|100uSv=chest-Xray|2.4mSv=annual-background|20mSv=worker-limit|1Sv=ARS-onset|4-5Sv=LD50/30|>10Sv=fatal | Chernobyl=28-acute-deaths-1986 | Fukushima=0-radiation-deaths\nISOTOPES: C14(5730yr,beta-,dating-to-50kyr)|K40(1.25Gyr,body-radioactivity)|U235(704Myr,fission)|U238(4.47Gyr,breeds-Pu239)|Pu239(24110yr,warheads-MOX)|Po210(138d,Litvinenko2006)|I131(8d,thyroid-Chernobyl)|Cs137(30yr,Chernobyl)|Tc99m(6hr,nuclear-medicine)|Rn222(3.82d,indoor-carcinogen)|Sr90(28.8yr,bone-seeking-fallout)\nNIF-FUSION: First-breakeven=Dec5,2022(3.15MJ/2.05MJ Q~1.5) | Record-Apr7,2025=8.6MJ/2.08MJ-target-gain-4.13 | 10-ignition-shots-through-Oct2025 | ITER: first-plasma-2034(delayed),DT-ops-2039,EUR5B-overrun-Jul2024\nOIL+GAS: API=141.5/SG60-131.5 | WTI=39.6API,0.24%S | Brent=38.3API,0.37%S | ADU-cuts: LPG<35C,NaphL35-100C,NaphH100-180C,Jet180-250C,Diesel250-350C,AR>350C | FCC=480-550C,1.5-3bar,Y-zeolite,conv=70-80% | Hydrocracking=300-450C,150-200barH2,NiMo/NiW | Reforming=480-530C,Pt-Re,naphtha->RON95-105+H2 | Alkylation=5-15C,H2SO4,alkylate-RON94-97 | Hydrotreating=300-400C,30-130barH2,ULSD<10ppmS | Sulfidation-corrosion-above-260C-sour-crude | LHSV=(feed-vol/hr)/(catalyst-vol) | US2024: gasoline44-46%,jet9-10%record,distillate25-27%,HFO5% | LNG=-162C,600kg/m3 | MDEA=best-amine-selective-H2S | Energy: crude42.3MJ/kg,gasoline44-46,natgas38.6MJ/m3,coal23.9,LEU-in-PWR~3900000MJ/kg\nCONSTANTS: c=2.998e8m/s|h=6.626e-34J*s|Na=6.02214076e23/mol|kB=1.38065e-23J/K|e=1.60218e-19C|me=9.10938e-31kg|mp=1.67262e-27kg|R=8.31446J/molK|F=96485C/mol\nVERIFY safety-critical values against ECHA/EPA/OSHA/IAEA/NRC/EIA/ICRP. Training cutoff applies to prices and regulatory updates.";;
-
-var _chemAIHistory = [];
-
-
-function escHTML(s) {
-  return String(s)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#x27;');
-}
-
-var AI_EXAMPLES = [
-  'What is the SWU required to enrich 1 kg of 4% LEU from natural uranium (0.711%) with 0.3% tails?',
-  'Classify acetone (CAS 67-64-1) under GHS Rev.10. List all H-statements and OSHA PEL.',
-  'What happens if bleach (NaOCl) is mixed with hydrochloric acid? Show reaction and health hazards.',
-  'Calculate the adiabatic temperature rise for 1 kg of 30% H2O2 decomposing (dH=-196 kJ/mol, Cp=3.6 kJ/kg*K).',
-  'What is the FCC conversion if feed=100 m3/h, LCO=18 m3/h, slurry=7 m3/h?',
-  'Explain IAEA INFCIRC/153 comprehensive safeguards vs INFCIRC/540 Additional Protocol.',
-  'Compare osmium, iridium, platinum and gold: density, reduction potential, main uses, toxicity.'
-];
-
-window.useExample = function(i) {
-  var inp = document.getElementById('ai-input');
-  if (inp && AI_EXAMPLES[i]) { inp.value = AI_EXAMPLES[i]; chemAISubmit(); }
-};
-
-window.chemAISaveKey = function() {
-  var inp = document.getElementById('ai-key-input');
-  if (!inp) return;
-  var k = inp.value.trim();
-  var st = document.getElementById('ai-key-status');
-  if (!k.startsWith('sk-ant-')) {
-    if (st) st.innerHTML = '<span style="color:#f87171">Must start with sk-ant-</span>';
-    return;
-  }
-  localStorage.setItem('chemAI_key', k);
-  inp.value = '';
-  if (st) st.innerHTML = '<span style="color:#4ade80">\u2713 Key saved (device only)</span>';
-};
-
-window.chemAIForgetKey = function() {
-  localStorage.removeItem('chemAI_key');
-  var inp = document.getElementById('ai-key-input');
-  if (inp) inp.value = '';
-  var st = document.getElementById('ai-key-status');
-  if (st) st.innerHTML = '<span style="color:#fbbf24">Key removed</span>';
-  _chemAIHistory = [];
-  var msgs = document.getElementById('ai-msgs');
-  if (msgs) msgs.innerHTML = '<div style="color:var(--muted);font-size:11px;text-align:center;padding:1rem">Key cleared. Conversation reset.</div>';
-};
-
-var _chemBusy = false;
-
-window.chemAISubmit = function() {
-  if (_chemBusy) return;
-  var inp = document.getElementById('ai-input');
-  var msgs = document.getElementById('ai-msgs');
-  if (!inp || !msgs) return;
-  var q = inp.value.trim();
-  if (!q) return;
-
-  var key = (typeof localStorage !== 'undefined') ? (localStorage.getItem('chemAI_key') || '') : '';
-  if (!key) {
-    msgs.innerHTML += '<div style="color:#f87171;font-size:11px;margin-bottom:.5rem">&#x26a0;&#xfe0f; Enter and save your Anthropic API key above first.</div>';
-    msgs.scrollTop = msgs.scrollHeight;
-    return;
-  }
-
-  inp.value = '';
-  _chemAIHistory.push({role: 'user', content: q});
-
-  var uid = 'ai-r-' + Date.now();
-  msgs.innerHTML += '<div style="margin-bottom:.6rem"><div style="font-size:10px;color:var(--teal);font-weight:700;margin-bottom:2px">YOU</div>' +
-    '<div style="font-size:12px;color:var(--fg)">' + escHTML(q) + '</div></div>';
-  msgs.innerHTML += '<div id="' + uid + '" style="margin-bottom:.75rem"><div style="font-size:10px;color:#a78bfa;font-weight:700;margin-bottom:2px">AVIDAA-CHEM</div>' +
-    '<div class="ai-body" style="font-size:12px;color:var(--muted);line-height:1.75"><em>Thinking\u2026</em></div></div>';
-  msgs.scrollTop = msgs.scrollHeight;
-
-  _chemBusy = true;
-  fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': key,
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 4096,
-      system: CHEM_SYS,
-      messages: _chemAIHistory
-    })
-  }).then(function(r) { return r.json(); }).then(function(data) {
-    var text = (data.content && data.content[0] && data.content[0].text) || 'No response.';
-    _chemAIHistory.push({role: 'assistant', content: text});
-    var el2 = document.getElementById(uid);
-    if (el2) el2.querySelector('.ai-body').innerHTML = escHTML(text).replace(/\n/g,'<br>');
-    _chemBusy = false;
-    msgs.scrollTop = msgs.scrollHeight;
-  }).catch(function(err) {
-    _chemBusy = false;
-    var el2 = document.getElementById(uid);
-    if (el2) el2.querySelector('.ai-body').innerHTML = '<span style="color:#f87171">Error: ' + escHTML(err.message) + '</span>';
-  });
-}
-window.chemAIClear = function() {
-  _chemAIHistory = [];
-  var msgs = document.getElementById('ai-msgs');
-  if (msgs) msgs.innerHTML = '<div style="color:var(--muted);font-size:11px;text-align:center;padding:1rem">Conversation cleared.</div>';
-};
-
-function renderChemAI(el) {
-  var col = '#a78bfa';
-  var h = '';
-
-  var keySet = !!(typeof localStorage !== 'undefined' && localStorage.getItem('chemAI_key'));
-  h += '<div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2);border-radius:var(--rl);padding:.85rem;margin-bottom:.85rem">';
-  h += '<div style="font-size:10px;color:#f87171;font-weight:700;margin-bottom:.4rem">\ud83d\udd11 API KEY \u2014 stored in your browser only, never transmitted except to api.anthropic.com</div>';
-  h += '<div class="input-row">';
-  h += '<input id="ai-key-input" type="password" class="chem-input" placeholder="sk-ant-..." autocomplete="off">';
-  h += '<button class="chem-btn" onclick="chemAISaveKey()">Save</button>';
-  h += '<button onclick="chemAIForgetKey()" style="background:none;border:1px solid rgba(248,113,113,.35);border-radius:var(--r);color:#f87171;cursor:pointer;font-size:11px;font-family:inherit;padding:.4rem .65rem">Forget</button>';
-  h += '</div>';
-  h += '<div id="ai-key-status" style="font-size:10px;margin-top:.35rem">' + (keySet ? '<span style="color:#4ade80">\u2713 Key saved</span>' : '<span style="color:var(--muted)">No key set</span>') + '</div>';
-  h += '</div>';
-
-    h += '<div style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:var(--rl);padding:1rem;margin-bottom:1rem;font-size:12px;line-height:1.75;color:rgba(240,237,230,.85)">';
-  h += '<strong style="color:' + col + '">AVIDAA-CHEM</strong> is an expert chemical analyst covering: ';
-  h += 'GHS/CLP hazard classification \u2022 SDS interpretation \u2022 nuclear fuel cycle & SWU math \u2022 ';
-  h += 'refinery yield calculations (API gravity, FCC conversion, LHSV) \u2022 reactive mixing safety \u2022 ';
-  h += 'IAEA safeguards \u2022 ADR/IMDG/IATA transport \u2022 REACH/CLP/OSHA compliance. ';
-  h += '<em style="color:var(--muted)">Hard refusal: weapons design, CWC Schedule 1/2 synthesis, clandestine enrichment.</em>';
-  h += '</div>';
-
-  h += '<div id="ai-msgs" style="background:var(--bg2);border-radius:var(--rl);padding:.85rem;min-height:200px;max-height:500px;overflow-y:auto;margin-bottom:.6rem">';
-  h += '<div style="color:var(--muted);font-size:11px;text-align:center;padding:.5rem">Ask AVIDAA-CHEM anything. Examples below.</div>';
-  h += '</div>';
-
-  h += '<div class="input-row">';
-  h += '<input id="ai-input" class="chem-input" placeholder="Ask AVIDAA-CHEM\u2026" onkeydown="if(event.key===\x27Enter\x27)chemAISubmit()">';
-  h += '<button class="chem-btn" onclick="chemAISubmit()" style="white-space:nowrap">&#x1F916; Ask</button>';
-  h += '<button onclick="chemAIClear()" style="background:none;border:1px solid var(--border);border-radius:var(--r);color:var(--muted);cursor:pointer;font-size:11px;padding:.4rem .65rem;font-family:inherit">Clear</button>';
-  h += '</div>';
-
-  h += secHead('Example Queries', col);
-
-  h += '<div style="display:flex;flex-direction:column;gap:5px">';
-  AI_EXAMPLES.forEach(function(ex, i) {
-    h += '<div style="background:var(--bg2);border-radius:var(--r);padding:.5rem .75rem;font-size:11px;color:var(--muted);cursor:pointer;border:1px solid var(--border)" ' +
-         'onclick="useExample(' + i + ')">' +
-         '\u25b8 ' + escHTML(ex) + '</div>';
-  });
-  h += '</div>';
-
-  el.innerHTML = h;
-  setTimeout(function() { document.getElementById('ai-input').focus(); }, 50);
-}
-
-
 // ── ROUTER ───────────────────────────────────────────────────────────────────
 
 function chemTab(key, btn) {
@@ -2298,7 +2133,6 @@ function chemTab(key, btn) {
     equil: renderEquil,
     electrochem: renderElectrochem,
     oilgas: renderOilGas,
-    ai: renderChemAI,
     materials: renderMaterials
   };
   if (fns[key]) fns[key](el);
@@ -2329,7 +2163,7 @@ if(document.readyState==='complete')start();else addEventListener('load',start);
 addEventListener('resize',sched);})();</script><script id="av-shell-20261124">/* AVIDAA shell: shared header (or floating pill) + footer with the "Last updated" stamp. No outside calls, no tracking.
    Template tokens are replaced when a page is built: Chemistry --av-knowledge Knowledge 2026-11-24 06:36 */
 (function(){
-  var NAME='Chemistry',SECTOR='--av-knowledge',STAMP='2026-11-25 14:45',HOME='https://avidaa1.github.io/';
+  var NAME='Chemistry',SECTOR='--av-knowledge',STAMP='2026-11-25 15:20',HOME='https://avidaa1.github.io/';
   var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function build(){
     if(!document.body||document.querySelector('.av-footer'))return;
